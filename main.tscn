@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://up8x05j0vexy"]
+
+[ext_resource type="PackedScene" uid="uid://ct25gmhfciekm" path="res://grid.tscn" id="1_grid"]
+[ext_resource type="PackedScene" uid="uid://ditrytb3g73sj" path="res://player.tscn" id="2_player"]
+
+[sub_resource type="Environment" id="Environment_0xm2m"]
+adjustment_enabled = true
+adjustment_contrast = 1.07
+adjustment_saturation = 1.31
+
+[node name="Main" type="Node3D" unique_id=1809764316]
+
+[node name="Grid" parent="." unique_id=652517435 instance=ExtResource("1_grid")]
+
+[node name="Player" parent="." unique_id=537004856 instance=ExtResource("2_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+grid_path = NodePath("../Grid")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1049699312]
+environment = SubResource("Environment_0xm2m")

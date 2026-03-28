@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://ct25gmhfciekm"]
+
+[ext_resource type="PackedScene" uid="uid://cwxcm7e3cvlhm" path="res://tile.tscn" id="1_ebq2e"]
+[ext_resource type="Script" uid="uid://rjedbf1nqy8y" path="res://grid.gd" id="2_grid"]
+
+[node name="Grid" type="Node3D" unique_id=1197692489]
+script = ExtResource("2_grid")
+
+[node name="Tile" parent="." unique_id=1234435814 instance=ExtResource("1_ebq2e")]
+
+[node name="Tile2" parent="." unique_id=11142077 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="Tile8" parent="." unique_id=1850445850 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="Tile9" parent="." unique_id=1654284594 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
+
+[node name="Tile10" parent="." unique_id=796760962 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
+
+[node name="Tile11" parent="." unique_id=838530095 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Tile12" parent="." unique_id=1028261308 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Tile3" parent="." unique_id=723514269 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+
+[node name="Tile4" parent="." unique_id=1211530210 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="Tile5" parent="." unique_id=2023951955 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="Tile6" parent="." unique_id=923427513 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="Tile7" parent="." unique_id=496110936 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -6)
