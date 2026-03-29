@@ -8,21 +8,24 @@ script = ExtResource("2_tile")
 
 [node name="Floor" parent="." unique_id=780277265 instance=ExtResource("2_vx4y2")]
 transform = Transform3D(-1.5, 6.556708e-08, -6.556708e-08, -6.556708e-08, -6.556708e-08, 1.5, 6.556708e-08, 1.5, 6.556708e-08, 0, 0, 0)
-frame = 3
+frame = 1
 
 [node name="Ceiling" parent="." unique_id=1689369475 instance=ExtResource("2_vx4y2")]
 transform = Transform3D(-1.5, 6.556708e-08, -6.556709e-08, 6.5567086e-08, -6.556707e-08, -1.5, -6.5567086e-08, -1.5, 6.556708e-08, 0, 2, 0)
-frame = 7
+frame = 2
 
 [node name="East" parent="." unique_id=388705204 instance=ExtResource("2_vx4y2")]
 transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, -1, 1, 0)
-frame = 5
+frame = 3
 
 [node name="West" parent="." unique_id=122399070 instance=ExtResource("2_vx4y2")]
 transform = Transform3D(1.9670124e-07, 0, -1.5, 0, 1.5, 0, 1.5, 0, 1.9670124e-07, 1, 1, 0)
+frame = 3
 
 [node name="North" parent="." unique_id=767737625 instance=ExtResource("2_vx4y2")]
 transform = Transform3D(-1.5, 0, -1.3113416e-07, 0, 1.5, 0, 1.3113416e-07, 0, -1.5, 0, 1, 1)
+frame = 3
 
 [node name="South" parent="." unique_id=316850291 instance=ExtResource("2_vx4y2")]
 transform = Transform3D(1.5, 0, 2.6226832e-07, 0, 1.5, 0, -2.6226832e-07, 0, 1.5, 0, 1, -1)
+frame = 3
