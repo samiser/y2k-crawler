@@ -3,9 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://ct25gmhfciekm" path="res://grid.tscn" id="1_grid"]
 [ext_resource type="PackedScene" uid="uid://ditrytb3g73sj" path="res://player.tscn" id="2_player"]
 [ext_resource type="PackedScene" uid="uid://dbbff0gcliyiq" path="res://firewall.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://dkww41taxbbwf" path="res://terminal.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://cnge5mbsv3d30" path="res://terminal.tscn" id="4_1bvp3"]
 
 [sub_resource type="Environment" id="Environment_0xm2m"]
+background_mode = 1
 adjustment_enabled = true
 adjustment_contrast = 1.07
 adjustment_saturation = 1.31
