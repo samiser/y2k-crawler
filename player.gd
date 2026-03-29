@@ -1,6 +1,8 @@
 extends Node3D
 class_name Player
 
+signal moved(new_grid_pos: Vector2i)
+
 @export var grid_path: NodePath
 @export var move_duration := 0.25
 @export var turn_duration := 0.25
@@ -9,7 +11,7 @@ enum Facing { NORTH, EAST, SOUTH, WEST }
 
 var grid: Grid
 var grid_pos := Vector2i.ZERO
-var facing := Facing.NORTH
+@export var facing := Facing.NORTH
 var _is_busy := false
 
 const FACING_TO_DIRECTION := {
@@ -44,8 +46,12 @@ func handle_input() -> void:
 	elif Input.is_action_pressed("back"):
 		try_move(-FACING_TO_DIRECTION[facing])
 	elif Input.is_action_pressed("left"):
-		turn(-1)
+		try_move(FACING_TO_DIRECTION[wrapi(facing - 1, 0, 4)])
 	elif Input.is_action_pressed("right"):
+		try_move(FACING_TO_DIRECTION[wrapi(facing + 1, 0, 4)])
+	elif Input.is_action_pressed("turn_left"):
+		turn(-1)
+	elif Input.is_action_pressed("turn_right"):
 		turn(1)
 
 func try_move(direction: Vector2i) -> void:
@@ -54,16 +60,29 @@ func try_move(direction: Vector2i) -> void:
 
 	var new_grid_pos := grid_pos + direction
 
-	if grid.has_tile_at(new_grid_pos):
-		grid_pos = new_grid_pos
-		var target_position := grid.grid_to_world(grid_pos)
-		target_position.y = position.y
+	if not grid.has_tile_at(new_grid_pos):
+		return
 
-		_is_busy = true
-		var tween := create_tween()
-		tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-		tween.tween_property(self, "position", target_position, move_duration)
-		tween.finished.connect(func(): _is_busy = false)
+	if is_blocked_by_firewall(new_grid_pos):
+		return
+
+	grid_pos = new_grid_pos
+	var target_position := grid.grid_to_world(grid_pos)
+	target_position.y = position.y
+
+	_is_busy = true
+	var tween := create_tween()
+	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(self, "position", target_position, move_duration)
+	tween.finished.connect(func(): _is_busy = false)
+
+	moved.emit(grid_pos)
+
+func is_blocked_by_firewall(check_pos: Vector2i) -> bool:
+	for enemy in get_tree().get_nodes_in_group("firewall_enemies"):
+		if enemy.is_at(check_pos):
+			return true
+	return false
 
 func turn(direction: int) -> void:
 	facing = wrapi(facing + direction, 0, 4) as Facing
