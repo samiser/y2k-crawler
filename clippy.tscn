@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://j1b0yoie8suv"]
+
+[ext_resource type="Script" uid="uid://db3kaktko5323" path="res://clippy.gd" id="1_efmc1"]
+[ext_resource type="Texture2D" uid="uid://bayeglcsmc3ae" path="res://Sprites/ComputerTiles/characters_comp.bmp" id="2_qs21v"]
+
+[node name="Clippy" type="Node3D" unique_id=1408575202]
+script = ExtResource("1_efmc1")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=249415636]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+pixel_size = 0.02085
+billboard = 2
+texture_filter = 0
+texture = ExtResource("2_qs21v")
+hframes = 6
+frame = 2

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dbbff0gcliyiq" path="res://firewall.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cnge5mbsv3d30" path="res://terminal.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://va18ckyu1c5l" path="res://barrier.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://j1b0yoie8suv" path="res://clippy.tscn" id="6_7mycd"]
 
 [sub_resource type="Environment" id="Environment_0xm2m"]
 background_mode = 1
@@ -63,3 +64,6 @@ player_path = NodePath("../Player")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, 0)
 grid_path = NodePath("../Grid")
 player_path = NodePath("../Player")
+
+[node name="Firewall3" parent="." unique_id=495354134 instance=ExtResource("6_7mycd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2740984, 0, -4.227122)

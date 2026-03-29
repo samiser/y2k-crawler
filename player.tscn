@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ditrytb3g73sj"]
 
 [ext_resource type="Script" uid="uid://cdvuo6p67g40r" path="res://player.gd" id="1_player"]
+[ext_resource type="Texture2D" uid="uid://5pk4v8h1gkd1" path="res://Sprites/wat.png" id="2_onrkg"]
 
 [node name="Player" type="Node3D" unique_id=1850440213]
 script = ExtResource("1_player")
@@ -8,3 +9,37 @@ script = ExtResource("1_player")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=946816146]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 fov = 60.0
+
+[node name="HUD" type="Control" parent="." unique_id=1497932361]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="HUD" unique_id=1674274576]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 226.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 10
+text = "Sambee™  SHAREWARE RELEASE (ver 1.0 1999)"
+
+[node name="goofyahhgun" type="TextureRect" parent="HUD" unique_id=398546266]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -121.0
+offset_top = -113.0
+offset_right = 62.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_onrkg")
