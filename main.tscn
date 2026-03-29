@@ -72,9 +72,6 @@ grid_path = NodePath("../Grid")
 player_path = NodePath("../Player")
 player_spawn = Vector2i(-7, 0)
 
-[node name="Firewall3" parent="." unique_id=495354134 instance=ExtResource("6_7mycd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2740984, 0, -4.227122)
-
 [node name="Flag" parent="." unique_id=1376559638 instance=ExtResource("7_272bh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -20)
 
