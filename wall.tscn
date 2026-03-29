@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dcxu8dsxev0n5"]
 
-[ext_resource type="Texture2D" uid="uid://b5j3cms8n6egp" path="res://Sprites/ComputerTiles/walls_comp.jpg" id="1_xxgf6"]
+[ext_resource type="Texture2D" uid="uid://dimnaqs436a66" path="res://Sprites/ComputerTiles/walls_comp.bmp" id="1_xxgf6"]
 
 [node name="Wall" type="Sprite3D" unique_id=780277265]
 transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, 0, 0, 0)
@@ -8,4 +8,5 @@ pixel_size = 0.020834
 texture_filter = 0
 texture = ExtResource("1_xxgf6")
 hframes = 8
+frame = 4
 region_rect = Rect2(0, 0, 64, 64)
