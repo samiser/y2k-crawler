@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://va18ckyu1c5l"]
+
+[ext_resource type="Texture2D" uid="uid://dlj4vud1c36ka" path="res://Sprites/ComputerTiles/objects_comp.bmp" id="1_lfb78"]
+[ext_resource type="Script" path="res://barrier.gd" id="1_script"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_click"]
+size = Vector3(1.8000001, 1.4, 0.2)
+
+[node name="Barrier" type="Node3D" unique_id=713112690]
+script = ExtResource("1_script")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1662708955]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1, 0.75)
+texture_filter = 0
+texture = ExtResource("1_lfb78")
+hframes = 2
+frame = 1
+
+[node name="Area3D" type="Area3D" parent="." unique_id=61643409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.75)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1796966409]
+shape = SubResource("BoxShape3D_click")
+
+[connection signal="input_event" from="Area3D" to="." method="_on_area_input_event"]

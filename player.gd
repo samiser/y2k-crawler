@@ -63,7 +63,7 @@ func try_move(direction: Vector2i) -> void:
 	if not grid.has_tile_at(new_grid_pos):
 		return
 
-	if is_blocked_by_firewall(new_grid_pos):
+	if is_blocked(new_grid_pos):
 		return
 
 	grid_pos = new_grid_pos
@@ -78,9 +78,12 @@ func try_move(direction: Vector2i) -> void:
 
 	moved.emit(grid_pos)
 
-func is_blocked_by_firewall(check_pos: Vector2i) -> bool:
-	for enemy in get_tree().get_nodes_in_group("firewall_enemies"):
-		if enemy.is_at(check_pos):
+func is_blocked(check_pos: Vector2i) -> bool:
+	for node in get_tree().get_nodes_in_group("firewall_enemies"):
+		if node.is_at(check_pos):
+			return true
+	for node in get_tree().get_nodes_in_group("barriers"):
+		if node.is_at(check_pos):
 			return true
 	return false
 
