@@ -6,6 +6,7 @@ class_name Tile
 @onready var south_wall: Sprite3D = $South
 @onready var east_wall: Sprite3D = $East
 @onready var west_wall: Sprite3D = $West
+@onready var ceiling: Sprite3D = $Ceiling
 
 func set_wall_visible(direction: String, visible: bool) -> void:
 	match direction:
@@ -17,3 +18,8 @@ func set_wall_visible(direction: String, visible: bool) -> void:
 			east_wall.visible = visible
 		"west":
 			west_wall.visible = visible
+
+func _ready() -> void:
+	if Engine.is_editor_hint():
+		ceiling.visible = false
+		
