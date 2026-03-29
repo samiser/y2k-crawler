@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cnge5mbsv3d30" path="res://terminal.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://va18ckyu1c5l" path="res://barrier.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://j1b0yoie8suv" path="res://clippy.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://dhox30yf3go" path="res://flag.tscn" id="7_272bh"]
 
 [sub_resource type="Environment" id="Environment_0xm2m"]
 background_mode = 1
@@ -67,3 +68,18 @@ player_path = NodePath("../Player")
 
 [node name="Firewall3" parent="." unique_id=495354134 instance=ExtResource("6_7mycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2740984, 0, -4.227122)
+
+[node name="Flag" parent="." unique_id=1376559638 instance=ExtResource("7_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -20)
+
+[node name="Flag2" parent="." unique_id=1518210798 instance=ExtResource("7_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -20)
+
+[node name="Flag3" parent="." unique_id=1854578967 instance=ExtResource("7_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -22)
+
+[node name="Flag4" parent="." unique_id=1036234238 instance=ExtResource("7_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -26)
+
+[node name="Flag5" parent="." unique_id=277307288 instance=ExtResource("7_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -24)
