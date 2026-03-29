@@ -1155,6 +1155,15 @@ west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
 
+[node name="Tile155" parent="." unique_id=215573189 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
+north_frame = 19
+south_frame = 19
+east_frame = 19
+west_frame = 19
+floor_frame = 17
+ceiling_frame = 20
+
 [node name="Tile36" parent="." unique_id=924411202 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -8)
 north_frame = 10

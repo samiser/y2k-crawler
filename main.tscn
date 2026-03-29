@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://va18ckyu1c5l" path="res://barrier.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://j1b0yoie8suv" path="res://clippy.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://dhox30yf3go" path="res://flag.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://dy4tcgrvmxa1v" path="res://bomb.tscn" id="8_5vw27"]
 
 [sub_resource type="Environment" id="Environment_0xm2m"]
 background_mode = 1
@@ -62,7 +63,12 @@ grid_path = NodePath("../Grid")
 player_path = NodePath("../Player")
 
 [node name="Barrier" parent="." unique_id=713112690 instance=ExtResource("5_lquwl")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -4)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+
+[node name="Barrier2" parent="." unique_id=432105569 instance=ExtResource("5_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
 grid_path = NodePath("../Grid")
 player_path = NodePath("../Player")
 
@@ -86,3 +92,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -26)
 
 [node name="Flag5" parent="." unique_id=277307288 instance=ExtResource("7_272bh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -24)
+
+[node name="Bomb" parent="." unique_id=938119711 instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -22)
+
+[node name="Bomb9" parent="." unique_id=1754295803 instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -24)
+
+[node name="Bomb2" parent="." unique_id=1046073737 instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -20)
+
+[node name="Bomb3" parent="." unique_id=1434984798 instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -22)
+
+[node name="Bomb4" parent="." unique_id=399075195 instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -24)
+
+[node name="Bomb5" parent="." unique_id=2041963634 instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -28)
+
+[node name="Bomb6" parent="." unique_id=613539803 instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -28)
+
+[node name="Bomb7" parent="." unique_id=1566386390 instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -28)
+
+[node name="Bomb8" parent="." unique_id=930897943 instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -26)

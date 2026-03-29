@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dy4tcgrvmxa1v"]
+
+[ext_resource type="Texture2D" uid="uid://bayeglcsmc3ae" path="res://Sprites/ComputerTiles/characters_comp.bmp" id="1_573fp"]
+
+[node name="Bomb" type="Node3D" unique_id=938119711]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1213064311]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1, 0)
+pixel_size = 0.02085
+billboard = 2
+texture_filter = 0
+texture = ExtResource("1_573fp")
+hframes = 6
+frame = 5
