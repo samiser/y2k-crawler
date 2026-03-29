@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ct25gmhfciekm" path="res://grid.tscn" id="1_grid"]
 [ext_resource type="PackedScene" uid="uid://ditrytb3g73sj" path="res://player.tscn" id="2_player"]
+[ext_resource type="PackedScene" uid="uid://dbbff0gcliyiq" path="res://firewall.tscn" id="3_h2yge"]
 
 [sub_resource type="Environment" id="Environment_0xm2m"]
 adjustment_enabled = true
@@ -13,8 +14,17 @@ adjustment_saturation = 1.31
 [node name="Grid" parent="." unique_id=652517435 instance=ExtResource("1_grid")]
 
 [node name="Player" parent="." unique_id=537004856 instance=ExtResource("2_player")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 grid_path = NodePath("../Grid")
+facing = 3
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1049699312]
 environment = SubResource("Environment_0xm2m")
+
+[node name="Firewall" parent="." unique_id=1408575202 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.975, 0, -2)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+move_duration = 0.19
+min_bound = 0
+max_bound = 1
