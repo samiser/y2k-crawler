@@ -35,23 +35,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 [node name="Tile5" parent="." unique_id=2023951955 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
 
+[node name="Tile15" parent="." unique_id=931134218 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
+
 [node name="Tile6" parent="." unique_id=923427513 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
 
-[node name="Tile7" parent="." unique_id=496110936 instance=ExtResource("1_ebq2e")]
+[node name="Tile13" parent="." unique_id=2101077766 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -6)
 
-[node name="Tile13" parent="." unique_id=2101077766 instance=ExtResource("1_ebq2e")]
+[node name="Tile19" parent="." unique_id=1418138818 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -6)
 
-[node name="Tile14" parent="." unique_id=1037631968 instance=ExtResource("1_ebq2e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)
+[node name="Tile21" parent="." unique_id=1494208258 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -6)
 
-[node name="Tile15" parent="." unique_id=1803478575 instance=ExtResource("1_ebq2e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -2)
+[node name="Tile22" parent="." unique_id=1173262111 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -6)
+
+[node name="Tile23" parent="." unique_id=945608426 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -4)
+
+[node name="Tile20" parent="." unique_id=1764347077 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -8)
+
+[node name="Tile14" parent="." unique_id=1037631968 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -8)
 
 [node name="Tile16" parent="." unique_id=1206929019 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="Tile18" parent="." unique_id=512198609 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2)
 
 [node name="Tile17" parent="." unique_id=2085339688 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
