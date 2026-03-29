@@ -11,11 +11,14 @@ config_version=5
 [application]
 
 config/name="y2k-crawler"
+run/main_scene="uid://up8x05j0vexy"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_width=288
+window/size/viewport_height=162
 window/stretch/mode="viewport"
 
 [input]
