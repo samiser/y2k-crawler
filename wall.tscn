@@ -7,6 +7,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 pixel_size = 0.02085
 texture_filter = 0
 texture = ExtResource("1_xxgf6")
-hframes = 15
+hframes = 17
 frame = 4
 region_rect = Rect2(0, 0, 64, 64)
