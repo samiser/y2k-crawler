@@ -2,8 +2,8 @@ extends Node3D
 class_name Player
 
 @export var grid_path: NodePath
-@export var move_duration := 0.5
-@export var turn_duration := 0.5
+@export var move_duration := 0.25
+@export var turn_duration := 0.25
 
 enum Facing { NORTH, EAST, SOUTH, WEST }
 

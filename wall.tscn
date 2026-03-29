@@ -4,8 +4,8 @@
 
 [node name="Wall" type="Sprite3D" unique_id=780277265]
 transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, 0, 0, 0)
-pixel_size = 0.020833
+pixel_size = 0.020834
 texture_filter = 0
 texture = ExtResource("1_xxgf6")
-hframes = 4
+hframes = 8
 region_rect = Rect2(0, 0, 64, 64)
