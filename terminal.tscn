@@ -1,17 +1,18 @@
 [gd_scene format=3 uid="uid://dkww41taxbbwf"]
 
-[ext_resource type="Script" path="res://terminal.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://bv8j0f1pyn081" path="res://icon.svg" id="1_sxuvd"]
+[ext_resource type="Script" uid="uid://xt445iwfly8l" path="res://terminal.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://dlj4vud1c36ka" path="res://Sprites/ComputerTiles/objects_comp.bmp" id="2_7d6gb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_click"]
-size = Vector3(0.6, 0.6, 0.1)
+size = Vector3(1, 1, 0.1)
 
 [node name="Terminal" type="Node3D" unique_id=465558493]
 script = ExtResource("1_script")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1248585889]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1, -0.9)
-texture = ExtResource("1_sxuvd")
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1, -0.9)
+texture_filter = 0
+texture = ExtResource("2_7d6gb")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1210721378]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.9)
