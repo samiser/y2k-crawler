@@ -13,6 +13,7 @@ var grid: Grid
 var grid_pos := Vector2i.ZERO
 @export var facing := Facing.NORTH
 var _is_busy := false
+var _current_tween: Tween
 
 const FACING_TO_DIRECTION := {
 	Facing.NORTH: Vector2i(0, 1),
@@ -71,10 +72,10 @@ func try_move(direction: Vector2i) -> void:
 	target_position.y = position.y
 
 	_is_busy = true
-	var tween := create_tween()
-	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(self, "position", target_position, move_duration)
-	tween.finished.connect(func(): _is_busy = false)
+	_current_tween = create_tween()
+	_current_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	_current_tween.tween_property(self, "position", target_position, move_duration)
+	_current_tween.finished.connect(func(): _is_busy = false)
 
 	moved.emit(grid_pos)
 
@@ -92,10 +93,20 @@ func turn(direction: int) -> void:
 	var target_angle: float = FACING_TO_ANGLE[facing]
 
 	_is_busy = true
-	var tween := create_tween()
-	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_method(_set_rotation_y, rotation.y, _shortest_angle(rotation.y, target_angle), turn_duration)
-	tween.finished.connect(func(): _is_busy = false)
+	_current_tween = create_tween()
+	_current_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	_current_tween.tween_method(_set_rotation_y, rotation.y, _shortest_angle(rotation.y, target_angle), turn_duration)
+	_current_tween.finished.connect(func(): _is_busy = false)
+
+func teleport_to(new_grid_pos: Vector2i, direction: Facing) -> void:
+	if _current_tween and _current_tween.is_running():
+		_current_tween.kill()
+	rotation.y = FACING_TO_ANGLE[direction]
+	facing = direction
+	_is_busy = false
+	grid_pos = new_grid_pos
+	position = grid.grid_to_world(grid_pos)
+	position.y = 0
 
 func _set_rotation_y(value: float) -> void:
 	rotation.y = value

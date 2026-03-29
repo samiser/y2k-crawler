@@ -65,5 +65,8 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 
 grid_path = NodePath("../Grid")
 player_path = NodePath("../Player")
 
-[node name="Firewall3" parent="." unique_id=495354134 instance=ExtResource("6_7mycd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2740984, 0, -4.227122)
+[node name="Clippy" parent="." unique_id=495354134 instance=ExtResource("6_7mycd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.274097, 0, 17.772879)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+player_spawn = Vector2i(-7, 0)

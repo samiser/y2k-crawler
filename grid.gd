@@ -6,6 +6,7 @@ const TILE_SIZE := 2.0
 
 var tiles: Dictionary = {}
 var _last_positions: Dictionary = {}
+var astar: AStarGrid2D
 
 func _ready() -> void:
 	refresh()
@@ -62,3 +63,49 @@ func has_tile_at(grid_pos: Vector2i) -> bool:
 func refresh() -> void:
 	collect_tiles()
 	update_all_walls()
+	_rebuild_astar()
+
+func _rebuild_astar() -> void:
+	if tiles.is_empty():
+		return
+
+	var min_pos := Vector2i(999999, 999999)
+	var max_pos := Vector2i(-999999, -999999)
+	for pos in tiles:
+		min_pos.x = mini(min_pos.x, pos.x)
+		min_pos.y = mini(min_pos.y, pos.y)
+		max_pos.x = maxi(max_pos.x, pos.x)
+		max_pos.y = maxi(max_pos.y, pos.y)
+
+	astar = AStarGrid2D.new()
+	astar.region = Rect2i(min_pos, max_pos - min_pos + Vector2i.ONE)
+	astar.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
+	astar.default_compute_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
+	astar.update()
+
+	for x in range(min_pos.x, max_pos.x + 1):
+		for y in range(min_pos.y, max_pos.y + 1):
+			var pos := Vector2i(x, y)
+			if not has_tile_at(pos):
+				astar.set_point_solid(pos, true)
+
+func get_grid_path(from: Vector2i, to: Vector2i) -> Array[Vector2i]:
+	if not astar or not has_tile_at(from) or not has_tile_at(to):
+		return []
+	return astar.get_id_path(from, to)
+
+func has_line_of_sight(from: Vector2i, to: Vector2i) -> bool:
+	var diff := to - from
+	var steps := maxi(absi(diff.x), absi(diff.y))
+	if steps == 0:
+		return true
+
+	for i in range(1, steps + 1):
+		var t := float(i) / float(steps)
+		var check_pos := Vector2i(
+			roundi(from.x + diff.x * t),
+			roundi(from.y + diff.y * t)
+		)
+		if not has_tile_at(check_pos):
+			return false
+	return true
