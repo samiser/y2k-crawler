@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ditrytb3g73sj" path="res://player.tscn" id="2_player"]
 [ext_resource type="PackedScene" uid="uid://dbbff0gcliyiq" path="res://firewall.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cnge5mbsv3d30" path="res://terminal.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://va18ckyu1c5l" path="res://barrier.tscn" id="5_lquwl"]
 
 [sub_resource type="Environment" id="Environment_0xm2m"]
 background_mode = 1
@@ -55,5 +56,10 @@ player_path = NodePath("../Player")
 
 [node name="Terminal2" parent="." unique_id=1068697516 instance=ExtResource("4_1bvp3")]
 transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -2, 0, -8)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+
+[node name="Barrier" parent="." unique_id=713112690 instance=ExtResource("5_lquwl")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, 0)
 grid_path = NodePath("../Grid")
 player_path = NodePath("../Player")
