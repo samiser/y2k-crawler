@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dhox30yf3go"]
+
+[ext_resource type="Texture2D" uid="uid://dlj4vud1c36ka" path="res://Sprites/ComputerTiles/objects_comp.bmp" id="2_ukulb"]
+
+[node name="Flag" type="Node3D" unique_id=465558493]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1248585889]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1, 0)
+pixel_size = 0.02085
+billboard = 2
+texture_filter = 0
+texture = ExtResource("2_ukulb")
+hframes = 3
+frame = 2

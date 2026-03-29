@@ -28,7 +28,7 @@ func _on_area_input_event(_camera: Node, event: InputEvent, _position: Vector3, 
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if _is_player_adjacent():
 			interacted.emit()
-			queue_free()
+			_door_open()
 
 func _is_player_adjacent() -> bool:
 	var diff := player.grid_pos - grid_pos
@@ -36,3 +36,10 @@ func _is_player_adjacent() -> bool:
 
 func is_at(check_pos: Vector2i) -> bool:
 	return grid_pos == check_pos
+
+func _door_open() -> void:
+	var tween := get_tree().create_tween()
+	tween.tween_property(self, "global_position:y", global_position.y + 2.0, 1.0)
+	await tween.finished
+	
+	queue_free()
