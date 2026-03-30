@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://1akmqij867mu" path="res://entities/player/player.gd" id="1_player"]
 [ext_resource type="Texture2D" uid="uid://4vf8i4gvx5p7" path="res://sprites/computer_tiles/fp_items_comp.bmp" id="2_abrql"]
+[ext_resource type="PackedScene" uid="uid://cx8ftsioisf2d" path="res://entities/player/hotbar.tscn" id="3_bls4j"]
 [ext_resource type="PackedScene" uid="uid://xw7oxh0nwkum" path="res://entities/interactables/terminal_ui.tscn" id="3_sglur"]
 
 [node name="Player" type="Node3D" unique_id=1850440213]
@@ -62,6 +63,9 @@ position = Vector2(-128, -128)
 scale = Vector2(2, 2)
 texture = ExtResource("2_abrql")
 hframes = 4
+
+[node name="Hotbar" parent="HUD" unique_id=1306635365 instance=ExtResource("3_bls4j")]
+layout_mode = 1
 
 [node name="TerminalUI" parent="." unique_id=361108045 instance=ExtResource("3_sglur")]
 visible = false

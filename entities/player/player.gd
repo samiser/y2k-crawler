@@ -14,10 +14,14 @@ var grid_pos := Vector2i.ZERO
 @export var facing := Facing.NORTH
 var _is_busy := false
 var _current_tween: Tween
-var coins := 0
+var coins := 100
+var unlocked_items: Array = []
+var selected_item: int = -1
 
 @onready var coin_label: Label = $HUD/CoinLabel
 @onready var terminal_ui: Window = $TerminalUI
+@onready var fp_sprite: Sprite2D = $HUD/Control/FpSprite
+@onready var hotbar: Control = $HUD/Hotbar
 
 const FACING_TO_DIRECTION := {
 	Facing.NORTH: Vector2i(0, 1),
@@ -42,6 +46,8 @@ func _ready() -> void:
 	rotation.y = FACING_TO_ANGLE[facing]
 	if terminal_ui:
 		terminal_ui.closed.connect(_on_terminal_closed)
+	if hotbar:
+		hotbar.item_selected.connect(_on_item_selected)
 
 func _process(_delta: float) -> void:
 	if not _is_busy:
@@ -142,3 +148,15 @@ func open_terminal_ui() -> void:
 
 func _on_terminal_closed() -> void:
 	_is_busy = false
+
+func _on_item_selected(item: int) -> void:
+	selected_item = item
+	if fp_sprite:
+		fp_sprite.visible = true
+		fp_sprite.frame = item
+
+func unlock_item(item: int) -> void:
+	if item not in unlocked_items:
+		unlocked_items.append(item)
+		if hotbar:
+			hotbar.set_unlocked(unlocked_items)

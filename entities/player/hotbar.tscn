@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://cx8ftsioisf2d"]
+
+[ext_resource type="Script" uid="uid://dvij4g3fdycty" path="res://entities/player/hotbar.gd" id="1_g81lv"]
+[ext_resource type="Texture2D" uid="uid://bqw2f2uuawpep" path="res://sprites/computer_tiles/world_items_tilemap.bmp" id="1_qsqat"]
+
+[node name="Hotbar" type="Control" unique_id=1306635365]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_g81lv")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1017608599]
+custom_minimum_size = Vector2(103.645, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="WaterGun" type="Control" parent="HBoxContainer" unique_id=920547945]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="HBoxContainer/WaterGun" unique_id=5172433]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WaterGunSprite" type="Sprite2D" parent="HBoxContainer/WaterGun/Control" unique_id=50015674]
+position = Vector2(-4, 0)
+texture = ExtResource("1_qsqat")
+hframes = 3
+
+[node name="MetalDetector" type="Control" parent="HBoxContainer" unique_id=1647799105]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="HBoxContainer/MetalDetector" unique_id=1670551257]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MetalDetectorSprite" type="Sprite2D" parent="HBoxContainer/MetalDetector/Control" unique_id=1831102620]
+position = Vector2(-4, 0)
+texture = ExtResource("1_qsqat")
+hframes = 3
+frame = 1
+
+[node name="Magnet" type="Control" parent="HBoxContainer" unique_id=1021781419]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="HBoxContainer/Magnet" unique_id=2056708619]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Magnet/Control" unique_id=1472827515]
+position = Vector2(-4, 0)
+texture = ExtResource("1_qsqat")
+hframes = 3
+frame = 2
