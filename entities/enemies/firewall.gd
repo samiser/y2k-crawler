@@ -66,12 +66,16 @@ func move_to(new_grid_pos: Vector2i) -> void:
 	grid_pos = new_grid_pos
 	var target_position := grid.grid_to_world(grid_pos)
 	target_position.y = position.y
+	
+	audio_stream_player_3d.stream = load("res://Audio/Characters/firewall_slide.mp3")
+	audio_stream_player_3d.play()
 
 	_is_busy = true
 	var tween := create_tween()
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "position", target_position, move_duration)
 	tween.finished.connect(func(): _is_busy = false)
+	
 
 func is_at(check_pos: Vector2i) -> bool:
 	return grid_pos == check_pos

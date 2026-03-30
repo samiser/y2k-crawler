@@ -13,6 +13,7 @@ var grid: Grid
 var grid_pos := Vector2i.ZERO
 @export var facing := Facing.NORTH
 var _is_busy := false
+var _teleporting := false
 var _current_tween: Tween
 var coins := 0
 var unlocked_items: Array = []
@@ -25,6 +26,8 @@ var selected_item: int = -1
 @onready var fp_sprite: Sprite2D = $HUD/WeaponControl/FpSprite
 @onready var hotbar: Control = $HUD/Hotbar
 @onready var radar_control: Control = $HUD/RadarControl
+@onready var fade_rect: ColorRect = $HUD/FadeRect
+@onready var camera_3d: Camera3D = $Camera3D
 
 const FACING_TO_DIRECTION := {
 	Facing.NORTH: Vector2i(0, 1),
@@ -58,7 +61,7 @@ func _ready() -> void:
 		hotbar.item_selected.connect(_on_item_selected)
 
 func _process(_delta: float) -> void:
-	if not _is_busy:
+	if not _is_busy and not _teleporting:
 		handle_input()
 		fp_sprite.position.y += sin(Time.get_ticks_msec() * 0.1 * _delta) * 0.2 # weapon bob
 
@@ -142,14 +145,36 @@ func turn(direction: int) -> void:
 	_current_tween.finished.connect(func(): _is_busy = false)
 
 func teleport_to(new_grid_pos: Vector2i, direction: Facing) -> void:
+	player_sfx_stream.stream = load("res://Audio/teleport.mp3")
+	player_sfx_stream.play()
+	
+	_is_busy = true
+	_teleporting = true
+	
+	var tween := get_tree().create_tween()
+	tween.tween_property(fade_rect, "modulate", Color.WHITE, 1.0)
+	tween.parallel().tween_property(camera_3d, "fov", 10, 1.0)
+	await tween.finished
+	
 	if _current_tween and _current_tween.is_running():
 		_current_tween.kill()
+	
 	rotation.y = FACING_TO_ANGLE[direction]
 	facing = direction
-	_is_busy = false
 	grid_pos = new_grid_pos
 	position = grid.grid_to_world(grid_pos)
 	position.y = 0
+	
+	var timer := get_tree().create_timer(1.0)
+	await timer.timeout
+	
+	tween = get_tree().create_tween() # fade out
+	tween.tween_property(fade_rect, "modulate", Color.TRANSPARENT, 1.0)
+	tween.parallel().tween_property(camera_3d, "fov", 60, 1.0)
+	await tween.finished
+	
+	_is_busy = false
+	_teleporting = false
 
 func _set_rotation_y(value: float) -> void:
 	rotation.y = value

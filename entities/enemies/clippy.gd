@@ -84,6 +84,9 @@ func _catch_player() -> void:
 	_teleport_player_to_spawn()
 
 func _reset_to_spawn() -> void:
+	var timer := get_tree().create_timer(2.0)
+	await timer.timeout # allows time for player transition
+	
 	grid_pos = spawn_pos
 	position = grid.grid_to_world(grid_pos)
 	position.y = 0
