@@ -40,15 +40,8 @@ func _process(_delta: float) -> void:
 		_frame = 3 if _frame == 2 else 2
 	sprite.frame = _frame
 
-func _on_player_moved(player_new_pos: Vector2i) -> void:
-	if not grid or not player:
-		return
-
-	if player_new_pos == grid_pos:
-		_catch_player()
-		return
-
-	if _is_moving:
+func _on_player_moved(_player_new_pos: Vector2i) -> void:
+	if not grid or not player or _is_moving:
 		return
 
 	if not _has_seen_player:
@@ -63,10 +56,7 @@ func _update_path_and_move() -> void:
 
 	if _current_path.size() > 1:
 		var next_pos: Vector2i = _current_path[1]
-		if next_pos == player.grid_pos:
-			_catch_player()
-		else:
-			_move_to(next_pos)
+		_move_to(next_pos)
 
 func _move_to(new_grid_pos: Vector2i) -> void:
 	grid_pos = new_grid_pos
@@ -77,7 +67,16 @@ func _move_to(new_grid_pos: Vector2i) -> void:
 	var tween := create_tween()
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "position", target_position, move_duration)
-	tween.finished.connect(func(): _is_moving = false)
+	tween.finished.connect(_on_move_finished)
+
+func _on_move_finished() -> void:
+	_is_moving = false
+	if _is_adjacent_to_player():
+		_catch_player()
+
+func _is_adjacent_to_player() -> bool:
+	var diff := player.grid_pos - grid_pos
+	return absi(diff.x) + absi(diff.y) == 1
 
 func _catch_player() -> void:
 	caught_player.emit()
