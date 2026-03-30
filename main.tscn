@@ -49,8 +49,8 @@ max_bound = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 10)
 grid_path = NodePath("../Grid")
 player_path = NodePath("../Player")
-min_bound = 3
-max_bound = 4
+min_bound = -4
+max_bound = -3
 
 [node name="Firewall2" parent="." unique_id=980318932 instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -6)

@@ -10,9 +10,6 @@ class_name FirewallEnemy
 enum PatrolAxis { X, Z }
 @export var patrol_axis := PatrolAxis.X
 
-@export var min_bound := -10
-@export var max_bound := 10
-
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 var grid: Grid
@@ -51,16 +48,27 @@ func _on_player_moved(_player_new_pos: Vector2i) -> void:
 	if _disabled or _is_busy or not player or not grid:
 		return
 
-	var target_grid_pos := grid_pos
-
+	var player_coord: int
+	var my_coord: int
 	if patrol_axis == PatrolAxis.X:
-		target_grid_pos.x = clampi(player.grid_pos.x, min_bound, max_bound)
+		player_coord = player.grid_pos.x
+		my_coord = grid_pos.x
 	else:
-		target_grid_pos.y = clampi(player.grid_pos.y, min_bound, max_bound)
+		player_coord = player.grid_pos.y
+		my_coord = grid_pos.y
 
-	if target_grid_pos != grid_pos and grid.has_tile_at(target_grid_pos):
-		if target_grid_pos != player.grid_pos:
-			move_to(target_grid_pos)
+	if player_coord == my_coord:
+		return
+
+	var step := 1 if player_coord > my_coord else -1
+	var target_grid_pos := grid_pos
+	if patrol_axis == PatrolAxis.X:
+		target_grid_pos.x += step
+	else:
+		target_grid_pos.y += step
+
+	if grid.has_tile_at(target_grid_pos) and target_grid_pos != player.grid_pos:
+		move_to(target_grid_pos)
 
 func move_to(new_grid_pos: Vector2i) -> void:
 	grid_pos = new_grid_pos
