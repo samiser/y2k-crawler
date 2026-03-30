@@ -28,6 +28,10 @@ var selected_item: int = -1
 @onready var radar_control: Control = $HUD/RadarControl
 @onready var fade_rect: ColorRect = $HUD/FadeRect
 @onready var camera_3d: Camera3D = $Camera3D
+@onready var player_sprite: Sprite2D = $HUD/PlayerControl/PlayerSprite
+var face_frame : int = 0
+var face_reversing : bool = false
+var override_face : bool = false
 
 const FACING_TO_DIRECTION := {
 	Facing.NORTH: Vector2i(0, 1),
@@ -61,9 +65,32 @@ func _ready() -> void:
 		hotbar.item_selected.connect(_on_item_selected)
 
 func _process(_delta: float) -> void:
+	fp_sprite.position.y += sin(Time.get_ticks_msec() * 0.1 * _delta) * 0.2 # weapon bob
+	
+	_face_animation()
+	
 	if not _is_busy and not _teleporting:
 		handle_input()
-		fp_sprite.position.y += sin(Time.get_ticks_msec() * 0.1 * _delta) * 0.2 # weapon bob
+
+func _face_animation() -> void:
+	if override_face:
+		return
+	
+	if(Engine.get_frames_drawn() % 18 == 0):
+		if face_frame == 0:
+				face_reversing = false
+		elif face_frame >= 2:
+			face_reversing = true
+		
+		var dir := 1
+		if face_reversing:
+			dir = -1
+		face_frame += dir
+		
+		if randi_range(0, 10) == 1: # look left/right
+			face_frame = randi_range(3, 4)
+	
+	player_sprite.frame = face_frame
 
 func _unhandled_input(event: InputEvent) -> void:
 	if _is_busy:
@@ -150,6 +177,9 @@ func teleport_to(new_grid_pos: Vector2i, direction: Facing) -> void:
 	
 	_is_busy = true
 	_teleporting = true
+	override_face = true
+	
+	player_sprite.frame = 5
 	
 	var tween := get_tree().create_tween()
 	tween.tween_property(fade_rect, "modulate", Color.WHITE, 1.0)
@@ -173,8 +203,11 @@ func teleport_to(new_grid_pos: Vector2i, direction: Facing) -> void:
 	tween.parallel().tween_property(camera_3d, "fov", 60, 1.0)
 	await tween.finished
 	
+	player_sprite.frame = 0
+	
 	_is_busy = false
 	_teleporting = false
+	override_face = false
 
 func _set_rotation_y(value: float) -> void:
 	rotation.y = value
@@ -217,6 +250,13 @@ func unlock_item(item: int) -> void:
 		unlocked_items.append(item)
 		if hotbar:
 			hotbar.set_unlocked(unlocked_items)
+		
+		override_face = true
+		player_sprite.frame = 6
+		var timer := get_tree().create_timer(4.0)
+		await timer.timeout
+		player_sprite.frame = 0
+		override_face = false
 
 func try_use() -> void:
 	if _try_interact_terminal():

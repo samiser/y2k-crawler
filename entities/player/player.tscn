@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cx8ftsioisf2d" path="res://entities/player/hotbar.tscn" id="3_bls4j"]
 [ext_resource type="Texture2D" uid="uid://bcqk21okdu04r" path="res://Sprites/computer_tiles/radar_comp.bmp" id="3_fkugw"]
 [ext_resource type="PackedScene" uid="uid://xw7oxh0nwkum" path="res://entities/interactables/terminal_ui.tscn" id="3_sglur"]
+[ext_resource type="Texture2D" uid="uid://cp1twbyeq1uh6" path="res://Sprites/player_tilemap.bmp" id="4_8fjmc"]
 
 [node name="Player" type="Node3D" unique_id=1850440213]
 script = ExtResource("1_player")
@@ -56,7 +57,12 @@ hframes = 6
 
 [node name="RadarControl" type="Control" parent="HUD" unique_id=499313790]
 layout_mode = 1
-anchors_preset = 0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+offset_bottom = -128.0
+grow_vertical = 0
 pivot_offset = Vector2(0, 64)
 
 [node name="RadarSprite" type="Sprite2D" parent="HUD/RadarControl" unique_id=901316574]
@@ -64,18 +70,25 @@ position = Vector2(64, 64)
 texture = ExtResource("3_fkugw")
 hframes = 2
 
+[node name="PlayerControl" type="Control" parent="HUD" unique_id=564056932]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 32.0
+offset_right = 32.0
+pivot_offset = Vector2(0, 64)
+mouse_filter = 2
+
+[node name="PlayerSprite" type="Sprite2D" parent="HUD/PlayerControl" unique_id=475688352]
+position = Vector2(0, 32)
+texture = ExtResource("4_8fjmc")
+hframes = 7
+
 [node name="Hotbar" parent="HUD" unique_id=1306635365 instance=ExtResource("3_bls4j")]
 layout_mode = 1
-
-[node name="DebugLabel" type="Label" parent="HUD" unique_id=1674274576]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 3.0
-offset_right = 226.0
-offset_bottom = 26.0
-theme_override_font_sizes/font_size = 10
-text = "Sambee™  SHAREWARE RELEASE (ver 1.0 1999)"
-vertical_alignment = 1
+anchors_preset = 5
+anchor_top = 0.0
+anchor_bottom = 0.0
+grow_vertical = 1
 
 [node name="FadeRect" type="ColorRect" parent="HUD" unique_id=955137656]
 modulate = Color(1, 1, 1, 0)

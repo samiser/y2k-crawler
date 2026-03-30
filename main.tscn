@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dy4tcgrvmxa1v" path="res://entities/interactables/bomb.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://c8h1sodkn5sg7" path="res://entities/interactables/coin.tscn" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://b67vidagif7b6" path="res://entities/interactables/msn.tscn" id="10_4c57u"]
+[ext_resource type="AudioStream" uid="uid://bcmm7qlllkfeu" path="res://Audio/test_music.mp3" id="11_efxa6"]
 
 [sub_resource type="Environment" id="Environment_0xm2m"]
 background_mode = 1
@@ -184,3 +185,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
 grid_path = NodePath("../Grid")
 player_path = NodePath("../Player")
 dialogue = Array[String](["Hi!", "Here's some helpful text", "Good luck!"])
+
+[node name="MusicStream" type="AudioStreamPlayer2D" parent="." unique_id=1137068048]
+stream = ExtResource("11_efxa6")
+autoplay = true
