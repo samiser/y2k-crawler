@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cwxcm7e3cvlhm"]
 
-[ext_resource type="Script" uid="uid://bwr5d4we27njj" path="res://tile.gd" id="2_tile"]
-[ext_resource type="PackedScene" uid="uid://dcxu8dsxev0n5" path="res://wall.tscn" id="2_vx4y2"]
+[ext_resource type="Script" uid="uid://bwr5d4we27njj" path="res://world/tile.gd" id="2_tile"]
+[ext_resource type="PackedScene" uid="uid://dcxu8dsxev0n5" path="res://world/wall.tscn" id="2_vx4y2"]
 
 [node name="Tile" type="Node3D" unique_id=1234435814]
 script = ExtResource("2_tile")

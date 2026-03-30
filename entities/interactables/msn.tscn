@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b67vidagif7b6"]
 
-[ext_resource type="Texture2D" uid="uid://bayeglcsmc3ae" path="res://Sprites/ComputerTiles/characters_comp.bmp" id="2_hjk73"]
+[ext_resource type="Texture2D" uid="uid://bayeglcsmc3ae" path="res://sprites/computer_tiles/characters_comp.bmp" id="2_hjk73"]
 
 [node name="MSN" type="Node3D" unique_id=1408575202]
 

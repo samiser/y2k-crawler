@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://up8x05j0vexy"]
 
-[ext_resource type="PackedScene" uid="uid://ct25gmhfciekm" path="res://grid.tscn" id="1_grid"]
-[ext_resource type="PackedScene" uid="uid://ditrytb3g73sj" path="res://player.tscn" id="2_player"]
-[ext_resource type="PackedScene" uid="uid://dbbff0gcliyiq" path="res://firewall.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://cnge5mbsv3d30" path="res://terminal.tscn" id="4_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://va18ckyu1c5l" path="res://barrier.tscn" id="5_lquwl"]
-[ext_resource type="PackedScene" uid="uid://j1b0yoie8suv" path="res://clippy.tscn" id="6_7mycd"]
-[ext_resource type="PackedScene" uid="uid://dhox30yf3go" path="res://flag.tscn" id="7_272bh"]
-[ext_resource type="PackedScene" uid="uid://dy4tcgrvmxa1v" path="res://bomb.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://ct25gmhfciekm" path="res://world/grid.tscn" id="1_grid"]
+[ext_resource type="PackedScene" uid="uid://ditrytb3g73sj" path="res://entities/player/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" uid="uid://dbbff0gcliyiq" path="res://entities/enemies/firewall.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cnge5mbsv3d30" path="res://entities/interactables/terminal.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://va18ckyu1c5l" path="res://entities/interactables/barrier.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://j1b0yoie8suv" path="res://entities/enemies/clippy.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://dhox30yf3go" path="res://entities/interactables/flag.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://dy4tcgrvmxa1v" path="res://entities/interactables/bomb.tscn" id="8_5vw27"]
 
 [sub_resource type="Environment" id="Environment_0xm2m"]
 background_mode = 1

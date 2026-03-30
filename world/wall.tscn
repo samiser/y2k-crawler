@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dcxu8dsxev0n5"]
 
-[ext_resource type="Texture2D" uid="uid://dimnaqs436a66" path="res://Sprites/ComputerTiles/walls_comp.bmp" id="1_xxgf6"]
+[ext_resource type="Texture2D" uid="uid://dimnaqs436a66" path="res://sprites/computer_tiles/walls_comp.bmp" id="1_xxgf6"]
 
 [node name="Wall" type="Sprite3D" unique_id=780277265]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)

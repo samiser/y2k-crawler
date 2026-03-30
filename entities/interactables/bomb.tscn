@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dy4tcgrvmxa1v"]
 
-[ext_resource type="Texture2D" uid="uid://bayeglcsmc3ae" path="res://Sprites/ComputerTiles/characters_comp.bmp" id="1_573fp"]
+[ext_resource type="Texture2D" uid="uid://bayeglcsmc3ae" path="res://sprites/computer_tiles/characters_comp.bmp" id="1_573fp"]
 
 [node name="Bomb" type="Node3D" unique_id=938119711]
 

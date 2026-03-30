@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://j1b0yoie8suv"]
 
-[ext_resource type="Script" uid="uid://db3kaktko5323" path="res://clippy.gd" id="1_efmc1"]
-[ext_resource type="Texture2D" uid="uid://bayeglcsmc3ae" path="res://Sprites/ComputerTiles/characters_comp.bmp" id="2_qs21v"]
+[ext_resource type="Script" uid="uid://cmekgcrb7mfq8" path="res://entities/enemies/clippy.gd" id="1_efmc1"]
+[ext_resource type="Texture2D" uid="uid://bayeglcsmc3ae" path="res://sprites/computer_tiles/characters_comp.bmp" id="2_qs21v"]
 
 [node name="Clippy" type="Node3D" unique_id=1408575202]
 script = ExtResource("1_efmc1")

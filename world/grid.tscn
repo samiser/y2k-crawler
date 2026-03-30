@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ct25gmhfciekm"]
 
-[ext_resource type="PackedScene" uid="uid://cwxcm7e3cvlhm" path="res://tile.tscn" id="1_ebq2e"]
-[ext_resource type="Script" uid="uid://rjedbf1nqy8y" path="res://grid.gd" id="2_grid"]
+[ext_resource type="PackedScene" uid="uid://cwxcm7e3cvlhm" path="res://world/tile.tscn" id="1_ebq2e"]
+[ext_resource type="Script" uid="uid://rjedbf1nqy8y" path="res://world/grid.gd" id="2_grid"]
 
 [node name="Grid" type="Node3D" unique_id=1197692489]
 script = ExtResource("2_grid")
