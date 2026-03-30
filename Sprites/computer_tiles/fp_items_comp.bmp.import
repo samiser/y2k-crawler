@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlj4vud1c36ka"
-path="res://.godot/imported/objects_comp.bmp-7c2144d60bdd0e011e6aa21b4f2b92b0.ctex"
+uid="uid://4vf8i4gvx5p7"
+path="res://.godot/imported/fp_items_comp.bmp-8f17b505d412ca34514c7fc3b0aa62af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/computer_tiles/objects_comp.bmp"
-dest_files=["res://.godot/imported/objects_comp.bmp-7c2144d60bdd0e011e6aa21b4f2b92b0.ctex"]
+source_file="res://Sprites/computer_tiles/fp_items_comp.bmp"
+dest_files=["res://.godot/imported/fp_items_comp.bmp-8f17b505d412ca34514c7fc3b0aa62af.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
