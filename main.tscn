@@ -39,7 +39,7 @@ facing = 3
 environment = SubResource("Environment_0xm2m")
 
 [node name="Firewall" parent="." unique_id=1408575202 instance=ExtResource("3_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.975, 0, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
 grid_path = NodePath("../Grid")
 player_path = NodePath("../Player")
 min_bound = 0
@@ -49,8 +49,8 @@ max_bound = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 10)
 grid_path = NodePath("../Grid")
 player_path = NodePath("../Player")
-min_bound = 0
-max_bound = 1
+min_bound = 3
+max_bound = 4
 
 [node name="Firewall2" parent="." unique_id=980318932 instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -6)
@@ -191,7 +191,7 @@ grid_path = NodePath("../../Grid")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
 grid_path = NodePath("../Grid")
 player_path = NodePath("../Player")
-dialogue = Array[String](["Hi!", "Here's some helpful text", "Good luck!"])
+dialogue = Array[String](["Hi!", "I didn't see you come online...", "Watch out for the paper clip fella!", "They insist I need to rest in the screensaver every time I see them."])
 
 [node name="MusicStream" type="AudioStreamPlayer2D" parent="." unique_id=1137068048]
 stream = ExtResource("11_efxa6")

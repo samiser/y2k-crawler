@@ -18,7 +18,7 @@ func _ready() -> void:
 
 func _on_slot_input(event: InputEvent, item: Item) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		item_selected.emit(item)
+		item_selected.emit(item, false)
 		get_viewport().set_input_as_handled()
 
 func set_unlocked(unlocked: Array) -> void:

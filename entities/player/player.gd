@@ -28,6 +28,9 @@ var selected_item: int = -1
 @onready var radar_control: Control = $HUD/RadarControl
 @onready var fade_rect: ColorRect = $HUD/FadeRect
 @onready var camera_3d: Camera3D = $Camera3D
+@onready var log_v_container: VBoxContainer = $HUD/LogVContainer
+@onready var log_text: Label = $HUD/LogVContainer/LogText
+
 @onready var player_sprite: Sprite2D = $HUD/PlayerControl/PlayerSprite
 var face_frame : int = 0
 var face_reversing : bool = false
@@ -51,6 +54,7 @@ func _ready() -> void:
 	fp_sprite.visible = false
 	fp_sprite.position.y = 128.0
 	
+	log_text.visible = false
 	radar_control.visible = false
 	
 	if grid_path:
@@ -117,7 +121,7 @@ func handle_input() -> void:
 func try_move(direction: Vector2i) -> void:
 	if not grid:
 		return
-
+	
 	var new_grid_pos := grid_pos + direction
 
 	if not grid.has_tile_at(new_grid_pos):
@@ -189,6 +193,7 @@ func teleport_to(new_grid_pos: Vector2i, direction: Facing, skip_intro: bool) ->
 		tween.parallel().tween_property(camera_3d, "fov", 10, 1.0)
 		await tween.finished
 	else:
+		camera_3d.fov = 10
 		fade_rect.modulate = Color.WHITE
 	
 	if _current_tween and _current_tween.is_running():
@@ -207,6 +212,9 @@ func teleport_to(new_grid_pos: Vector2i, direction: Facing, skip_intro: bool) ->
 	tween.tween_property(fade_rect, "modulate", Color.TRANSPARENT, 1.0)
 	tween.parallel().tween_property(camera_3d, "fov", 60, 1.0)
 	await tween.finished
+	
+	if not skip_intro:
+		add_log("You've been teleported!")
 	
 	player_sprite.frame = 0
 	
@@ -229,14 +237,16 @@ func open_terminal_ui() -> void:
 func _on_terminal_closed() -> void:
 	_is_busy = false
 
-func _on_item_selected(item: int) -> void:
-	if selected_item == item or _is_busy: # already held or busy
+func _on_item_selected(item: int, force: bool) -> void:
+	if not force and (selected_item == item or _is_busy): # already held or busy
 		return
 	
 	selected_item = item
+		
 	if fp_sprite:
 		if fp_sprite.visible == true: # lower weapon sprite
-			_is_busy = true
+			if not force:
+				_is_busy = true
 			var tween := get_tree().create_tween()
 			tween.tween_property(fp_sprite, "position:y", 128.0, 0.4)
 			await tween.finished
@@ -248,7 +258,8 @@ func _on_item_selected(item: int) -> void:
 		tween.tween_property(fp_sprite, "position:y", -120.0, 0.4)
 		await tween.finished
 		
-		_is_busy = false
+		if not force:
+			_is_busy = false
 
 func unlock_item(item: int) -> void:
 	if item not in unlocked_items:
@@ -256,12 +267,17 @@ func unlock_item(item: int) -> void:
 		if hotbar:
 			hotbar.set_unlocked(unlocked_items)
 		
+		if selected_item == -1:
+			_on_item_selected(item, true)
+		
+		add_log("You unlocked a new item!")
 		override_face = true
 		player_sprite.frame = 6
 		var timer := get_tree().create_timer(4.0)
 		await timer.timeout
 		player_sprite.frame = 0
 		override_face = false
+		
 
 func try_use() -> void:
 	if _try_interact_terminal():
@@ -271,7 +287,7 @@ func try_use() -> void:
 	if selected_item < 0:
 		return
 	_play_use_animation()
-	moved.emit(grid_pos) # passes a turn
+
 	if selected_item == 0:
 		_use_water_gun()
 
@@ -305,4 +321,20 @@ func _use_water_gun() -> void:
 	for enemy in get_tree().get_nodes_in_group("firewall_enemies"):
 		if enemy.is_at(target_pos):
 			enemy.stun(4)
+			add_log("You stunned Firewall for 4 turns!")
 			return
+
+func add_log(message: String) -> void:
+	if message.length() == 0:
+		return
+	
+	if log_v_container.get_child_count() > 6:
+		log_v_container.get_child(log_v_container.get_child_count() - 1).queue_free()
+	
+	var new_log : Label = log_text.duplicate()
+	new_log.text = "[" + Time.get_time_string_from_system() + "] " + message
+	new_log.visible = true
+	log_v_container.add_child(new_log)
+	
+	var timer := get_tree().create_timer(4.0)
+	timer.timeout.connect(func(): if new_log: new_log.queue_free())
