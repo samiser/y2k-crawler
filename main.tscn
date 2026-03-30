@@ -191,7 +191,7 @@ grid_path = NodePath("../../Grid")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
 grid_path = NodePath("../Grid")
 player_path = NodePath("../Player")
-dialogue = Array[String](["Hi!", "I didn't see you come online...", "Watch out for the paper clip fella!", "They insist I need to rest in the screensaver every time I see them."])
+dialogue = Array[String](["Hi!", "I didn't see you come online...", "Watch out for the paper clip fella!", "They insist I need to chill in the screensaver.", "They mean well...", "...but they worry too much!"])
 
 [node name="MusicStream" type="AudioStreamPlayer2D" parent="." unique_id=1137068048]
 stream = ExtResource("11_efxa6")
