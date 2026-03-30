@@ -1,8 +1,6 @@
 extends Node3D
 class_name Terminal
 
-signal interacted
-
 @export var grid_path: NodePath
 @export var player_path: NodePath
 
@@ -25,4 +23,4 @@ func _on_area_input_event(_camera: Node, event: InputEvent, _position: Vector3, 
 
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if player.grid_pos == grid_pos:
-			interacted.emit()
+			player.open_terminal_ui()

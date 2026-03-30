@@ -5,7 +5,6 @@ class_name FirewallEnemy
 
 @export var grid_path: NodePath
 @export var player_path: NodePath
-@export var terminal_paths: Array[NodePath]
 @export var move_duration := 0.19
 
 enum PatrolAxis { X, Z }
@@ -30,9 +29,6 @@ func _ready() -> void:
 		grid = get_node(grid_path) as Grid
 	if player_path:
 		player = get_node(player_path) as Player
-	for path in terminal_paths:
-		var terminal := get_node(path) as Terminal
-		terminal.interacted.connect(_on_terminal_interacted)
 
 	if grid:
 		grid_pos = grid.world_to_grid(position)
@@ -41,10 +37,6 @@ func _ready() -> void:
 
 	if player:
 		player.moved.connect(_on_player_moved)
-
-func _on_terminal_interacted() -> void:
-	_disabled = not _disabled
-	_on_player_moved(player.grid_pos)
 
 func _on_player_moved(_player_new_pos: Vector2i) -> void:
 	if _disabled or _is_busy or not player or not grid:

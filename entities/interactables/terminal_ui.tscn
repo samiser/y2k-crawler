@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://xw7oxh0nwkum"]
+
+[ext_resource type="PackedScene" uid="uid://dopuhq8tj0a7m" path="res://entities/interactables/terminal_item.tscn" id="1_i11bv"]
+[ext_resource type="Script" uid="uid://d1o4o8ngf0hde" path="res://entities/interactables/terminal_ui.gd" id="1_mk060"]
+
+[node name="TerminalUI" type="Window" unique_id=1644810794]
+oversampling_override = 1.0
+title = "Terminal"
+initial_position = 1
+size = Vector2i(300, 205)
+unresizable = true
+always_on_top = true
+sharp_corners = true
+script = ExtResource("1_mk060")
+
+[node name="Panel" type="Panel" parent="." unique_id=1201722420]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1883668452]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1930194808]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer" unique_id=1458484131]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer" unique_id=381671020]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WaterPistol" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1048916943 instance=ExtResource("1_i11bv")]
+layout_mode = 2
+title = "Water Pistol"
+description = "Stun enemies with a cold shock"
+
+[node name="MetalDetector" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=676044098 instance=ExtResource("1_i11bv")]
+layout_mode = 2
+frame = 1
+title = "Metal Detector"
+description = "Show items in your proximity"
+cost = 10
+
+[node name="Magnet" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=854282912 instance=ExtResource("1_i11bv")]
+layout_mode = 2
+frame = 2
+title = "Magnet"
+description = "Drop to attract magnetic items and enemies"
+cost = 20

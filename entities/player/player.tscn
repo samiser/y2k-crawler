@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://ditrytb3g73sj"]
 
 [ext_resource type="Script" uid="uid://1akmqij867mu" path="res://entities/player/player.gd" id="1_player"]
-[ext_resource type="Texture2D" uid="uid://4vf8i4gvx5p7" path="res://Sprites/computer_tiles/fp_items_comp.bmp" id="2_abrql"]
+[ext_resource type="Texture2D" uid="uid://4vf8i4gvx5p7" path="res://sprites/computer_tiles/fp_items_comp.bmp" id="2_abrql"]
+[ext_resource type="PackedScene" uid="uid://xw7oxh0nwkum" path="res://entities/interactables/terminal_ui.tscn" id="3_sglur"]
 
 [node name="Player" type="Node3D" unique_id=1850440213]
 script = ExtResource("1_player")
@@ -56,7 +57,11 @@ grow_vertical = 0
 pivot_offset = Vector2(0, 64)
 
 [node name="FpSprite" type="Sprite2D" parent="HUD/Control" unique_id=338462822]
+visible = false
 position = Vector2(-128, -128)
 scale = Vector2(2, 2)
 texture = ExtResource("2_abrql")
 hframes = 4
+
+[node name="TerminalUI" parent="." unique_id=361108045 instance=ExtResource("3_sglur")]
+visible = false

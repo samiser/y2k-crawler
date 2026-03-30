@@ -17,6 +17,7 @@ var _current_tween: Tween
 var coins := 0
 
 @onready var coin_label: Label = $HUD/CoinLabel
+@onready var terminal_ui: Window = $TerminalUI
 
 const FACING_TO_DIRECTION := {
 	Facing.NORTH: Vector2i(0, 1),
@@ -39,6 +40,8 @@ func _ready() -> void:
 		grid_pos = grid.world_to_grid(position)
 		position = grid.grid_to_world(grid_pos)
 	rotation.y = FACING_TO_ANGLE[facing]
+	if terminal_ui:
+		terminal_ui.closed.connect(_on_terminal_closed)
 
 func _process(_delta: float) -> void:
 	if not _is_busy:
@@ -131,3 +134,11 @@ func _set_rotation_y(value: float) -> void:
 func _shortest_angle(from: float, to: float) -> float:
 	var diff := wrapf(to - from, -PI, PI)
 	return from + diff
+
+func open_terminal_ui() -> void:
+	if terminal_ui:
+		_is_busy = true
+		terminal_ui.show()
+
+func _on_terminal_closed() -> void:
+	_is_busy = false
