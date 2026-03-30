@@ -170,6 +170,8 @@ func unlock_item(item: int) -> void:
 func try_use() -> void:
 	if _try_interact_terminal():
 		return
+	if _try_interact_msn():
+		return
 	if selected_item < 0:
 		return
 	_play_use_animation()
@@ -180,6 +182,14 @@ func _try_interact_terminal() -> bool:
 	for terminal in get_tree().get_nodes_in_group("terminals"):
 		if terminal.is_at(grid_pos):
 			open_terminal_ui()
+			return true
+	return false
+
+func _try_interact_msn() -> bool:
+	var facing_pos: Vector2i = grid_pos + FACING_TO_DIRECTION[facing]
+	for msn in get_tree().get_nodes_in_group("msn"):
+		if msn.is_at(facing_pos):
+			msn.interact()
 			return true
 	return false
 

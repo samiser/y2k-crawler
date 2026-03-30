@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ct25gmhfciekm"]
 
 [ext_resource type="PackedScene" uid="uid://cwxcm7e3cvlhm" path="res://world/tile.tscn" id="1_ebq2e"]
-[ext_resource type="Script" uid="uid://rjedbf1nqy8y" path="res://world/grid.gd" id="2_grid"]
+[ext_resource type="Script" uid="uid://xp1fw6iv26tj" path="res://world/grid.gd" id="2_grid"]
 
 [node name="Grid" type="Node3D" unique_id=1197692489]
 script = ExtResource("2_grid")
@@ -27,6 +27,16 @@ show_roof = false
 
 [node name="Tile8" parent="." unique_id=1850445850 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+north_frame = 3
+south_frame = 3
+east_frame = 3
+west_frame = 3
+floor_frame = 4
+ceiling_frame = 5
+show_roof = false
+
+[node name="Tile16" parent="." unique_id=572064401 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
 north_frame = 3
 south_frame = 3
 east_frame = 3
@@ -173,6 +183,7 @@ east_frame = 9
 west_frame = 9
 floor_frame = 9
 ceiling_frame = 9
+show_roof = false
 
 [node name="Tile24" parent="." unique_id=1685979391 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -2)
@@ -182,6 +193,7 @@ east_frame = 9
 west_frame = 9
 floor_frame = 9
 ceiling_frame = 9
+show_roof = false
 
 [node name="Tile25" parent="." unique_id=1015662336 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -2)
@@ -191,6 +203,7 @@ east_frame = 9
 west_frame = 9
 floor_frame = 9
 ceiling_frame = 9
+show_roof = false
 
 [node name="Tile26" parent="." unique_id=1101854162 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -2)
@@ -200,6 +213,7 @@ east_frame = 9
 west_frame = 9
 floor_frame = 9
 ceiling_frame = 9
+show_roof = false
 
 [node name="Tile29" parent="." unique_id=1437441027 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0)
@@ -209,6 +223,7 @@ east_frame = 9
 west_frame = 9
 floor_frame = 9
 ceiling_frame = 9
+show_roof = false
 
 [node name="Tile30" parent="." unique_id=14267314 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
@@ -218,6 +233,7 @@ east_frame = 9
 west_frame = 9
 floor_frame = 9
 ceiling_frame = 9
+show_roof = false
 
 [node name="Tile31" parent="." unique_id=321124818 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 2)
@@ -227,6 +243,7 @@ east_frame = 9
 west_frame = 9
 floor_frame = 9
 ceiling_frame = 9
+show_roof = false
 
 [node name="Tile44" parent="." unique_id=1161973472 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 4)
@@ -236,6 +253,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile45" parent="." unique_id=1935671925 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 4)
@@ -245,6 +263,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile48" parent="." unique_id=616414950 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 4)
@@ -254,6 +273,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile62" parent="." unique_id=1994300084 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 2)
@@ -263,6 +283,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile63" parent="." unique_id=101785836 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 2)
@@ -272,6 +293,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile46" parent="." unique_id=853663524 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 4)
@@ -281,6 +303,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile57" parent="." unique_id=1490093168 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 6)
@@ -290,6 +313,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile58" parent="." unique_id=460009520 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 8)
@@ -299,6 +323,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile64" parent="." unique_id=189734129 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 10)
@@ -308,6 +333,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile66" parent="." unique_id=165947558 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 10)
@@ -317,6 +343,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile67" parent="." unique_id=1918668910 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 10)
@@ -326,6 +353,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile68" parent="." unique_id=957198636 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 12)
@@ -335,6 +363,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile69" parent="." unique_id=1400875978 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, 12)
@@ -344,6 +373,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile65" parent="." unique_id=1725309308 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 12)
@@ -353,6 +383,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile59" parent="." unique_id=1616481570 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 8)
@@ -362,6 +393,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile60" parent="." unique_id=2144137992 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 8)
@@ -371,6 +403,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile70" parent="." unique_id=1348640057 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 8)
@@ -380,6 +413,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile71" parent="." unique_id=475417063 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 8)
@@ -389,6 +423,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile72" parent="." unique_id=1387872252 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 8)
@@ -398,6 +433,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile74" parent="." unique_id=330450727 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 10)
@@ -407,6 +443,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile75" parent="." unique_id=936698110 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 12)
@@ -416,6 +453,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile78" parent="." unique_id=2072357919 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 12)
@@ -425,6 +463,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile79" parent="." unique_id=1098160523 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 12)
@@ -434,6 +473,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile80" parent="." unique_id=1815986934 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 14)
@@ -443,6 +483,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile81" parent="." unique_id=354574366 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 16)
@@ -452,6 +493,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile82" parent="." unique_id=1905676811 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 16)
@@ -461,6 +503,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile76" parent="." unique_id=959785125 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 12)
@@ -470,6 +513,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile77" parent="." unique_id=472121292 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 14)
@@ -479,6 +523,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile105" parent="." unique_id=1482220963 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 14)
@@ -488,6 +533,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile106" parent="." unique_id=403415958 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 14)
@@ -497,6 +543,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile107" parent="." unique_id=1343555094 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 16)
@@ -506,6 +553,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile108" parent="." unique_id=1366809552 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 18)
@@ -515,6 +563,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile109" parent="." unique_id=2140821879 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 18)
@@ -524,6 +573,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile110" parent="." unique_id=1659765830 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 18)
@@ -533,6 +583,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile111" parent="." unique_id=1287022587 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 16)
@@ -542,6 +593,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile112" parent="." unique_id=718404701 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 16)
@@ -551,6 +603,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile116" parent="." unique_id=987352387 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 16)
@@ -560,6 +613,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile114" parent="." unique_id=753937775 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 18)
@@ -569,6 +623,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile117" parent="." unique_id=1363871319 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 18)
@@ -578,6 +633,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile113" parent="." unique_id=403745950 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 20)
@@ -587,6 +643,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile115" parent="." unique_id=1711495549 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 20)
@@ -596,6 +653,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile118" parent="." unique_id=157299489 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 20)
@@ -605,6 +663,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile102" parent="." unique_id=2092274810 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 16)
@@ -614,6 +673,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile103" parent="." unique_id=1713671550 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 18)
@@ -623,6 +683,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile104" parent="." unique_id=1800943301 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 18)
@@ -632,6 +693,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile73" parent="." unique_id=2102193101 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 6)
@@ -641,6 +703,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile61" parent="." unique_id=390765562 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 10)
@@ -650,6 +713,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile47" parent="." unique_id=1638113959 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 4)
@@ -659,6 +723,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile54" parent="." unique_id=234907412 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 4)
@@ -668,6 +733,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile55" parent="." unique_id=1473499566 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 6)
@@ -677,6 +743,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile56" parent="." unique_id=1826319730 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, 6)
@@ -686,6 +753,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile49" parent="." unique_id=1636957121 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 2)
@@ -695,6 +763,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile50" parent="." unique_id=100223379 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 0)
@@ -704,6 +773,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile51" parent="." unique_id=1246910196 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 0)
@@ -713,6 +783,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile52" parent="." unique_id=404280354 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, 0)
@@ -722,6 +793,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile53" parent="." unique_id=1033532640 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, 2)
@@ -731,6 +803,7 @@ east_frame = 6
 west_frame = 6
 floor_frame = 8
 ceiling_frame = 7
+show_roof = false
 
 [node name="Tile27" parent="." unique_id=1353571346 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -4)
@@ -740,6 +813,7 @@ east_frame = 9
 west_frame = 9
 floor_frame = 9
 ceiling_frame = 9
+show_roof = false
 
 [node name="Tile28" parent="." unique_id=484580296 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -6)
@@ -749,6 +823,7 @@ east_frame = 9
 west_frame = 9
 floor_frame = 9
 ceiling_frame = 9
+show_roof = false
 
 [node name="Tile32" parent="." unique_id=2047023091 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -6)
@@ -758,6 +833,7 @@ east_frame = 15
 west_frame = 16
 floor_frame = 16
 ceiling_frame = 16
+show_roof = false
 
 [node name="Tile33" parent="." unique_id=304639641 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -6)
@@ -767,6 +843,7 @@ east_frame = 16
 west_frame = 16
 floor_frame = 16
 ceiling_frame = 16
+show_roof = false
 
 [node name="Tile34" parent="." unique_id=1870800666 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -6)
@@ -776,6 +853,7 @@ east_frame = 15
 west_frame = 15
 floor_frame = 16
 ceiling_frame = 16
+show_roof = false
 
 [node name="Tile35" parent="." unique_id=944631361 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -6)
@@ -785,6 +863,7 @@ east_frame = 16
 west_frame = 16
 floor_frame = 16
 ceiling_frame = 16
+show_roof = false
 
 [node name="Tile97" parent="." unique_id=1062322596 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -18)
@@ -794,6 +873,7 @@ east_frame = 15
 west_frame = 15
 floor_frame = 16
 ceiling_frame = 16
+show_roof = false
 
 [node name="Tile98" parent="." unique_id=1424807720 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -18)
@@ -803,6 +883,7 @@ east_frame = 16
 west_frame = 16
 floor_frame = 16
 ceiling_frame = 16
+show_roof = false
 
 [node name="Tile99" parent="." unique_id=719216735 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -18)
@@ -812,6 +893,7 @@ east_frame = 15
 west_frame = 15
 floor_frame = 16
 ceiling_frame = 16
+show_roof = false
 
 [node name="Tile100" parent="." unique_id=1066786178 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -18)
@@ -821,6 +903,7 @@ east_frame = 16
 west_frame = 16
 floor_frame = 16
 ceiling_frame = 16
+show_roof = false
 
 [node name="Tile101" parent="." unique_id=1355722659 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -18)
@@ -830,6 +913,7 @@ east_frame = 16
 west_frame = 16
 floor_frame = 16
 ceiling_frame = 16
+show_roof = false
 
 [node name="Tile119" parent="." unique_id=1296622118 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -18)
@@ -839,6 +923,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile120" parent="." unique_id=1436643840 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -20)
@@ -848,6 +933,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile121" parent="." unique_id=554305762 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -22)
@@ -857,6 +943,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile122" parent="." unique_id=1530104367 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -24)
@@ -866,6 +953,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile123" parent="." unique_id=157137226 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -26)
@@ -875,6 +963,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile124" parent="." unique_id=185479469 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -28)
@@ -884,6 +973,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile125" parent="." unique_id=1993968681 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -18)
@@ -893,6 +983,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile126" parent="." unique_id=2093217490 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -20)
@@ -902,6 +993,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 18
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile127" parent="." unique_id=90233900 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -22)
@@ -911,6 +1003,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile128" parent="." unique_id=2061885560 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -24)
@@ -920,6 +1013,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 18
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile129" parent="." unique_id=1813225613 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -26)
@@ -929,6 +1023,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile130" parent="." unique_id=174095436 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -28)
@@ -938,6 +1033,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile131" parent="." unique_id=1843076840 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -18)
@@ -947,6 +1043,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile132" parent="." unique_id=800728536 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -20)
@@ -956,6 +1053,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile133" parent="." unique_id=1395288020 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -22)
@@ -965,6 +1063,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile134" parent="." unique_id=995216519 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -24)
@@ -974,6 +1073,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile135" parent="." unique_id=1466615271 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -26)
@@ -983,6 +1083,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile136" parent="." unique_id=1914332248 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -28)
@@ -992,6 +1093,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile137" parent="." unique_id=617822154 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -18)
@@ -1001,6 +1103,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile138" parent="." unique_id=1409649992 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -20)
@@ -1010,6 +1113,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile139" parent="." unique_id=740421478 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -22)
@@ -1019,6 +1123,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile140" parent="." unique_id=1997429017 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -24)
@@ -1028,6 +1133,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile141" parent="." unique_id=998114566 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -26)
@@ -1037,6 +1143,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 18
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile142" parent="." unique_id=1551453564 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -28)
@@ -1046,6 +1153,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile143" parent="." unique_id=1843814879 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -18)
@@ -1055,6 +1163,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile144" parent="." unique_id=56228691 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -20)
@@ -1064,6 +1173,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 18
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile145" parent="." unique_id=1137911066 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -22)
@@ -1073,6 +1183,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 18
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile146" parent="." unique_id=1671807490 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -24)
@@ -1082,6 +1193,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile147" parent="." unique_id=945483540 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -26)
@@ -1091,6 +1203,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile148" parent="." unique_id=1747220306 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -28)
@@ -1100,6 +1213,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile149" parent="." unique_id=1032619265 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18)
@@ -1109,6 +1223,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile150" parent="." unique_id=233597524 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
@@ -1118,6 +1233,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile151" parent="." unique_id=1611129319 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22)
@@ -1127,6 +1243,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile152" parent="." unique_id=1204908150 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24)
@@ -1136,6 +1253,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile153" parent="." unique_id=1910738358 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -26)
@@ -1145,6 +1263,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile154" parent="." unique_id=1349278679 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -28)
@@ -1154,6 +1273,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile155" parent="." unique_id=215573189 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
@@ -1163,6 +1283,7 @@ east_frame = 19
 west_frame = 19
 floor_frame = 17
 ceiling_frame = 20
+show_roof = false
 
 [node name="Tile36" parent="." unique_id=924411202 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -8)
@@ -1172,6 +1293,7 @@ east_frame = 10
 west_frame = 10
 floor_frame = 12
 ceiling_frame = 11
+show_roof = false
 
 [node name="Tile37" parent="." unique_id=137686680 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -10)
@@ -1181,6 +1303,7 @@ east_frame = 10
 west_frame = 10
 floor_frame = 12
 ceiling_frame = 11
+show_roof = false
 
 [node name="Tile40" parent="." unique_id=952755059 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -12)
@@ -1190,6 +1313,7 @@ east_frame = 13
 west_frame = 10
 floor_frame = 12
 ceiling_frame = 11
+show_roof = false
 
 [node name="Tile39" parent="." unique_id=123002188 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -10)
@@ -1199,6 +1323,7 @@ east_frame = 10
 west_frame = 10
 floor_frame = 12
 ceiling_frame = 11
+show_roof = false
 
 [node name="Tile38" parent="." unique_id=1275331751 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -10)
@@ -1208,6 +1333,7 @@ east_frame = 10
 west_frame = 10
 floor_frame = 12
 ceiling_frame = 11
+show_roof = false
 
 [node name="Tile41" parent="." unique_id=2075504333 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -10)
@@ -1217,6 +1343,7 @@ east_frame = 10
 west_frame = 10
 floor_frame = 12
 ceiling_frame = 11
+show_roof = false
 
 [node name="Tile42" parent="." unique_id=905715173 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -10)
@@ -1226,6 +1353,7 @@ east_frame = 10
 west_frame = 10
 floor_frame = 12
 ceiling_frame = 11
+show_roof = false
 
 [node name="Tile43" parent="." unique_id=843441583 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -12)
@@ -1235,6 +1363,7 @@ east_frame = 10
 west_frame = 10
 floor_frame = 12
 ceiling_frame = 11
+show_roof = false
 
 [node name="Tile87" parent="." unique_id=218348563 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -14)
@@ -1244,6 +1373,7 @@ east_frame = 10
 west_frame = 10
 floor_frame = 12
 ceiling_frame = 11
+show_roof = false
 
 [node name="Tile92" parent="." unique_id=1359698798 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -14)
@@ -1253,6 +1383,7 @@ east_frame = 10
 west_frame = 10
 floor_frame = 12
 ceiling_frame = 11
+show_roof = false
 
 [node name="Tile93" parent="." unique_id=347719561 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -14)
@@ -1262,6 +1393,7 @@ east_frame = 10
 west_frame = 10
 floor_frame = 12
 ceiling_frame = 11
+show_roof = false
 
 [node name="Tile95" parent="." unique_id=414271789 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -16)
@@ -1271,6 +1403,7 @@ east_frame = 10
 west_frame = 10
 floor_frame = 12
 ceiling_frame = 11
+show_roof = false
 
 [node name="Tile96" parent="." unique_id=497452510 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -18)
@@ -1280,6 +1413,7 @@ east_frame = 10
 west_frame = 10
 floor_frame = 12
 ceiling_frame = 11
+show_roof = false
 
 [node name="Tile94" parent="." unique_id=1169983786 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -14)
@@ -1289,6 +1423,7 @@ east_frame = 10
 west_frame = 10
 floor_frame = 12
 ceiling_frame = 11
+show_roof = false
 
 [node name="Tile88" parent="." unique_id=781097258 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -16)
@@ -1298,6 +1433,7 @@ east_frame = 10
 west_frame = 10
 floor_frame = 12
 ceiling_frame = 11
+show_roof = false
 
 [node name="Tile84" parent="." unique_id=1019433497 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, -12)
@@ -1307,6 +1443,7 @@ east_frame = 10
 west_frame = 10
 floor_frame = 12
 ceiling_frame = 11
+show_roof = false
 
 [node name="Tile89" parent="." unique_id=588664996 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, -14)
@@ -1316,6 +1453,7 @@ east_frame = 10
 west_frame = 10
 floor_frame = 12
 ceiling_frame = 11
+show_roof = false
 
 [node name="Tile90" parent="." unique_id=1327635365 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, -16)
@@ -1325,6 +1463,7 @@ east_frame = 10
 west_frame = 10
 floor_frame = 12
 ceiling_frame = 11
+show_roof = false
 
 [node name="Tile86" parent="." unique_id=242817722 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -12)
@@ -1334,6 +1473,7 @@ east_frame = 10
 west_frame = 10
 floor_frame = 12
 ceiling_frame = 11
+show_roof = false
 
 [node name="Tile91" parent="." unique_id=610654187 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -14)
@@ -1343,23 +1483,29 @@ east_frame = 10
 west_frame = 10
 floor_frame = 12
 ceiling_frame = 11
+show_roof = false
 
 [node name="Tile20" parent="." unique_id=1764347077 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -8)
 floor_frame = 1
+show_roof = false
 
 [node name="Tile14" parent="." unique_id=1037631968 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -8)
 floor_frame = 1
+show_roof = false
 
 [node name="Tile18" parent="." unique_id=512198609 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2)
 floor_frame = 1
+show_roof = false
 
 [node name="Tile83" parent="." unique_id=1470034959 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 floor_frame = 1
+show_roof = false
 
 [node name="Tile85" parent="." unique_id=2140400697 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
 floor_frame = 1
+show_roof = false

@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://b67vidagif7b6"]
 
+[ext_resource type="Script" uid="uid://e0g5pb4hsp3b" path="res://entities/interactables/msn.gd" id="1_tvbih"]
 [ext_resource type="Texture2D" uid="uid://bayeglcsmc3ae" path="res://sprites/computer_tiles/characters_comp.bmp" id="2_hjk73"]
+[ext_resource type="FontFile" uid="uid://bln26fp864yte" path="res://ms-tahoma-bold-8px.ttf" id="3_jx6d4"]
 
 [node name="MSN" type="Node3D" unique_id=1408575202]
+script = ExtResource("1_tvbih")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=249415636]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
@@ -12,3 +15,11 @@ texture_filter = 0
 texture = ExtResource("2_hjk73")
 hframes = 6
 frame = 4
+
+[node name="Label3D" type="Label3D" parent="." unique_id=178526550]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+billboard = 1
+text = "Some helpful text! Some helpful text! Some helpful text! Some helpful text! "
+font = ExtResource("3_jx6d4")
+vertical_alignment = 2
+autowrap_mode = 2

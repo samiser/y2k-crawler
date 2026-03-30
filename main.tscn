@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dhox30yf3go" path="res://entities/interactables/flag.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://dy4tcgrvmxa1v" path="res://entities/interactables/bomb.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://c8h1sodkn5sg7" path="res://entities/interactables/coin.tscn" id="9_kek77"]
+[ext_resource type="PackedScene" uid="uid://b67vidagif7b6" path="res://entities/interactables/msn.tscn" id="10_4c57u"]
 
 [sub_resource type="Environment" id="Environment_0xm2m"]
 background_mode = 1
@@ -135,3 +136,9 @@ grid_path = NodePath("../../Grid")
 [node name="Coin4" parent="Coins" unique_id=1428946470 instance=ExtResource("9_kek77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
 grid_path = NodePath("../../Grid")
+
+[node name="MSN" parent="." unique_id=1908747960 instance=ExtResource("10_4c57u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+dialogue = Array[String](["Hi!", "Here's some helpful text", "Good luck!"])
