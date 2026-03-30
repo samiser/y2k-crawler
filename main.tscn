@@ -40,7 +40,6 @@ environment = SubResource("Environment_0xm2m")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.975, 0, -2)
 grid_path = NodePath("../Grid")
 player_path = NodePath("../Player")
-terminal_paths = Array[NodePath]([NodePath("../Terminal"), NodePath("../Terminal2")])
 min_bound = 0
 max_bound = 1
 
@@ -48,7 +47,6 @@ max_bound = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -6)
 grid_path = NodePath("../Grid")
 player_path = NodePath("../Player")
-terminal_paths = Array[NodePath]([NodePath("../Terminal"), NodePath("../Terminal2")])
 patrol_axis = 1
 min_bound = -4
 max_bound = -3
@@ -132,6 +130,10 @@ grid_path = NodePath("../../Grid")
 
 [node name="Coin3" parent="Coins" unique_id=1768197335 instance=ExtResource("9_kek77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+grid_path = NodePath("../../Grid")
+
+[node name="Coin5" parent="Coins" unique_id=1720326952 instance=ExtResource("9_kek77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 grid_path = NodePath("../../Grid")
 
 [node name="Coin4" parent="Coins" unique_id=1428946470 instance=ExtResource("9_kek77")]
