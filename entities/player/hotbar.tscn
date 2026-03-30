@@ -46,7 +46,7 @@ grow_vertical = 2
 [node name="WaterGunSprite" type="Sprite2D" parent="HBoxContainer/WaterGun/Control" unique_id=50015674]
 position = Vector2(-4, 0)
 texture = ExtResource("1_qsqat")
-hframes = 3
+hframes = 4
 
 [node name="MetalDetector" type="Control" parent="HBoxContainer" unique_id=1647799105]
 layout_mode = 2
@@ -65,7 +65,7 @@ grow_vertical = 2
 [node name="MetalDetectorSprite" type="Sprite2D" parent="HBoxContainer/MetalDetector/Control" unique_id=1831102620]
 position = Vector2(-4, 0)
 texture = ExtResource("1_qsqat")
-hframes = 3
+hframes = 4
 frame = 1
 
 [node name="Magnet" type="Control" parent="HBoxContainer" unique_id=1021781419]
@@ -85,5 +85,5 @@ grow_vertical = 2
 [node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Magnet/Control" unique_id=1472827515]
 position = Vector2(-4, 0)
 texture = ExtResource("1_qsqat")
-hframes = 3
+hframes = 4
 frame = 2

@@ -14,7 +14,7 @@ var grid_pos := Vector2i.ZERO
 @export var facing := Facing.NORTH
 var _is_busy := false
 var _current_tween: Tween
-var coins := 100
+var coins := 0
 var unlocked_items: Array = []
 var selected_item: int = -1
 
@@ -52,6 +52,12 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if not _is_busy:
 		handle_input()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if _is_busy:
+		return
+	if event.is_action_pressed("use"):
+		try_use()
 
 func handle_input() -> void:
 	if Input.is_action_pressed("forward"):
@@ -153,10 +159,40 @@ func _on_item_selected(item: int) -> void:
 	selected_item = item
 	if fp_sprite:
 		fp_sprite.visible = true
-		fp_sprite.frame = item
+		fp_sprite.frame = (item + 1) * 2 - 2
 
 func unlock_item(item: int) -> void:
 	if item not in unlocked_items:
 		unlocked_items.append(item)
 		if hotbar:
 			hotbar.set_unlocked(unlocked_items)
+
+func try_use() -> void:
+	if _try_interact_terminal():
+		return
+	if selected_item < 0:
+		return
+	_play_use_animation()
+	if selected_item == 0:
+		_use_water_gun()
+
+func _try_interact_terminal() -> bool:
+	for terminal in get_tree().get_nodes_in_group("terminals"):
+		if terminal.is_at(grid_pos):
+			open_terminal_ui()
+			return true
+	return false
+
+func _play_use_animation() -> void:
+	if not fp_sprite:
+		return
+	var base_frame: int = (selected_item + 1) * 2 - 2
+	fp_sprite.frame = base_frame + 1
+	get_tree().create_timer(0.15).timeout.connect(func(): fp_sprite.frame = base_frame)
+
+func _use_water_gun() -> void:
+	var target_pos: Vector2i = grid_pos + FACING_TO_DIRECTION[facing]
+	for enemy in get_tree().get_nodes_in_group("firewall_enemies"):
+		if enemy.is_at(target_pos):
+			enemy.stun(4)
+			return

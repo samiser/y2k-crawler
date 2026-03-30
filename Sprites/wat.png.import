@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://5pk4v8h1gkd1"
-path="res://.godot/imported/wat.png-f21eb40cb7056327c887bbdc0c70578d.ctex"
+path="res://.godot/imported/wat.png-39459d640aa45613163204ede3bdff8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/wat.png"
-dest_files=["res://.godot/imported/wat.png-f21eb40cb7056327c887bbdc0c70578d.ctex"]
+source_file="res://sprites/wat.png"
+dest_files=["res://.godot/imported/wat.png-39459d640aa45613163204ede3bdff8d.ctex"]
 
 [params]
 

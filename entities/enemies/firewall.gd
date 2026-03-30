@@ -17,6 +17,7 @@ var grid: Grid
 var player: Player
 var grid_pos := Vector2i.ZERO
 var _is_busy := false
+var stun_turns := 0
 var _disabled := false:
 	set(value):
 		_disabled = value
@@ -39,6 +40,12 @@ func _ready() -> void:
 		player.moved.connect(_on_player_moved)
 
 func _on_player_moved(_player_new_pos: Vector2i) -> void:
+	if stun_turns > 0:
+		stun_turns -= 1
+		if stun_turns == 0:
+			sprite.frame = 0
+		return
+
 	if _disabled or _is_busy or not player or not grid:
 		return
 
@@ -66,3 +73,7 @@ func move_to(new_grid_pos: Vector2i) -> void:
 
 func is_at(check_pos: Vector2i) -> bool:
 	return grid_pos == check_pos
+
+func stun(turns: int) -> void:
+	stun_turns = turns
+	sprite.frame = 1

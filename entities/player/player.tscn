@@ -7,6 +7,10 @@
 
 [node name="Player" type="Node3D" unique_id=1850440213]
 script = ExtResource("1_player")
+grid_path = null
+move_duration = null
+turn_duration = null
+facing = null
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=946816146]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -62,7 +66,7 @@ visible = false
 position = Vector2(-128, -128)
 scale = Vector2(2, 2)
 texture = ExtResource("2_abrql")
-hframes = 4
+hframes = 6
 
 [node name="Hotbar" parent="HUD" unique_id=1306635365 instance=ExtResource("3_bls4j")]
 layout_mode = 1

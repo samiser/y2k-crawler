@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://j1b0yoie8suv" path="res://entities/enemies/clippy.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://dhox30yf3go" path="res://entities/interactables/flag.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://dy4tcgrvmxa1v" path="res://entities/interactables/bomb.tscn" id="8_5vw27"]
-[ext_resource type="PackedScene" uid="uid://cw24lbg7bpnfv" path="res://entities/interactables/coin.tscn" id="9_kek77"]
+[ext_resource type="PackedScene" uid="uid://c8h1sodkn5sg7" path="res://entities/interactables/coin.tscn" id="9_kek77"]
 
 [sub_resource type="Environment" id="Environment_0xm2m"]
 background_mode = 1
@@ -31,6 +31,8 @@ adjustment_saturation = 1.31
 [node name="Player" parent="." unique_id=537004856 instance=ExtResource("2_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 grid_path = NodePath("../Grid")
+move_duration = 0.25
+turn_duration = 0.25
 facing = 3
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1049699312]
@@ -54,12 +56,6 @@ max_bound = -3
 [node name="Terminal" parent="." unique_id=465558493 instance=ExtResource("4_1bvp3")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4, 0, 2)
 grid_path = NodePath("../Grid")
-player_path = NodePath("../Player")
-
-[node name="Terminal2" parent="." unique_id=1068697516 instance=ExtResource("4_1bvp3")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -2, 0, -8)
-grid_path = NodePath("../Grid")
-player_path = NodePath("../Player")
 
 [node name="Barrier" parent="." unique_id=713112690 instance=ExtResource("5_lquwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -4)
