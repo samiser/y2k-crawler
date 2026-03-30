@@ -18,10 +18,13 @@ var coins := 0
 var unlocked_items: Array = []
 var selected_item: int = -1
 
+@onready var player_sfx_stream: AudioStreamPlayer2D = $PlayerSfxStream
+
 @onready var coin_label: Label = $HUD/CoinLabel
 @onready var terminal_ui: Window = $TerminalUI
-@onready var fp_sprite: Sprite2D = $HUD/Control/FpSprite
+@onready var fp_sprite: Sprite2D = $HUD/WeaponControl/FpSprite
 @onready var hotbar: Control = $HUD/Hotbar
+@onready var radar_control: Control = $HUD/RadarControl
 
 const FACING_TO_DIRECTION := {
 	Facing.NORTH: Vector2i(0, 1),
@@ -38,6 +41,11 @@ const FACING_TO_ANGLE := {
 }
 
 func _ready() -> void:
+	fp_sprite.visible = false
+	fp_sprite.position.y = 128.0
+	
+	radar_control.visible = false
+	
 	if grid_path:
 		grid = get_node(grid_path) as Grid
 	if grid:
@@ -52,6 +60,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if not _is_busy:
 		handle_input()
+		fp_sprite.position.y += sin(Time.get_ticks_msec() * 0.1 * _delta) * 0.2 # weapon bob
 
 func _unhandled_input(event: InputEvent) -> void:
 	if _is_busy:
@@ -105,6 +114,8 @@ func _check_for_coins() -> void:
 		if item is Coin:
 			item.queue_free()
 			coins += 1
+			player_sfx_stream.stream = load("res://Audio/coin.mp3")
+			player_sfx_stream.play()
 			_update_coin_label()
 
 func _update_coin_label() -> void:
@@ -156,10 +167,25 @@ func _on_terminal_closed() -> void:
 	_is_busy = false
 
 func _on_item_selected(item: int) -> void:
+	if selected_item == item or _is_busy: # already held or busy
+		return
+	
 	selected_item = item
 	if fp_sprite:
+		if fp_sprite.visible == true: # lower weapon sprite
+			_is_busy = true
+			var tween := get_tree().create_tween()
+			tween.tween_property(fp_sprite, "position:y", 128.0, 0.4)
+			await tween.finished
+
 		fp_sprite.visible = true
 		fp_sprite.frame = (item + 1) * 2 - 2
+		
+		var tween := get_tree().create_tween() # raise weapon sprite
+		tween.tween_property(fp_sprite, "position:y", -120.0, 0.4)
+		await tween.finished
+		
+		_is_busy = false
 
 func unlock_item(item: int) -> void:
 	if item not in unlocked_items:
@@ -175,6 +201,7 @@ func try_use() -> void:
 	if selected_item < 0:
 		return
 	_play_use_animation()
+	moved.emit(grid_pos) # passes a turn
 	if selected_item == 0:
 		_use_water_gun()
 
@@ -201,6 +228,9 @@ func _play_use_animation() -> void:
 	get_tree().create_timer(0.15).timeout.connect(func(): fp_sprite.frame = base_frame)
 
 func _use_water_gun() -> void:
+	player_sfx_stream.stream = load("res://Audio/Tools/water_spray.mp3")
+	player_sfx_stream.play()
+	
 	var target_pos: Vector2i = grid_pos + FACING_TO_DIRECTION[facing]
 	for enemy in get_tree().get_nodes_in_group("firewall_enemies"):
 		if enemy.is_at(target_pos):

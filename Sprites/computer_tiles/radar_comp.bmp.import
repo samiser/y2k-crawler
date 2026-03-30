@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5pk4v8h1gkd1"
-path="res://.godot/imported/wat.png-f21eb40cb7056327c887bbdc0c70578d.ctex"
+uid="uid://bcqk21okdu04r"
+path="res://.godot/imported/radar_comp.bmp-00afbe62ab25e81c34ca5e8422e0291b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/wat.png"
-dest_files=["res://.godot/imported/wat.png-f21eb40cb7056327c887bbdc0c70578d.ctex"]
+source_file="res://Sprites/computer_tiles/radar_comp.bmp"
+dest_files=["res://.godot/imported/radar_comp.bmp-00afbe62ab25e81c34ca5e8422e0291b.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

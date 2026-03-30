@@ -7,7 +7,7 @@
 oversampling_override = 1.0
 title = "Terminal"
 initial_position = 1
-size = Vector2i(300, 205)
+size = Vector2i(320, 232)
 unresizable = true
 always_on_top = true
 sharp_corners = true

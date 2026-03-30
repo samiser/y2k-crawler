@@ -1,16 +1,13 @@
 [gd_scene format=3 uid="uid://ditrytb3g73sj"]
 
 [ext_resource type="Script" uid="uid://1akmqij867mu" path="res://entities/player/player.gd" id="1_player"]
-[ext_resource type="Texture2D" uid="uid://4vf8i4gvx5p7" path="res://sprites/computer_tiles/fp_items_comp.bmp" id="2_abrql"]
+[ext_resource type="Texture2D" uid="uid://4vf8i4gvx5p7" path="res://Sprites/computer_tiles/fp_items_comp.bmp" id="2_abrql"]
 [ext_resource type="PackedScene" uid="uid://cx8ftsioisf2d" path="res://entities/player/hotbar.tscn" id="3_bls4j"]
+[ext_resource type="Texture2D" uid="uid://bcqk21okdu04r" path="res://Sprites/computer_tiles/radar_comp.bmp" id="3_fkugw"]
 [ext_resource type="PackedScene" uid="uid://xw7oxh0nwkum" path="res://entities/interactables/terminal_ui.tscn" id="3_sglur"]
 
 [node name="Player" type="Node3D" unique_id=1850440213]
 script = ExtResource("1_player")
-grid_path = null
-move_duration = null
-turn_duration = null
-facing = null
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=946816146]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -26,16 +23,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="HUD" unique_id=1674274576]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 3.0
-offset_right = 226.0
-offset_bottom = 26.0
-theme_override_font_sizes/font_size = 10
-text = "Sambee™  SHAREWARE RELEASE (ver 1.0 1999)"
-vertical_alignment = 1
-
 [node name="CoinLabel" type="Label" parent="HUD" unique_id=499906734]
 layout_mode = 1
 anchors_preset = 1
@@ -50,7 +37,7 @@ theme_override_font_sizes/font_size = 12
 text = "Coins: 0"
 horizontal_alignment = 2
 
-[node name="Control" type="Control" parent="HUD" unique_id=1869577043]
+[node name="WeaponControl" type="Control" parent="HUD" unique_id=1869577043]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -61,15 +48,36 @@ grow_horizontal = 0
 grow_vertical = 0
 pivot_offset = Vector2(0, 64)
 
-[node name="FpSprite" type="Sprite2D" parent="HUD/Control" unique_id=338462822]
-visible = false
+[node name="FpSprite" type="Sprite2D" parent="HUD/WeaponControl" unique_id=338462822]
 position = Vector2(-128, -128)
 scale = Vector2(2, 2)
 texture = ExtResource("2_abrql")
 hframes = 6
 
+[node name="RadarControl" type="Control" parent="HUD" unique_id=499313790]
+layout_mode = 1
+anchors_preset = 0
+pivot_offset = Vector2(0, 64)
+
+[node name="RadarSprite" type="Sprite2D" parent="HUD/RadarControl" unique_id=901316574]
+position = Vector2(64, 64)
+texture = ExtResource("3_fkugw")
+hframes = 2
+
 [node name="Hotbar" parent="HUD" unique_id=1306635365 instance=ExtResource("3_bls4j")]
 layout_mode = 1
 
+[node name="DebugLabel" type="Label" parent="HUD" unique_id=1674274576]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 226.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 10
+text = "Sambee™  SHAREWARE RELEASE (ver 1.0 1999)"
+vertical_alignment = 1
+
 [node name="TerminalUI" parent="." unique_id=361108045 instance=ExtResource("3_sglur")]
 visible = false
+
+[node name="PlayerSfxStream" type="AudioStreamPlayer2D" parent="." unique_id=1753239640]

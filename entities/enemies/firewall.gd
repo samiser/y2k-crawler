@@ -13,6 +13,8 @@ enum PatrolAxis { X, Z }
 @export var min_bound := -10
 @export var max_bound := 10
 
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
+
 var grid: Grid
 var player: Player
 var grid_pos := Vector2i.ZERO
@@ -77,3 +79,6 @@ func is_at(check_pos: Vector2i) -> bool:
 func stun(turns: int) -> void:
 	stun_turns = turns
 	sprite.frame = 1
+	
+	audio_stream_player_3d.stream = load("res://Audio/Tools/fire_extinguish.mp3")
+	audio_stream_player_3d.play()

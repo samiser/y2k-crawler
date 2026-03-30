@@ -32,8 +32,6 @@ adjustment_saturation = 1.31
 [node name="Player" parent="." unique_id=537004856 instance=ExtResource("2_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 grid_path = NodePath("../Grid")
-move_duration = 0.25
-turn_duration = 0.25
 facing = 3
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1049699312]
@@ -56,6 +54,10 @@ max_bound = -3
 
 [node name="Terminal" parent="." unique_id=465558493 instance=ExtResource("4_1bvp3")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4, 0, 2)
+grid_path = NodePath("../Grid")
+
+[node name="Terminal2" parent="." unique_id=1657844887 instance=ExtResource("4_1bvp3")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -22, 0, -14)
 grid_path = NodePath("../Grid")
 
 [node name="Barrier" parent="." unique_id=713112690 instance=ExtResource("5_lquwl")]
@@ -123,6 +125,46 @@ grid_path = NodePath("../../Grid")
 
 [node name="Coin2" parent="Coins" unique_id=914349871 instance=ExtResource("9_kek77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+grid_path = NodePath("../../Grid")
+
+[node name="Coin6" parent="Coins" unique_id=1830266737 instance=ExtResource("9_kek77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
+grid_path = NodePath("../../Grid")
+
+[node name="Coin7" parent="Coins" unique_id=1412898413 instance=ExtResource("9_kek77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+grid_path = NodePath("../../Grid")
+
+[node name="Coin8" parent="Coins" unique_id=1027364083 instance=ExtResource("9_kek77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+grid_path = NodePath("../../Grid")
+
+[node name="Coin9" parent="Coins" unique_id=1362068177 instance=ExtResource("9_kek77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -6)
+grid_path = NodePath("../../Grid")
+
+[node name="Coin10" parent="Coins" unique_id=258229617 instance=ExtResource("9_kek77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -8)
+grid_path = NodePath("../../Grid")
+
+[node name="Coin11" parent="Coins" unique_id=793346888 instance=ExtResource("9_kek77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -8)
+grid_path = NodePath("../../Grid")
+
+[node name="Coin12" parent="Coins" unique_id=905083880 instance=ExtResource("9_kek77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -6)
+grid_path = NodePath("../../Grid")
+
+[node name="Coin13" parent="Coins" unique_id=834448846 instance=ExtResource("9_kek77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -6)
+grid_path = NodePath("../../Grid")
+
+[node name="Coin14" parent="Coins" unique_id=1340817225 instance=ExtResource("9_kek77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -4)
+grid_path = NodePath("../../Grid")
+
+[node name="Coin15" parent="Coins" unique_id=582435579 instance=ExtResource("9_kek77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -6)
 grid_path = NodePath("../../Grid")
 
 [node name="Coin3" parent="Coins" unique_id=1768197335 instance=ExtResource("9_kek77")]
