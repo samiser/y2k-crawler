@@ -45,6 +45,13 @@ player_path = NodePath("../Player")
 min_bound = 0
 max_bound = 1
 
+[node name="Firewall3" parent="." unique_id=1065837217 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 10)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+min_bound = 0
+max_bound = 1
+
 [node name="Firewall2" parent="." unique_id=980318932 instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -6)
 grid_path = NodePath("../Grid")

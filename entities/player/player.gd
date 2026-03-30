@@ -63,6 +63,8 @@ func _ready() -> void:
 		terminal_ui.closed.connect(_on_terminal_closed)
 	if hotbar:
 		hotbar.item_selected.connect(_on_item_selected)
+	
+	teleport_to(grid_pos, facing, true)
 
 func _process(_delta: float) -> void:
 	fp_sprite.position.y += sin(Time.get_ticks_msec() * 0.1 * _delta) * 0.2 # weapon bob
@@ -171,20 +173,23 @@ func turn(direction: int) -> void:
 	_current_tween.tween_method(_set_rotation_y, rotation.y, _shortest_angle(rotation.y, target_angle), turn_duration)
 	_current_tween.finished.connect(func(): _is_busy = false)
 
-func teleport_to(new_grid_pos: Vector2i, direction: Facing) -> void:
+func teleport_to(new_grid_pos: Vector2i, direction: Facing, skip_intro: bool) -> void:
 	player_sfx_stream.stream = load("res://Audio/teleport.mp3")
 	player_sfx_stream.play()
 	
 	_is_busy = true
 	_teleporting = true
-	override_face = true
 	
-	player_sprite.frame = 5
-	
-	var tween := get_tree().create_tween()
-	tween.tween_property(fade_rect, "modulate", Color.WHITE, 1.0)
-	tween.parallel().tween_property(camera_3d, "fov", 10, 1.0)
-	await tween.finished
+	if not skip_intro:
+		override_face = true
+		player_sprite.frame = 5
+		
+		var tween := get_tree().create_tween()
+		tween.tween_property(fade_rect, "modulate", Color.WHITE, 1.0)
+		tween.parallel().tween_property(camera_3d, "fov", 10, 1.0)
+		await tween.finished
+	else:
+		fade_rect.modulate = Color.WHITE
 	
 	if _current_tween and _current_tween.is_running():
 		_current_tween.kill()
@@ -198,7 +203,7 @@ func teleport_to(new_grid_pos: Vector2i, direction: Facing) -> void:
 	var timer := get_tree().create_timer(1.0)
 	await timer.timeout
 	
-	tween = get_tree().create_tween() # fade out
+	var tween := get_tree().create_tween() # fade out
 	tween.tween_property(fade_rect, "modulate", Color.TRANSPARENT, 1.0)
 	tween.parallel().tween_property(camera_3d, "fov", 60, 1.0)
 	await tween.finished

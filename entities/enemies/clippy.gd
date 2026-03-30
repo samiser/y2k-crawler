@@ -94,4 +94,4 @@ func _reset_to_spawn() -> void:
 	_current_path.clear()
 
 func _teleport_player_to_spawn() -> void:
-	player.teleport_to(player_spawn, player_spawn_facing)
+	player.teleport_to(player_spawn, player_spawn_facing, false)
