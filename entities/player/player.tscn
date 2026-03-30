@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ditrytb3g73sj"]
 
 [ext_resource type="Script" uid="uid://1akmqij867mu" path="res://entities/player/player.gd" id="1_player"]
-[ext_resource type="Texture2D" uid="uid://5pk4v8h1gkd1" path="res://sprites/wat.png" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://4vf8i4gvx5p7" path="res://Sprites/computer_tiles/fp_items_comp.bmp" id="2_abrql"]
 
 [node name="Player" type="Node3D" unique_id=1850440213]
 script = ExtResource("1_player")
@@ -44,18 +44,19 @@ theme_override_font_sizes/font_size = 12
 text = "Coins: 0"
 horizontal_alignment = 2
 
-[node name="goofyahhgun" type="TextureRect" parent="HUD" unique_id=398546266]
-texture_filter = 1
+[node name="Control" type="Control" parent="HUD" unique_id=1869577043]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -121.0
-offset_top = -113.0
-offset_right = 62.0
-offset_bottom = 66.0
-grow_horizontal = 2
+grow_horizontal = 0
 grow_vertical = 0
-texture = ExtResource("2_onrkg")
+pivot_offset = Vector2(0, 64)
+
+[node name="FpSprite" type="Sprite2D" parent="HUD/Control" unique_id=338462822]
+position = Vector2(-128, -128)
+scale = Vector2(2, 2)
+texture = ExtResource("2_abrql")
+hframes = 4
