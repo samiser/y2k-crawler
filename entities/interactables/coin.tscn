@@ -7,7 +7,7 @@
 script = ExtResource("1_script")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=399655901]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.5, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.5, 0)
 billboard = 2
 texture_filter = 0
 texture = ExtResource("2_vmy70")
