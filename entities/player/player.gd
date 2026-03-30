@@ -14,6 +14,9 @@ var grid_pos := Vector2i.ZERO
 @export var facing := Facing.NORTH
 var _is_busy := false
 var _current_tween: Tween
+var coins := 0
+
+@onready var coin_label: Label = $HUD/CoinLabel
 
 const FACING_TO_DIRECTION := {
 	Facing.NORTH: Vector2i(0, 1),
@@ -78,6 +81,20 @@ func try_move(direction: Vector2i) -> void:
 	_current_tween.finished.connect(func(): _is_busy = false)
 
 	moved.emit(grid_pos)
+	_check_for_coins()
+
+func _check_for_coins() -> void:
+	if not grid:
+		return
+	for item in grid.get_items_at(grid_pos):
+		if item is Coin:
+			item.queue_free()
+			coins += 1
+			_update_coin_label()
+
+func _update_coin_label() -> void:
+	if coin_label:
+		coin_label.text = "Coins: %d" % coins
 
 func is_blocked(check_pos: Vector2i) -> bool:
 	for node in get_tree().get_nodes_in_group("firewall_enemies"):

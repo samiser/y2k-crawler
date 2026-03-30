@@ -6,6 +6,7 @@ const TILE_SIZE := 2.0
 
 var tiles: Dictionary = {}
 var _last_positions: Dictionary = {}
+var items: Dictionary = {}
 var astar: AStarGrid2D
 
 func _ready() -> void:
@@ -109,3 +110,19 @@ func has_line_of_sight(from: Vector2i, to: Vector2i) -> bool:
 		if not has_tile_at(check_pos):
 			return false
 	return true
+
+func register_item(pos: Vector2i, item: Node) -> void:
+	if not items.has(pos):
+		items[pos] = []
+	items[pos].append(item)
+
+func unregister_item(pos: Vector2i, item: Node) -> void:
+	if items.has(pos):
+		items[pos].erase(item)
+		if items[pos].is_empty():
+			items.erase(pos)
+
+func get_items_at(pos: Vector2i) -> Array:
+	if items.has(pos):
+		return items[pos].duplicate()
+	return []

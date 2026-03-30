@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://j1b0yoie8suv" path="res://entities/enemies/clippy.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://dhox30yf3go" path="res://entities/interactables/flag.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://dy4tcgrvmxa1v" path="res://entities/interactables/bomb.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://cw24lbg7bpnfv" path="res://entities/interactables/coin.tscn" id="9_kek77"]
 
 [sub_resource type="Environment" id="Environment_0xm2m"]
 background_mode = 1
@@ -119,3 +120,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -28)
 
 [node name="Bomb8" parent="." unique_id=930897943 instance=ExtResource("8_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -26)
+
+[node name="Coins" type="Node3D" parent="." unique_id=526540226]
+
+[node name="Coin" parent="Coins" unique_id=1393749878 instance=ExtResource("9_kek77")]
+grid_path = NodePath("../../Grid")
+
+[node name="Coin2" parent="Coins" unique_id=914349871 instance=ExtResource("9_kek77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+grid_path = NodePath("../../Grid")
+
+[node name="Coin3" parent="Coins" unique_id=1768197335 instance=ExtResource("9_kek77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+grid_path = NodePath("../../Grid")
+
+[node name="Coin4" parent="Coins" unique_id=1428946470 instance=ExtResource("9_kek77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
+grid_path = NodePath("../../Grid")
