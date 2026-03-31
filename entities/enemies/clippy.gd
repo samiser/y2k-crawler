@@ -20,7 +20,11 @@ var _is_moving := false
 var _has_seen_player := false
 var _current_path: Array[Vector2i] = []
 
+var _zap_time := 0
+
 func _ready() -> void:
+	add_to_group("clippy_enemies")
+
 	if grid_path:
 		grid = get_node(grid_path) as Grid
 	if player_path:
@@ -35,14 +39,15 @@ func _ready() -> void:
 	if player:
 		player.moved.connect(_on_player_moved)
 
-func _process(_delta: float) -> void:
-	if Engine.get_frames_drawn() % 30 == 0:
-		_frame = 3 if _frame == 2 else 2
-	sprite.frame = _frame
-
 func _on_player_moved(_player_new_pos: Vector2i) -> void:
 	if not grid or not player or _is_moving:
 		return
+	
+	if _zap_time > 0:
+		_zap_time -= 1
+		return
+	
+	sprite.frame = 2
 
 	if not _has_seen_player:
 		if grid.has_line_of_sight(grid_pos, player.grid_pos):
@@ -79,6 +84,9 @@ func _is_adjacent_to_player() -> bool:
 	return absi(diff.x) + absi(diff.y) == 1
 
 func _catch_player() -> void:
+	if _zap_time > 0:
+		return
+	
 	caught_player.emit()
 	_reset_to_spawn()
 	_teleport_player_to_spawn()
@@ -97,4 +105,5 @@ func _teleport_player_to_spawn() -> void:
 	player.teleport_to(player_spawn, player_spawn_facing, false)
 
 func zapped () -> void:
-	pass
+	_zap_time = 1
+	sprite.frame = 3

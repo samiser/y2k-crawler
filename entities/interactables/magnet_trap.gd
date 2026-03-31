@@ -5,7 +5,7 @@ var grid_path: NodePath
 var grid: Grid
 var grid_pos := Vector2i.ZERO
 var player: Player
-var life : int = 4
+var life : int = 6
 
 @onready var sprite_3d: Sprite3D = $Sprite3D
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
@@ -32,11 +32,13 @@ func _on_player_moved(_player_new_pos: Vector2i) -> void:
 		_zap()
 
 func _zap() -> void:
-	audio_stream_player_3d.play()
+	var zapped : bool = false
 	
 	for coin in get_tree().get_nodes_in_group("coins"):
 		if (coin.global_position.distance_to(global_position) < 6.0):
 			if grid.has_line_of_sight(grid_pos, coin.grid_pos):
+				zapped = true
+				
 				grid.unregister_item(coin.grid_pos, coin)
 				
 				coin.grid_pos = grid_pos
@@ -48,11 +50,17 @@ func _zap() -> void:
 				var tween := get_tree().create_tween()
 				tween.tween_property(coin, "position", grid.grid_to_world(grid_pos) + pos_ran_offset, 0.4)
 	
-	
+	for clippy in get_tree().get_nodes_in_group("clippy_enemies"):
+		if (clippy.global_position.distance_to(global_position) < 3.0):
+			zapped = true
+			clippy.zapped()
 	
 	var tween := get_tree().create_tween()
 	tween.tween_property(sprite_3d, "position:y", 1.2, 0.5)
 	tween.tween_property(sprite_3d, "position:y", 0.5, 0.5)
+	
+	if zapped:
+		audio_stream_player_3d.play()
 
 func _die():
 	queue_free()

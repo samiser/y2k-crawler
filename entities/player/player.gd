@@ -298,6 +298,8 @@ func try_use() -> void:
 		_use_radar()
 	elif selected_item == 2:
 		_use_magnet()
+	
+	moved.emit(grid_pos) # skips a turn, buggy tho
 
 func _try_interact_terminal() -> bool:
 	for terminal in get_tree().get_nodes_in_group("terminals"):
