@@ -2,6 +2,21 @@
 
 [ext_resource type="Texture2D" uid="uid://bayeglcsmc3ae" path="res://sprites/computer_tiles/characters_comp.bmp" id="1_573fp"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3a0vl"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+billboard_mode = 1
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_75q2h"]
+material = SubResource("StandardMaterial3D_3a0vl")
+shape = 0
+size = 0.25
+section_length = 0.05
+
+[sub_resource type="Gradient" id="Gradient_3a0vl"]
+offsets = PackedFloat32Array(0, 0.2122905, 0.5377907, 0.81686044, 0.96511626)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.96862745, 0.16862746, 1, 0.94970447, 0.51853645, 1.1551381e-06, 1, 0.9381737, 0, 0.26950076, 1, 0.29803923, 0, 0.05882353, 1)
+
 [node name="Bomb" type="Node3D" unique_id=938119711]
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1213064311]
@@ -14,3 +29,17 @@ render_priority = 1
 texture = ExtResource("1_573fp")
 hframes = 10
 frame = 5
+
+[node name="GPUParticles3D" type="CPUParticles3D" parent="." unique_id=811969210]
+emitting = false
+amount = 50
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 30
+visibility_aabb = AABB(-4, -4, -4, 8, 8, 8)
+mesh = SubResource("RibbonTrailMesh_75q2h")
+direction = Vector3(0, 1, 0)
+initial_velocity_max = 20.0
+scale_amount_min = 0.4
+scale_amount_max = 1.2
+color_ramp = SubResource("Gradient_3a0vl")
