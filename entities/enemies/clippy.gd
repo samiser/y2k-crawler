@@ -95,3 +95,6 @@ func _reset_to_spawn() -> void:
 
 func _teleport_player_to_spawn() -> void:
 	player.teleport_to(player_spawn, player_spawn_facing, false)
+
+func zapped () -> void:
+	pass

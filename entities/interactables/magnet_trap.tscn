@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bxow4aj4a0l4f" path="res://entities/interactables/magnet_trap.gd" id="1_ej778"]
 [ext_resource type="Texture2D" uid="uid://bqw2f2uuawpep" path="res://Sprites/computer_tiles/world_items_tilemap.bmp" id="2_ontd4"]
+[ext_resource type="AudioStream" uid="uid://cqg4menjt705v" path="res://Audio/Tools/magnet_zap.mp3" id="3_ontd4"]
 
-[node name="Coin" type="Node3D" unique_id=1393749878]
+[node name="Magnet" type="Node3D" unique_id=1393749878]
 script = ExtResource("1_ej778")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=399655901]
@@ -13,3 +14,7 @@ texture_filter = 0
 texture = ExtResource("2_ontd4")
 hframes = 4
 frame = 2
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1650304741]
+stream = ExtResource("3_ontd4")
+max_distance = 10.0
