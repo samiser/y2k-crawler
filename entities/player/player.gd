@@ -29,6 +29,8 @@ var selected_item: int = -1
 @onready var camera_3d: Camera3D = $Camera3D
 @onready var radar: Panel = %Radar
 @onready var radar_camera: Camera3D = %RadarCamera
+@onready var radar_viewport: SubViewport = %RadarViewport
+@onready var radar_image: TextureRect = %RadarImage
 @onready var log_v_container: VBoxContainer = %LogVContainer
 @onready var log_text: Label = %LogText
 
@@ -355,11 +357,21 @@ func _use_magnet() -> void:
 func _use_radar() -> void:
 	if radar_tween and radar_tween.is_running():
 		radar_tween.kill()
-		
+
+	_sync_radar_camera()
+
+	# Force viewport to render and capture the image
+	radar_viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
+	await RenderingServer.frame_post_draw
+
+	var image := radar_viewport.get_texture().get_image()
+	var texture := ImageTexture.create_from_image(image)
+	radar_image.texture = texture
+
+	# Show and fade out the radar
+	radar.modulate.a = 1
 	radar_tween = create_tween()
 	radar_tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
-	_sync_radar_camera()
-	radar.modulate.a = 1
 	radar_tween.tween_property(radar, "modulate:a", 0, 2)
 	add_log("Used radar!")
 
