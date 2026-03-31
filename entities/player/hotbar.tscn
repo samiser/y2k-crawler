@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cx8ftsioisf2d"]
 
-[ext_resource type="Texture2D" uid="uid://ccbllve56rue0" path="res://unfocus.png" id="1_3h10k"]
+[ext_resource type="Texture2D" uid="uid://ccbllve56rue0" path="res://sprites/ui/panel.png" id="1_3h10k"]
 [ext_resource type="Script" uid="uid://dvij4g3fdycty" path="res://entities/player/hotbar.gd" id="1_g81lv"]
 [ext_resource type="Texture2D" uid="uid://bqw2f2uuawpep" path="res://sprites/computer_tiles/world_items_tilemap.bmp" id="1_qsqat"]
-[ext_resource type="FontFile" uid="uid://bln26fp864yte" path="res://ms-tahoma-bold-8px.ttf" id="2_sv82c"]
+[ext_resource type="FontFile" uid="uid://bln26fp864yte" path="res://fonts/ms-tahoma-bold-8px.ttf" id="2_sv82c"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bectd"]
 texture = ExtResource("1_3h10k")

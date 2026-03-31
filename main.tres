@@ -1,17 +1,75 @@
 [gd_resource type="Theme" format=3 uid="uid://03s0vxym15s7"]
 
-[ext_resource type="Texture2D" uid="uid://ccbllve56rue0" path="res://unfocus.png" id="1_vmmo2"]
-[ext_resource type="FontFile" uid="uid://bln26fp864yte" path="res://ms-tahoma-bold-8px.ttf" id="2_0ru1r"]
+[ext_resource type="Texture2D" uid="uid://br8b4o6abopks" path="res://sprites/ui/button/focus.png" id="1_uxqhr"]
+[ext_resource type="FontFile" uid="uid://bln26fp864yte" path="res://fonts/ms-tahoma-bold-8px.ttf" id="2_0ru1r"]
+[ext_resource type="Texture2D" uid="uid://o18owdxisgiw" path="res://sprites/ui/window/close.png" id="2_oblph"]
+[ext_resource type="Texture2D" uid="uid://csgkbwop5vad5" path="res://sprites/ui/button/normal.png" id="2_tcxlh"]
+[ext_resource type="Texture2D" uid="uid://bqw1kodvgig78" path="res://sprites/ui/button/pressed.png" id="3_csr5i"]
+[ext_resource type="Texture2D" uid="uid://0j1oq02ocb3x" path="res://sprites/ui/window/close_hover.png" id="3_v11j8"]
+[ext_resource type="Texture2D" uid="uid://ccydsiymdqrdc" path="res://sprites/ui/window/focused.png" id="4_5i7ek"]
+[ext_resource type="Texture2D" uid="uid://ccbllve56rue0" path="res://sprites/ui/panel.png" id="4_80nxt"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bectd"]
-texture = ExtResource("1_vmmo2")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uxqhr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mfmrj"]
+texture = ExtResource("1_uxqhr")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qhcnt"]
+texture = ExtResource("2_tcxlh")
 texture_margin_left = 3.0
 texture_margin_top = 3.0
 texture_margin_right = 3.0
 texture_margin_bottom = 3.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v2gh7"]
+texture = ExtResource("3_csr5i")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bectd"]
+texture = ExtResource("4_80nxt")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uxqhr"]
+texture = ExtResource("4_5i7ek")
+texture_margin_left = 3.0
+texture_margin_top = 8.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+expand_margin_left = 6.0
+expand_margin_top = 32.0
+expand_margin_right = 6.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tcxlh"]
+texture = ExtResource("4_80nxt")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+expand_margin_left = 6.0
+expand_margin_top = 32.0
+expand_margin_right = 6.0
+expand_margin_bottom = 24.0
+
 [resource]
 default_font = ExtResource("2_0ru1r")
+Button/styles/disabled = SubResource("StyleBoxEmpty_uxqhr")
+Button/styles/focus = SubResource("StyleBoxTexture_mfmrj")
+Button/styles/hover = SubResource("StyleBoxTexture_qhcnt")
+Button/styles/normal = SubResource("StyleBoxTexture_qhcnt")
+Button/styles/pressed = SubResource("StyleBoxTexture_v2gh7")
 HBoxContainer/constants/separation = 0
 MarginContainer/constants/margin_bottom = 2
 MarginContainer/constants/margin_left = 2
@@ -19,3 +77,10 @@ MarginContainer/constants/margin_right = 2
 MarginContainer/constants/margin_top = 2
 Panel/styles/panel = SubResource("StyleBoxTexture_bectd")
 VBoxContainer/constants/separation = 0
+Window/constants/close_h_offset = 19
+Window/constants/close_v_offset = 25
+Window/constants/title_height = 32
+Window/icons/close = ExtResource("2_oblph")
+Window/icons/close_pressed = ExtResource("3_v11j8")
+Window/styles/embedded_border = SubResource("StyleBoxTexture_uxqhr")
+Window/styles/embedded_unfocused_border = SubResource("StyleBoxTexture_tcxlh")

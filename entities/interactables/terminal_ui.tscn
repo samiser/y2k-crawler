@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://xw7oxh0nwkum"]
 
-[ext_resource type="FontFile" uid="uid://bln26fp864yte" path="res://ms-tahoma-bold-8px.ttf" id="1_1el53"]
+[ext_resource type="FontFile" uid="uid://bln26fp864yte" path="res://fonts/ms-tahoma-bold-8px.ttf" id="1_1el53"]
+[ext_resource type="Theme" uid="uid://03s0vxym15s7" path="res://main.tres" id="1_8cg8g"]
 [ext_resource type="PackedScene" uid="uid://dopuhq8tj0a7m" path="res://entities/interactables/terminal_item.tscn" id="1_i11bv"]
 [ext_resource type="Script" uid="uid://d1o4o8ngf0hde" path="res://entities/interactables/terminal_ui.gd" id="1_mk060"]
 
@@ -15,7 +16,7 @@ size = Vector2i(320, 191)
 unresizable = true
 always_on_top = true
 sharp_corners = true
-theme = SubResource("Theme_8cg8g")
+theme = ExtResource("1_8cg8g")
 theme_override_fonts/title_font = ExtResource("1_1el53")
 script = ExtResource("1_mk060")
 

@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bln26fp864yte"
-path="res://.godot/imported/ms-tahoma-bold-8px.ttf-b7d51073aa3d60b9513e9866a183d4c6.fontdata"
+path="res://.godot/imported/ms-tahoma-bold-8px.ttf-ba250ceefa198826fc1c340057ddd0db.fontdata"
 
 [deps]
 
-source_file="res://ms-tahoma-bold-8px.ttf"
-dest_files=["res://.godot/imported/ms-tahoma-bold-8px.ttf-b7d51073aa3d60b9513e9866a183d4c6.fontdata"]
+source_file="res://fonts/ms-tahoma-bold-8px.ttf"
+dest_files=["res://.godot/imported/ms-tahoma-bold-8px.ttf-ba250ceefa198826fc1c340057ddd0db.fontdata"]
 
 [params]
 
