@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://ditrytb3g73sj"]
 
 [ext_resource type="Script" uid="uid://1akmqij867mu" path="res://entities/player/player.gd" id="1_player"]
-[ext_resource type="Texture2D" uid="uid://4vf8i4gvx5p7" path="res://Sprites/computer_tiles/fp_items_comp.bmp" id="2_abrql"]
+[ext_resource type="Texture2D" uid="uid://4vf8i4gvx5p7" path="res://sprites/computer_tiles/fp_items_comp.bmp" id="2_abrql"]
+[ext_resource type="Theme" uid="uid://03s0vxym15s7" path="res://main.tres" id="2_qiwj3"]
 [ext_resource type="PackedScene" uid="uid://cx8ftsioisf2d" path="res://entities/player/hotbar.tscn" id="3_bls4j"]
-[ext_resource type="Texture2D" uid="uid://bcqk21okdu04r" path="res://Sprites/computer_tiles/radar_comp.bmp" id="3_fkugw"]
+[ext_resource type="Texture2D" uid="uid://bcqk21okdu04r" path="res://sprites/computer_tiles/radar_comp.bmp" id="3_fkugw"]
 [ext_resource type="PackedScene" uid="uid://xw7oxh0nwkum" path="res://entities/interactables/terminal_ui.tscn" id="3_sglur"]
-[ext_resource type="Texture2D" uid="uid://cp1twbyeq1uh6" path="res://Sprites/player_tilemap.bmp" id="4_8fjmc"]
+[ext_resource type="Texture2D" uid="uid://cp1twbyeq1uh6" path="res://sprites/player_tilemap.bmp" id="4_8fjmc"]
 
 [node name="Player" type="Node3D" unique_id=1850440213]
 script = ExtResource("1_player")
@@ -23,39 +24,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="CoinLabel" type="Label" parent="HUD" unique_id=499906734]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -80.0
-offset_top = 5.0
-offset_right = -5.0
-offset_bottom = 25.0
-grow_horizontal = 0
-theme_override_font_sizes/font_size = 12
-text = "Coins: 0"
-horizontal_alignment = 2
-
-[node name="WeaponControl" type="Control" parent="HUD" unique_id=1869577043]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 0
-grow_vertical = 0
-pivot_offset = Vector2(0, 64)
-
-[node name="FpSprite" type="Sprite2D" parent="HUD/WeaponControl" unique_id=338462822]
-position = Vector2(-128, -128)
-scale = Vector2(2, 2)
-texture = ExtResource("2_abrql")
-hframes = 6
+theme = ExtResource("2_qiwj3")
 
 [node name="RadarControl" type="Control" parent="HUD" unique_id=499313790]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -66,31 +38,165 @@ grow_vertical = 0
 pivot_offset = Vector2(0, 64)
 
 [node name="RadarSprite" type="Sprite2D" parent="HUD/RadarControl" unique_id=901316574]
+unique_name_in_owner = true
 position = Vector2(64, 64)
 texture = ExtResource("3_fkugw")
 hframes = 2
 
-[node name="PlayerControl" type="Control" parent="HUD" unique_id=564056932]
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD" unique_id=663499705]
 layout_mode = 1
-anchors_preset = 0
-offset_left = 32.0
-offset_right = 32.0
-pivot_offset = Vector2(0, 64)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="HUD/VBoxContainer" unique_id=628652925]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer/Control" unique_id=45642752]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 66.0
+grow_horizontal = 2
+
+[node name="PlayerControl" type="Panel" parent="HUD/VBoxContainer/Control/HBoxContainer" unique_id=1701593848]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
 mouse_filter = 2
 
-[node name="PlayerSprite" type="Sprite2D" parent="HUD/PlayerControl" unique_id=475688352]
-position = Vector2(0, 32)
+[node name="MarginContainer" type="MarginContainer" parent="HUD/VBoxContainer/Control/HBoxContainer/PlayerControl" unique_id=57669689]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="HUD/VBoxContainer/Control/HBoxContainer/PlayerControl/MarginContainer" unique_id=575866393]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="HUD/VBoxContainer/Control/HBoxContainer/PlayerControl/MarginContainer/Control" unique_id=2056419840]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerSprite" type="Sprite2D" parent="HUD/VBoxContainer/Control/HBoxContainer/PlayerControl/MarginContainer/Control/Control" unique_id=475688352]
+unique_name_in_owner = true
 texture = ExtResource("4_8fjmc")
 hframes = 7
 
-[node name="Hotbar" parent="HUD" unique_id=1306635365 instance=ExtResource("3_bls4j")]
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/VBoxContainer/Control/HBoxContainer" unique_id=309611945]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Middle" type="Panel" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer" unique_id=1190324011]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/Middle" unique_id=2032475405]
 layout_mode = 1
-anchors_preset = 5
-anchor_top = 0.0
-anchor_bottom = 0.0
-grow_vertical = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/Middle/MarginContainer" unique_id=697392698]
+layout_mode = 2
+
+[node name="Hotbar" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/Middle/MarginContainer/HBoxContainer" unique_id=1306635365 instance=ExtResource("3_bls4j")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer" unique_id=1659313851]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/Panel" unique_id=951548119]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/Panel/MarginContainer" unique_id=2046777906]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LogVContainer" type="VBoxContainer" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer" unique_id=1941822468]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LogText" type="Label" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/LogVContainer" unique_id=1497883809]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "message goes here..."
+
+[node name="Right" type="Panel" parent="HUD/VBoxContainer/Control/HBoxContainer" unique_id=216829527]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="CoinLabel" type="Label" parent="HUD/VBoxContainer/Control/HBoxContainer/Right" unique_id=499906734]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -7.0
+offset_right = 23.5
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Coins: 0"
+horizontal_alignment = 2
+
+[node name="WeaponControl" type="Control" parent="HUD/VBoxContainer" unique_id=1869577043]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="HUD/VBoxContainer/WeaponControl" unique_id=1789997856]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="FpSprite" type="Sprite2D" parent="HUD/VBoxContainer/WeaponControl/Control" unique_id=338462822]
+unique_name_in_owner = true
+position = Vector2(-128, -128)
+scale = Vector2(2, 2)
+texture = ExtResource("2_abrql")
+hframes = 6
 
 [node name="FadeRect" type="ColorRect" parent="HUD" unique_id=955137656]
+unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -99,17 +205,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="LogVContainer" type="VBoxContainer" parent="HUD" unique_id=1941822468]
-layout_mode = 1
-offset_top = 64.0
-offset_right = 40.0
-offset_bottom = 104.0
-
-[node name="LogText" type="Label" parent="HUD/LogVContainer" unique_id=1497883809]
-layout_mode = 2
-theme_override_font_sizes/font_size = 8
-text = "message goes here..."
 
 [node name="TerminalUI" parent="." unique_id=361108045 instance=ExtResource("3_sglur")]
 visible = false
