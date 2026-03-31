@@ -19,7 +19,7 @@ var coins := 100
 var unlocked_items: Array = []
 var selected_item: int = -1
 
-var energy := 20:
+var energy := 30:
 	set(value):
 		if value < 0:
 			value = 0
@@ -27,9 +27,9 @@ var energy := 20:
 		if energy_bar:
 			energy_bar.value = energy
 		if energy == 0:
-			print("no energy!!")
+			_on_energy_depleted()
 
-var max_energy := 20:
+var max_energy := 30:
 	set(value):
 		max_energy = value
 		if energy_bar:
@@ -53,6 +53,13 @@ var max_energy := 20:
 
 var magnet_trap_scene := preload("res://entities/interactables/magnet_trap.tscn")
 var magnet_placed : bool = false
+
+var last_terminal_pos: Vector2i
+var last_terminal_facing: Facing
+var has_used_terminal: bool = false
+
+var spawn_pos: Vector2i
+var spawn_facing: Facing
 
 @onready var player_sprite: Sprite2D = %PlayerSprite
 var face_frame : int = 0
@@ -94,7 +101,9 @@ func _ready() -> void:
 		terminal_ui.closed.connect(_on_terminal_closed)
 	if hotbar:
 		hotbar.item_selected.connect(_on_item_selected)
-	
+
+	spawn_pos = grid_pos
+	spawn_facing = facing
 	teleport_to(grid_pos, facing, true)
 
 func _process(_delta: float) -> void:
@@ -250,6 +259,16 @@ func teleport_to(new_grid_pos: Vector2i, direction: Facing, skip_intro: bool) ->
 	_teleporting = false
 	override_face = false
 
+func _on_energy_depleted() -> void:
+	add_log("Out of energy! Returning to terminal...")
+	teleport_to_checkpoint()
+
+func teleport_to_checkpoint() -> void:
+	var target_pos := last_terminal_pos if has_used_terminal else spawn_pos
+	var target_facing := last_terminal_facing if has_used_terminal else spawn_facing
+	energy = max_energy
+	teleport_to(target_pos, target_facing, false)
+
 func _set_rotation_y(value: float) -> void:
 	rotation.y = value
 
@@ -345,9 +364,27 @@ func try_use() -> void:
 func _try_interact_terminal() -> bool:
 	for terminal in get_tree().get_nodes_in_group("terminals"):
 		if terminal.is_at(grid_pos):
+			var terminal_facing := _angle_to_facing(terminal.rotation.y)
+			if facing != terminal_facing:
+				continue
+			last_terminal_pos = grid_pos
+			last_terminal_facing = terminal_facing
+			has_used_terminal = true
+			energy = max_energy
 			open_terminal_ui()
 			return true
 	return false
+
+func _angle_to_facing(angle: float) -> Facing:
+	angle = wrapf(angle, -PI, PI)
+	if angle > 3.0 * PI / 4.0 or angle < -3.0 * PI / 4.0:
+		return Facing.NORTH
+	elif angle > PI / 4.0:
+		return Facing.EAST
+	elif angle < -PI / 4.0:
+		return Facing.WEST
+	else:
+		return Facing.SOUTH
 
 func _try_interact_msn() -> bool:
 	var facing_pos: Vector2i = grid_pos + FACING_TO_DIRECTION[facing]

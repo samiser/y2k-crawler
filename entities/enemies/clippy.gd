@@ -7,8 +7,6 @@ signal caught_player
 
 @export var grid_path: NodePath
 @export var player_path: NodePath
-@export var player_spawn: Vector2i
-@export var player_spawn_facing: Player.Facing
 @export var move_duration := 0.2
 
 var grid: Grid
@@ -102,7 +100,7 @@ func _reset_to_spawn() -> void:
 	_current_path.clear()
 
 func _teleport_player_to_spawn() -> void:
-	player.teleport_to(player_spawn, player_spawn_facing, false)
+	player.teleport_to_checkpoint()
 
 func zapped () -> void:
 	_zap_time = 1

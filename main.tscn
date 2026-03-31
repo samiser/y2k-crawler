@@ -59,7 +59,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4, 
 grid_path = NodePath("../Grid")
 
 [node name="Terminal2" parent="." unique_id=1657844887 instance=ExtResource("4_1bvp3")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -22, 0, -14)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -12, 0, -2)
 grid_path = NodePath("../Grid")
 
 [node name="Barrier" parent="." unique_id=713112690 instance=ExtResource("5_lquwl")]
@@ -76,7 +76,6 @@ player_path = NodePath("../Player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.274097, 0, 17.772879)
 grid_path = NodePath("../Grid")
 player_path = NodePath("../Player")
-player_spawn = Vector2i(-7, 0)
 
 [node name="Flag" parent="." unique_id=1376559638 instance=ExtResource("7_272bh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -20)
