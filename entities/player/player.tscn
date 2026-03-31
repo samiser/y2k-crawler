@@ -62,6 +62,7 @@ grow_vertical = 2
 texture = ExtResource("3_fkugw")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="HUD/Radar" unique_id=1075356106]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,19 +71,30 @@ grow_horizontal = 2
 grow_vertical = 2
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="HUD/Radar/SubViewportContainer" unique_id=2024693605]
+[node name="RadarViewport" type="SubViewport" parent="HUD/Radar/SubViewportContainer" unique_id=2024693605]
+unique_name_in_owner = true
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(128, 128)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
-[node name="RadarCamera" type="Camera3D" parent="HUD/Radar/SubViewportContainer/SubViewport" unique_id=1276059117]
+[node name="RadarCamera" type="Camera3D" parent="HUD/Radar/SubViewportContainer/RadarViewport" unique_id=1276059117]
 unique_name_in_owner = true
 transform = Transform3D(1, -1.7484555e-07, -1.5285482e-14, 7.642742e-15, -4.371138e-08, 1, -1.7484555e-07, -1, -4.371138e-08, 0, 4, 0)
 cull_mask = 1048574
 environment = SubResource("Environment_qiwj3")
 projection = 1
-size = 18.0
+size = 14.0
+
+[node name="RadarImage" type="TextureRect" parent="HUD/Radar" unique_id=93904593]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD" unique_id=663499705]
 layout_mode = 1
