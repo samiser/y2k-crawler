@@ -19,6 +19,22 @@ var coins := 100
 var unlocked_items: Array = []
 var selected_item: int = -1
 
+var energy := 20:
+	set(value):
+		if value < 0:
+			value = 0
+		energy = value
+		if energy_bar:
+			energy_bar.value = energy
+		if energy == 0:
+			print("no energy!!")
+
+var max_energy := 20:
+	set(value):
+		max_energy = value
+		if energy_bar:
+			energy_bar.max_value = max_energy
+
 @onready var player_sfx_stream: AudioStreamPlayer2D = $PlayerSfxStream
 
 @onready var coin_label: Label = %CoinLabel
@@ -33,6 +49,7 @@ var selected_item: int = -1
 @onready var radar_image: TextureRect = %RadarImage
 @onready var log_v_container: VBoxContainer = %LogVContainer
 @onready var log_text: Label = %LogText
+@onready var energy_bar: TextureProgressBar = %EnergyBar
 
 var magnet_trap_scene := preload("res://entities/interactables/magnet_trap.tscn")
 var magnet_placed : bool = false
@@ -63,6 +80,9 @@ func _ready() -> void:
 	fp_sprite.position.y = 128.0
 	
 	log_text.visible = false
+	
+	energy_bar.value = energy
+	energy_bar.max_value = max_energy
 	
 	if grid_path:
 		grid = get_node(grid_path) as Grid
@@ -137,6 +157,7 @@ func try_move(direction: Vector2i) -> void:
 	if is_blocked(new_grid_pos):
 		return
 
+	energy -= 1
 	grid_pos = new_grid_pos
 	var target_position := grid.grid_to_world(grid_pos)
 	target_position.y = position.y
@@ -292,7 +313,7 @@ func remove_item(item: int) -> void:
 	if item in unlocked_items:
 		unlocked_items.remove_at(item)
 		if hotbar:
-			hotbar.set_unlocked(unlocked_items)		
+			hotbar.set_unlocked(unlocked_items)
 		
 		if selected_item == item:
 			fp_sprite.visible = false
@@ -318,6 +339,7 @@ func try_use() -> void:
 	
 	if valid:
 		moved.emit(grid_pos) # skips a turn, buggy tho
+		energy -= 2
 		_play_use_animation()
 
 func _try_interact_terminal() -> bool:
