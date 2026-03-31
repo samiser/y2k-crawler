@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://j1b0yoie8suv"]
 
 [ext_resource type="Script" uid="uid://cmekgcrb7mfq8" path="res://entities/enemies/clippy.gd" id="1_efmc1"]
-[ext_resource type="Texture2D" uid="uid://bayeglcsmc3ae" path="res://sprites/computer_tiles/characters_comp.bmp" id="2_qs21v"]
+[ext_resource type="Texture2D" uid="uid://bayeglcsmc3ae" path="res://Sprites/computer_tiles/characters_comp.bmp" id="2_qs21v"]
 
 [node name="Clippy" type="Node3D" unique_id=1408575202]
 script = ExtResource("1_efmc1")
@@ -12,5 +12,5 @@ pixel_size = 0.02085
 billboard = 2
 texture_filter = 0
 texture = ExtResource("2_qs21v")
-hframes = 6
+hframes = 10
 frame = 2

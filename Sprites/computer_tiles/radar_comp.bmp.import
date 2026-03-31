@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcqk21okdu04r"
-path="res://.godot/imported/radar_comp.bmp-e50f9d9b38e6a72e537e19011026a434.ctex"
+path="res://.godot/imported/radar_comp.bmp-00afbe62ab25e81c34ca5e8422e0291b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/computer_tiles/radar_comp.bmp"
-dest_files=["res://.godot/imported/radar_comp.bmp-e50f9d9b38e6a72e537e19011026a434.ctex"]
+source_file="res://Sprites/computer_tiles/radar_comp.bmp"
+dest_files=["res://.godot/imported/radar_comp.bmp-00afbe62ab25e81c34ca5e8422e0291b.ctex"]
 
 [params]
 
