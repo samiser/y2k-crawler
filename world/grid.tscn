@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cwxcm7e3cvlhm" path="res://world/tile.tscn" id="1_ebq2e"]
 [ext_resource type="Script" uid="uid://xp1fw6iv26tj" path="res://world/grid.gd" id="2_grid"]
+[ext_resource type="PackedScene" uid="uid://c8h1sodkn5sg7" path="res://entities/interactables/coin.tscn" id="3_dqius"]
 
 [node name="Grid" type="Node3D" unique_id=1197692489]
 script = ExtResource("2_grid")
@@ -77,6 +78,126 @@ show_roof = false
 
 [node name="Tile12" parent="." unique_id=1028261308 instance=ExtResource("1_ebq2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+north_frame = 3
+south_frame = 3
+east_frame = 3
+west_frame = 3
+floor_frame = 4
+ceiling_frame = 5
+show_roof = false
+
+[node name="Tile17" parent="." unique_id=2070230233 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 6)
+north_frame = 3
+south_frame = 3
+east_frame = 3
+west_frame = 3
+floor_frame = 4
+ceiling_frame = 5
+show_roof = false
+
+[node name="Tile162" parent="." unique_id=1717879567 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 6)
+north_frame = 3
+south_frame = 3
+east_frame = 3
+west_frame = 3
+floor_frame = 4
+ceiling_frame = 5
+show_roof = false
+
+[node name="Tile163" parent="." unique_id=1098493437 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+north_frame = 3
+south_frame = 3
+east_frame = 3
+west_frame = 3
+floor_frame = 4
+ceiling_frame = 5
+show_roof = false
+
+[node name="Tile164" parent="." unique_id=950314141 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 8)
+north_frame = 3
+south_frame = 3
+east_frame = 3
+west_frame = 3
+floor_frame = 4
+ceiling_frame = 5
+show_roof = false
+
+[node name="Tile167" parent="." unique_id=1524945519 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 4)
+north_frame = 3
+south_frame = 3
+east_frame = 3
+west_frame = 3
+floor_frame = 4
+ceiling_frame = 5
+show_roof = false
+
+[node name="Tile168" parent="." unique_id=1630390722 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 6)
+north_frame = 3
+south_frame = 3
+east_frame = 3
+west_frame = 3
+floor_frame = 4
+ceiling_frame = 5
+show_roof = false
+
+[node name="Tile169" parent="." unique_id=997455288 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 8)
+north_frame = 3
+south_frame = 3
+east_frame = 3
+west_frame = 3
+floor_frame = 4
+ceiling_frame = 5
+show_roof = false
+
+[node name="Tile170" parent="." unique_id=369022679 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 4)
+north_frame = 3
+south_frame = 3
+east_frame = 3
+west_frame = 3
+floor_frame = 4
+ceiling_frame = 5
+show_roof = false
+
+[node name="Tile171" parent="." unique_id=1297201481 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 6)
+north_frame = 3
+south_frame = 3
+east_frame = 3
+west_frame = 3
+floor_frame = 4
+ceiling_frame = 5
+show_roof = false
+
+[node name="Tile172" parent="." unique_id=475822786 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 8)
+north_frame = 3
+south_frame = 3
+east_frame = 3
+west_frame = 3
+floor_frame = 4
+ceiling_frame = 5
+show_roof = false
+
+[node name="Tile165" parent="." unique_id=166024090 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 8)
+north_frame = 3
+south_frame = 3
+east_frame = 3
+west_frame = 3
+floor_frame = 4
+ceiling_frame = 5
+show_roof = false
+
+[node name="Tile166" parent="." unique_id=2078987782 instance=ExtResource("1_ebq2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
 north_frame = 3
 south_frame = 3
 east_frame = 3
@@ -1564,3 +1685,51 @@ show_roof = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
 floor_frame = 1
 show_roof = false
+
+[node name="Coin" parent="." unique_id=1393749878 instance=ExtResource("3_dqius")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 6)
+grid_path = NodePath("..")
+
+[node name="Coin2" parent="." unique_id=1528289491 instance=ExtResource("3_dqius")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 6)
+grid_path = NodePath("..")
+
+[node name="Coin3" parent="." unique_id=1235885497 instance=ExtResource("3_dqius")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 6)
+grid_path = NodePath("..")
+
+[node name="Coin4" parent="." unique_id=390635838 instance=ExtResource("3_dqius")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 8)
+grid_path = NodePath("..")
+
+[node name="Coin5" parent="." unique_id=2140402048 instance=ExtResource("3_dqius")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 8)
+grid_path = NodePath("..")
+
+[node name="Coin6" parent="." unique_id=146269102 instance=ExtResource("3_dqius")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 8)
+grid_path = NodePath("..")
+
+[node name="Coin7" parent="." unique_id=793792963 instance=ExtResource("3_dqius")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 8)
+grid_path = NodePath("..")
+
+[node name="Coin8" parent="." unique_id=1452346375 instance=ExtResource("3_dqius")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+grid_path = NodePath("..")
+
+[node name="Coin9" parent="." unique_id=1242008902 instance=ExtResource("3_dqius")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+grid_path = NodePath("..")
+
+[node name="Coin10" parent="." unique_id=2125872527 instance=ExtResource("3_dqius")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+grid_path = NodePath("..")
+
+[node name="Coin11" parent="." unique_id=578598379 instance=ExtResource("3_dqius")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 4)
+grid_path = NodePath("..")
+
+[node name="Coin12" parent="." unique_id=1027775540 instance=ExtResource("3_dqius")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 4)
+grid_path = NodePath("..")
