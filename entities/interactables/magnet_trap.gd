@@ -6,6 +6,7 @@ var grid: Grid
 var grid_pos := Vector2i.ZERO
 var player: Player
 var life : int = 6
+var tween : Tween
 
 @onready var sprite_3d: Sprite3D = $Sprite3D
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
@@ -47,7 +48,7 @@ func _zap() -> void:
 				var pos_ran_offset : Vector3 = Vector3(randf_range(-ran_offset_magnitude, ran_offset_magnitude), 0, randf_range(-ran_offset_magnitude, ran_offset_magnitude))
 				grid.register_item(grid_pos, coin)
 				
-				var tween := get_tree().create_tween()
+				tween = get_tree().create_tween()
 				tween.tween_property(coin, "position", grid.grid_to_world(grid_pos) + pos_ran_offset, 0.4)
 	
 	for clippy in get_tree().get_nodes_in_group("clippy_enemies"):
@@ -55,14 +56,26 @@ func _zap() -> void:
 			zapped = true
 			clippy.zapped()
 	
-	var tween := get_tree().create_tween()
-	tween.tween_property(sprite_3d, "position:y", 1.2, 0.5)
-	tween.tween_property(sprite_3d, "position:y", 0.5, 0.5)
+	tween = get_tree().create_tween()
+	tween.tween_property(sprite_3d, "position:y", 1.0, 0.2)
+	tween.tween_property(sprite_3d, "position:y", 0.5, 0.2)
 	
 	if zapped:
 		audio_stream_player_3d.play()
 
 func _die():
+	remove_from_group("magnets")
+	
+	if tween and tween.is_running():
+		tween.kill()
+		
+	sprite_3d.position = Vector3(0.0, 0.5, 0.0)
+	
+	tween = get_tree().create_tween()
+	tween.tween_property(sprite_3d, "global_position", player.global_position + Vector3.UP, 0.5)
+	await tween.finished
+	
+	player.recover_magnet()
 	queue_free()
 
 func _exit_tree() -> void:

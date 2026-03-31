@@ -35,6 +35,7 @@ var selected_item: int = -1
 @onready var log_text: Label = %LogText
 
 var magnet_trap_scene := preload("res://entities/interactables/magnet_trap.tscn")
+var magnet_placed : bool = false
 
 @onready var player_sprite: Sprite2D = %PlayerSprite
 var face_frame : int = 0
@@ -260,6 +261,9 @@ func _on_item_selected(item: int, force: bool) -> void:
 		fp_sprite.visible = true
 		fp_sprite.frame = (item + 1) * 2 - 2
 		
+		if item == 2 and magnet_placed:
+			fp_sprite.frame = 5
+		
 		var tween := get_tree().create_tween() # raise weapon sprite
 		tween.tween_property(fp_sprite, "position:y", -120.0, 0.4)
 		await tween.finished
@@ -283,7 +287,16 @@ func unlock_item(item: int) -> void:
 		await timer.timeout
 		player_sprite.frame = 0
 		override_face = false
+
+func remove_item(item: int) -> void:
+	if item in unlocked_items:
+		unlocked_items.remove_at(item)
+		if hotbar:
+			hotbar.set_unlocked(unlocked_items)		
 		
+		if selected_item == item:
+			fp_sprite.visible = false
+			selected_item = -1
 
 func try_use() -> void:
 	if _try_interact_terminal():
@@ -292,16 +305,20 @@ func try_use() -> void:
 		return
 	if selected_item < 0:
 		return
-	_play_use_animation()
 
-	if selected_item == 0:
-		_use_water_gun()
-	elif selected_item == 1:
-		_use_radar()
-	elif selected_item == 2:
-		_use_magnet()
 	
-	moved.emit(grid_pos) # skips a turn, buggy tho
+	var valid : bool = false
+	
+	if selected_item == 0:
+		valid = _use_water_gun()
+	elif selected_item == 1:
+		valid = await _use_radar()
+	elif selected_item == 2:
+		valid = _use_magnet()
+	
+	if valid:
+		moved.emit(grid_pos) # skips a turn, buggy tho
+		_play_use_animation()
 
 func _try_interact_terminal() -> bool:
 	for terminal in get_tree().get_nodes_in_group("terminals"):
@@ -323,9 +340,10 @@ func _play_use_animation() -> void:
 		return
 	var base_frame: int = (selected_item + 1) * 2 - 2
 	fp_sprite.frame = base_frame + 1
-	get_tree().create_timer(0.15).timeout.connect(func(): fp_sprite.frame = base_frame)
+	if selected_item != 2: # magnet
+		get_tree().create_timer(0.15).timeout.connect(func(): fp_sprite.frame = base_frame)
 
-func _use_water_gun() -> void:
+func _use_water_gun():
 	player_sfx_stream.stream = load("res://Audio/Tools/water_spray.mp3")
 	player_sfx_stream.play()
 	
@@ -334,17 +352,27 @@ func _use_water_gun() -> void:
 		if enemy.is_at(target_pos):
 			enemy.stun(4)
 			add_log("You stunned Firewall for 4 turns!")
-			return
+			return true
+	return true
 
-func _use_magnet() -> void:
+func _use_magnet():
+	if magnet_placed:
+		add_log("You already placed dropped your magnet!")
+		return false
+		
+	var target_pos: Vector2i = grid_pos + FACING_TO_DIRECTION[facing]
+	
+	if not grid.has_tile_at(target_pos):
+		add_log("You can't place a magnet there!")
+		return false
+	
 	player_sfx_stream.stream = load("res://Audio/Tools/magnet_zap.mp3")
 	player_sfx_stream.play()
 	
-	var target_pos: Vector2i = grid_pos + FACING_TO_DIRECTION[facing]
 	for magnet in get_tree().get_nodes_in_group("magnets"):
 		if magnet.is_at(target_pos):
 			add_log("You already placed a magnet there!")
-			return
+			return false
 	
 	add_log("You placed a magnet down!")
 	
@@ -353,8 +381,21 @@ func _use_magnet() -> void:
 	magnet.grid_path = grid.get_path()
 	magnet.position = grid.grid_to_world(target_pos)
 	get_tree().root.add_child(magnet)
+	magnet_placed = true
+	
+	return true
 
-func _use_radar() -> void:
+func recover_magnet() -> void:
+	magnet_placed = false
+	if selected_item == 2:
+		fp_sprite.frame = 4
+	
+	player_sfx_stream.stream = load("res://Audio/Tools/magnet_recover.mp3")
+	player_sfx_stream.play()
+	
+	add_log("Magnet returned!")
+
+func _use_radar():
 	if radar_tween and radar_tween.is_running():
 		radar_tween.kill()
 
@@ -374,6 +415,8 @@ func _use_radar() -> void:
 	radar_tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	radar_tween.tween_property(radar, "modulate:a", 0, 2)
 	add_log("Used radar!")
+	
+	return true
 
 func _sync_radar_camera() -> void:
 	if radar_camera:
