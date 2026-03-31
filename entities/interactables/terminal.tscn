@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cnge5mbsv3d30"]
 
 [ext_resource type="Script" uid="uid://cub56sktv075j" path="res://entities/interactables/terminal.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://dlj4vud1c36ka" path="res://sprites/computer_tiles/objects_comp.bmp" id="2_7d6gb"]
+[ext_resource type="Texture2D" uid="uid://dlj4vud1c36ka" path="res://Sprites/computer_tiles/objects_comp.bmp" id="2_7d6gb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_click"]
 size = Vector3(1, 1, 0.1)
