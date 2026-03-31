@@ -8,11 +8,20 @@
 [ext_resource type="PackedScene" uid="uid://xw7oxh0nwkum" path="res://entities/interactables/terminal_ui.tscn" id="3_sglur"]
 [ext_resource type="Texture2D" uid="uid://cp1twbyeq1uh6" path="res://sprites/player_tilemap.bmp" id="4_8fjmc"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8fjmc"]
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+
+[sub_resource type="Environment" id="Environment_qiwj3"]
+
 [node name="Player" type="Node3D" unique_id=1850440213]
 script = ExtResource("1_player")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=946816146]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+cull_mask = 1048573
 fov = 60.0
 far = 12.0
 
@@ -26,22 +35,53 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("2_qiwj3")
 
-[node name="RadarControl" type="Control" parent="HUD" unique_id=499313790]
+[node name="Radar" type="Panel" parent="HUD" unique_id=327395100]
 unique_name_in_owner = true
+clip_children = 1
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -128.0
-offset_bottom = -128.0
+offset_right = 128.0
 grow_vertical = 0
-pivot_offset = Vector2(0, 64)
+theme_override_styles/panel = SubResource("StyleBoxFlat_8fjmc")
 
-[node name="RadarSprite" type="Sprite2D" parent="HUD/RadarControl" unique_id=901316574]
-unique_name_in_owner = true
-position = Vector2(64, 64)
+[node name="TextureRect" type="TextureRect" parent="HUD/Radar" unique_id=365925512]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -64.0
+offset_right = 256.0
+offset_bottom = 64.0
+grow_vertical = 2
 texture = ExtResource("3_fkugw")
-hframes = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HUD/Radar" unique_id=1075356106]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="HUD/Radar/SubViewportContainer" unique_id=2024693605]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(128, 128)
+render_target_update_mode = 4
+
+[node name="RadarCamera" type="Camera3D" parent="HUD/Radar/SubViewportContainer/SubViewport" unique_id=1276059117]
+unique_name_in_owner = true
+transform = Transform3D(1, -1.7484555e-07, -1.5285482e-14, 7.642742e-15, -4.371138e-08, 1, -1.7484555e-07, -1, -4.371138e-08, 0, 4, 0)
+cull_mask = 1048574
+environment = SubResource("Environment_qiwj3")
+projection = 1
+size = 18.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD" unique_id=663499705]
 layout_mode = 1

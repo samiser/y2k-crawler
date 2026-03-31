@@ -25,9 +25,10 @@ var selected_item: int = -1
 @onready var terminal_ui: Window = $TerminalUI
 @onready var fp_sprite: Sprite2D = %FpSprite
 @onready var hotbar: Control = %Hotbar
-@onready var radar_control: Control = %RadarControl
 @onready var fade_rect: ColorRect = %FadeRect
 @onready var camera_3d: Camera3D = $Camera3D
+@onready var radar: Panel = %Radar
+@onready var radar_camera: Camera3D = %RadarCamera
 @onready var log_v_container: VBoxContainer = %LogVContainer
 @onready var log_text: Label = %LogText
 
@@ -55,7 +56,6 @@ func _ready() -> void:
 	fp_sprite.position.y = 128.0
 	
 	log_text.visible = false
-	radar_control.visible = false
 	
 	if grid_path:
 		grid = get_node(grid_path) as Grid
@@ -72,11 +72,18 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	fp_sprite.position.y += sin(Time.get_ticks_msec() * 0.1 * _delta) * 0.2 # weapon bob
-	
+
 	_face_animation()
-	
+	_sync_radar_camera()
+
 	if not _is_busy and not _teleporting:
 		handle_input()
+
+func _sync_radar_camera() -> void:
+	if radar_camera:
+		radar_camera.global_position.x = global_position.x
+		radar_camera.global_position.z = global_position.z
+		radar_camera.rotation.y = rotation.y
 
 func _face_animation() -> void:
 	if override_face:

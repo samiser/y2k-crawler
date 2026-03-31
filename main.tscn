@@ -42,23 +42,17 @@ environment = SubResource("Environment_0xm2m")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
 grid_path = NodePath("../Grid")
 player_path = NodePath("../Player")
-min_bound = 0
-max_bound = 1
 
 [node name="Firewall3" parent="." unique_id=1065837217 instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 10)
 grid_path = NodePath("../Grid")
 player_path = NodePath("../Player")
-min_bound = -4
-max_bound = -3
 
 [node name="Firewall2" parent="." unique_id=980318932 instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -6)
 grid_path = NodePath("../Grid")
 player_path = NodePath("../Player")
 patrol_axis = 1
-min_bound = -4
-max_bound = -3
 
 [node name="Terminal" parent="." unique_id=465558493 instance=ExtResource("4_1bvp3")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4, 0, 2)
@@ -196,3 +190,6 @@ dialogue = Array[String](["Hi!", "I didn't see you come online...", "Watch out f
 [node name="MusicStream" type="AudioStreamPlayer2D" parent="." unique_id=1137068048]
 stream = ExtResource("11_efxa6")
 autoplay = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=744847870]
+transform = Transform3D(1, 0, 0, 0, -5.9604638e-08, -1, 0, 1, -5.9604638e-08, 0, -22, 0)
