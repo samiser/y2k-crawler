@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dopuhq8tj0a7m"]
 
 [ext_resource type="Script" uid="uid://drbxx75acor0b" path="res://entities/interactables/terminal_item.gd" id="1_f1ohj"]
-[ext_resource type="Texture2D" uid="uid://bqw2f2uuawpep" path="res://Sprites/computer_tiles/world_items_tilemap.bmp" id="2_f1ohj"]
+[ext_resource type="Texture2D" uid="uid://bqw2f2uuawpep" path="res://sprites/computer_tiles/world_items_tilemap.bmp" id="2_f1ohj"]
 
 [node name="TerminalItem" type="HBoxContainer" unique_id=1048916943]
 anchors_preset = 10
@@ -49,6 +49,7 @@ text = "Item description"
 fit_content = true
 
 [node name="Button" type="Button" parent="." unique_id=14339914]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_vertical = 4
 text = "5 Coins"

@@ -1,37 +1,47 @@
 [gd_scene format=3 uid="uid://cx8ftsioisf2d"]
 
+[ext_resource type="Texture2D" uid="uid://ccbllve56rue0" path="res://unfocus.png" id="1_3h10k"]
 [ext_resource type="Script" uid="uid://dvij4g3fdycty" path="res://entities/player/hotbar.gd" id="1_g81lv"]
-[ext_resource type="Texture2D" uid="uid://bqw2f2uuawpep" path="res://Sprites/computer_tiles/world_items_tilemap.bmp" id="1_qsqat"]
+[ext_resource type="Texture2D" uid="uid://bqw2f2uuawpep" path="res://sprites/computer_tiles/world_items_tilemap.bmp" id="1_qsqat"]
+[ext_resource type="FontFile" uid="uid://bln26fp864yte" path="res://ms-tahoma-bold-8px.ttf" id="2_sv82c"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bectd"]
+texture = ExtResource("1_3h10k")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="Theme" id="Theme_eteuq"]
+default_font = ExtResource("2_sv82c")
+Panel/styles/panel = SubResource("StyleBoxTexture_bectd")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g81lv"]
+load_path = "res://.godot/imported/world_items_tilemap.bmp-bbe9099d9f3dff7b48800f40827e17ef.ctex"
 
 [node name="Hotbar" type="Control" unique_id=1306635365]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 3
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
+anchors_preset = 10
+anchor_right = 1.0
 grow_horizontal = 2
-grow_vertical = 0
+theme = SubResource("Theme_eteuq")
 script = ExtResource("1_g81lv")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1017608599]
-custom_minimum_size = Vector2(103.645, 0)
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -51.822
-offset_right = 51.822998
-offset_bottom = 40.0
+offset_left = -22.0
+offset_right = 22.0
+offset_bottom = 32.0
 grow_horizontal = 2
-grow_vertical = 0
 alignment = 1
 
-[node name="WaterGun" type="Control" parent="HBoxContainer" unique_id=920547945]
+[node name="WaterGun" type="Panel" parent="HBoxContainer" unique_id=639200293]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="Control" type="Control" parent="HBoxContainer/WaterGun" unique_id=5172433]
 layout_mode = 1
@@ -44,11 +54,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="WaterGunSprite" type="Sprite2D" parent="HBoxContainer/WaterGun/Control" unique_id=50015674]
-position = Vector2(-4, 0)
-texture = ExtResource("1_qsqat")
+texture = SubResource("CompressedTexture2D_g81lv")
 hframes = 4
 
-[node name="MetalDetector" type="Control" parent="HBoxContainer" unique_id=1647799105]
+[node name="MetalDetector" type="Panel" parent="HBoxContainer" unique_id=1587209734]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -63,12 +73,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MetalDetectorSprite" type="Sprite2D" parent="HBoxContainer/MetalDetector/Control" unique_id=1831102620]
-position = Vector2(-4, 0)
 texture = ExtResource("1_qsqat")
 hframes = 4
 frame = 1
 
-[node name="Magnet" type="Control" parent="HBoxContainer" unique_id=1021781419]
+[node name="Magnet" type="Panel" parent="HBoxContainer" unique_id=1548242134]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -83,7 +93,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Magnet/Control" unique_id=1472827515]
-position = Vector2(-4, 0)
 texture = ExtResource("1_qsqat")
 hframes = 4
 frame = 2

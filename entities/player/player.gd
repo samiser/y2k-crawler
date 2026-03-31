@@ -21,17 +21,17 @@ var selected_item: int = -1
 
 @onready var player_sfx_stream: AudioStreamPlayer2D = $PlayerSfxStream
 
-@onready var coin_label: Label = $HUD/CoinLabel
+@onready var coin_label: Label = %CoinLabel
 @onready var terminal_ui: Window = $TerminalUI
-@onready var fp_sprite: Sprite2D = $HUD/WeaponControl/FpSprite
-@onready var hotbar: Control = $HUD/Hotbar
-@onready var radar_control: Control = $HUD/RadarControl
-@onready var fade_rect: ColorRect = $HUD/FadeRect
+@onready var fp_sprite: Sprite2D = %FpSprite
+@onready var hotbar: Control = %Hotbar
+@onready var radar_control: Control = %RadarControl
+@onready var fade_rect: ColorRect = %FadeRect
 @onready var camera_3d: Camera3D = $Camera3D
-@onready var log_v_container: VBoxContainer = $HUD/LogVContainer
-@onready var log_text: Label = $HUD/LogVContainer/LogText
+@onready var log_v_container: VBoxContainer = %LogVContainer
+@onready var log_text: Label = %LogText
 
-@onready var player_sprite: Sprite2D = $HUD/PlayerControl/PlayerSprite
+@onready var player_sprite: Sprite2D = %PlayerSprite
 var face_frame : int = 0
 var face_reversing : bool = false
 var override_face : bool = false
