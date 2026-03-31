@@ -353,6 +353,13 @@ func _use_water_gun():
 			enemy.stun(4)
 			add_log("You stunned Firewall for 4 turns!")
 			return true
+			
+	for fire in get_tree().get_nodes_in_group("fire"):
+		if fire.grid_pos == target_pos:
+			fire.extinguish()
+			add_log("You put out a fire!")
+			return true
+	
 	return true
 
 func _use_magnet():

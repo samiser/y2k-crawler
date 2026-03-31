@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://va18ckyu1c5l"]
 
-[ext_resource type="Texture2D" uid="uid://dlj4vud1c36ka" path="res://sprites/computer_tiles/objects_comp.bmp" id="1_lfb78"]
+[ext_resource type="Texture2D" uid="uid://dlj4vud1c36ka" path="res://Sprites/computer_tiles/objects_comp.bmp" id="1_lfb78"]
 [ext_resource type="Script" uid="uid://dswi2rw3w05jw" path="res://entities/interactables/barrier.gd" id="1_script"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_click"]
@@ -13,7 +13,7 @@ script = ExtResource("1_script")
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1, 0.75)
 texture_filter = 0
 texture = ExtResource("1_lfb78")
-hframes = 3
+hframes = 5
 frame = 1
 
 [node name="Area3D" type="Area3D" parent="." unique_id=61643409]

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cwxcm7e3cvlhm" path="res://world/tile.tscn" id="1_ebq2e"]
 [ext_resource type="Script" uid="uid://xp1fw6iv26tj" path="res://world/grid.gd" id="2_grid"]
 [ext_resource type="PackedScene" uid="uid://c8h1sodkn5sg7" path="res://entities/interactables/coin.tscn" id="3_dqius"]
+[ext_resource type="PackedScene" uid="uid://bmocrysmk1lla" path="res://entities/interactables/fire.tscn" id="4_xpd37"]
 
 [node name="Grid" type="Node3D" unique_id=1197692489]
 script = ExtResource("2_grid")
@@ -1686,10 +1687,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
 floor_frame = 1
 show_roof = false
 
-[node name="Coin" parent="." unique_id=1393749878 instance=ExtResource("3_dqius")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 6)
-grid_path = NodePath("..")
-
 [node name="Coin2" parent="." unique_id=1528289491 instance=ExtResource("3_dqius")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 6)
 grid_path = NodePath("..")
@@ -1732,4 +1729,8 @@ grid_path = NodePath("..")
 
 [node name="Coin12" parent="." unique_id=1027775540 instance=ExtResource("3_dqius")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 4)
+grid_path = NodePath("..")
+
+[node name="Fire" parent="." unique_id=465558493 instance=ExtResource("4_xpd37")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 6)
 grid_path = NodePath("..")
