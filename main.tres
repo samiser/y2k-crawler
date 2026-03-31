@@ -1,13 +1,13 @@
 [gd_resource type="Theme" format=3 uid="uid://03s0vxym15s7"]
 
-[ext_resource type="Texture2D" uid="uid://br8b4o6abopks" path="res://sprites/ui/button/focus.png" id="1_uxqhr"]
+[ext_resource type="Texture2D" uid="uid://br8b4o6abopks" path="res://Sprites/ui/button/focus.png" id="1_uxqhr"]
 [ext_resource type="FontFile" uid="uid://bln26fp864yte" path="res://fonts/ms-tahoma-bold-8px.ttf" id="2_0ru1r"]
-[ext_resource type="Texture2D" uid="uid://o18owdxisgiw" path="res://sprites/ui/window/close.png" id="2_oblph"]
-[ext_resource type="Texture2D" uid="uid://csgkbwop5vad5" path="res://sprites/ui/button/normal.png" id="2_tcxlh"]
-[ext_resource type="Texture2D" uid="uid://bqw1kodvgig78" path="res://sprites/ui/button/pressed.png" id="3_csr5i"]
-[ext_resource type="Texture2D" uid="uid://0j1oq02ocb3x" path="res://sprites/ui/window/close_hover.png" id="3_v11j8"]
-[ext_resource type="Texture2D" uid="uid://ccydsiymdqrdc" path="res://sprites/ui/window/focused.png" id="4_5i7ek"]
-[ext_resource type="Texture2D" uid="uid://ccbllve56rue0" path="res://sprites/ui/panel.png" id="4_80nxt"]
+[ext_resource type="Texture2D" uid="uid://o18owdxisgiw" path="res://Sprites/ui/window/close.png" id="2_oblph"]
+[ext_resource type="Texture2D" uid="uid://csgkbwop5vad5" path="res://Sprites/ui/button/normal.png" id="2_tcxlh"]
+[ext_resource type="Texture2D" uid="uid://bqw1kodvgig78" path="res://Sprites/ui/button/pressed.png" id="3_csr5i"]
+[ext_resource type="Texture2D" uid="uid://0j1oq02ocb3x" path="res://Sprites/ui/window/close_hover.png" id="3_v11j8"]
+[ext_resource type="Texture2D" uid="uid://ccydsiymdqrdc" path="res://Sprites/ui/window/focused.png" id="4_5i7ek"]
+[ext_resource type="Texture2D" uid="uid://ccbllve56rue0" path="res://Sprites/ui/panel.png" id="4_80nxt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uxqhr"]
 

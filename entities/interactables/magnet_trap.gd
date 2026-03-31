@@ -56,12 +56,13 @@ func _zap() -> void:
 			zapped = true
 			clippy.zapped()
 	
-	tween = get_tree().create_tween()
-	tween.tween_property(sprite_3d, "position:y", 1.0, 0.2)
-	tween.tween_property(sprite_3d, "position:y", 0.5, 0.2)
+
 	
 	if zapped:
 		audio_stream_player_3d.play()
+		tween = get_tree().create_tween()
+		tween.tween_property(sprite_3d, "position:y", 1.0, 0.2)
+		tween.tween_property(sprite_3d, "position:y", 0.5, 0.2)
 
 func _die():
 	remove_from_group("magnets")
