@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bqw2f2uuawpep" path="res://sprites/computer_tiles/world_items_tilemap.bmp" id="2_f1ohj"]
 
 [node name="TerminalItem" type="HBoxContainer" unique_id=1048916943]
+custom_minimum_size = Vector2(0, 50)
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 44.0
@@ -39,17 +40,18 @@ size_flags_horizontal = 3
 [node name="Title" type="RichTextLabel" parent="VBoxContainer" unique_id=1545102732]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 22
 text = "Gun"
 fit_content = true
 
 [node name="Description" type="RichTextLabel" parent="VBoxContainer" unique_id=49539379]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 12
 text = "Item description"
 fit_content = true
 
 [node name="Button" type="Button" parent="." unique_id=14339914]
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(55, 0)
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_font_sizes/font_size = 11
 text = "5 Coins"

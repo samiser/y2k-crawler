@@ -163,7 +163,7 @@ func _check_for_coins() -> void:
 
 func _update_coin_label() -> void:
 	if coin_label:
-		coin_label.text = "Coins: %d" % coins
+		coin_label.text = "%d" % coins
 
 func is_blocked(check_pos: Vector2i) -> bool:
 	for node in get_tree().get_nodes_in_group("firewall_enemies"):

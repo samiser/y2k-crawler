@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://ditrytb3g73sj"]
 
 [ext_resource type="Script" uid="uid://1akmqij867mu" path="res://entities/player/player.gd" id="1_player"]
-[ext_resource type="Texture2D" uid="uid://4vf8i4gvx5p7" path="res://Sprites/computer_tiles/fp_items_comp.bmp" id="2_abrql"]
+[ext_resource type="Texture2D" uid="uid://4vf8i4gvx5p7" path="res://sprites/computer_tiles/fp_items_comp.bmp" id="2_abrql"]
 [ext_resource type="Theme" uid="uid://03s0vxym15s7" path="res://main.tres" id="2_qiwj3"]
 [ext_resource type="PackedScene" uid="uid://cx8ftsioisf2d" path="res://entities/player/hotbar.tscn" id="3_bls4j"]
-[ext_resource type="Texture2D" uid="uid://bcqk21okdu04r" path="res://Sprites/computer_tiles/radar_comp.bmp" id="3_fkugw"]
+[ext_resource type="Texture2D" uid="uid://bcqk21okdu04r" path="res://sprites/computer_tiles/radar_comp.bmp" id="3_fkugw"]
 [ext_resource type="PackedScene" uid="uid://xw7oxh0nwkum" path="res://entities/interactables/terminal_ui.tscn" id="3_sglur"]
-[ext_resource type="Texture2D" uid="uid://cp1twbyeq1uh6" path="res://Sprites/player_tilemap.bmp" id="4_8fjmc"]
+[ext_resource type="Texture2D" uid="uid://cp1twbyeq1uh6" path="res://sprites/player_tilemap.bmp" id="4_8fjmc"]
+[ext_resource type="Texture2D" uid="uid://dxcnskbb76hry" path="res://sprites/ui/progress_bar/bg.png" id="6_bectd"]
+[ext_resource type="Texture2D" uid="uid://bwt7lx7upqwkx" path="res://sprites/ui/progress_bar/fg.png" id="7_wvtmh"]
+[ext_resource type="Texture2D" uid="uid://bqw2f2uuawpep" path="res://sprites/computer_tiles/world_items_tilemap.bmp" id="8_wvtmh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8fjmc"]
 corner_radius_top_left = 64
@@ -153,13 +156,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="Middle" type="Panel" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer" unique_id=1190324011]
-custom_minimum_size = Vector2(0, 36)
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer" unique_id=1310536804]
+layout_mode = 2
+
+[node name="Energy" type="Panel" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1158277695]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/Middle" unique_id=2032475405]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/HBoxContainer/Energy" unique_id=1362743275]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -167,10 +171,46 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/Middle/MarginContainer" unique_id=697392698]
+[node name="HBoxContainer" type="VBoxContainer" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/HBoxContainer/Energy/MarginContainer" unique_id=1947510602]
 layout_mode = 2
 
-[node name="Hotbar" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/Middle/MarginContainer/HBoxContainer" unique_id=1306635365 instance=ExtResource("3_bls4j")]
+[node name="Label" type="Label" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/HBoxContainer/Energy/MarginContainer/HBoxContainer" unique_id=1993081638]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = " Energy"
+horizontal_alignment = 1
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/HBoxContainer/Energy/MarginContainer/HBoxContainer" unique_id=1718591224]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 79.0
+nine_patch_stretch = true
+stretch_margin_left = 2
+stretch_margin_top = 2
+stretch_margin_right = 2
+stretch_margin_bottom = 2
+texture_under = ExtResource("6_bectd")
+texture_progress = ExtResource("7_wvtmh")
+
+[node name="Middle" type="Panel" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1190324011]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/HBoxContainer/Middle" unique_id=2032475405]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/HBoxContainer/Middle/MarginContainer" unique_id=697392698]
+layout_mode = 2
+
+[node name="Hotbar" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/HBoxContainer/Middle/MarginContainer/HBoxContainer" unique_id=1306635365 instance=ExtResource("3_bls4j")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -201,30 +241,37 @@ size_flags_vertical = 3
 [node name="LogText" type="Label" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/LogVContainer" unique_id=1497883809]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
 text = "message goes here..."
 
 [node name="Right" type="Panel" parent="HUD/VBoxContainer/Control/HBoxContainer" unique_id=216829527]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 
-[node name="CoinLabel" type="Label" parent="HUD/VBoxContainer/Control/HBoxContainer/Right" unique_id=499906734]
-unique_name_in_owner = true
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/VBoxContainer/Control/HBoxContainer/Right" unique_id=729352057]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -23.5
-offset_top = -7.0
-offset_right = 23.5
-offset_bottom = 7.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 12
-text = "Coins: 0"
-horizontal_alignment = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HUD/VBoxContainer/Control/HBoxContainer/Right/VBoxContainer" unique_id=1980201442]
+clip_contents = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("8_wvtmh")
+expand_mode = 1
+stretch_mode = 2
+flip_h = true
+
+[node name="CoinLabel" type="Label" parent="HUD/VBoxContainer/Control/HBoxContainer/Right/VBoxContainer" unique_id=499906734]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
 
 [node name="WeaponControl" type="Control" parent="HUD/VBoxContainer" unique_id=1869577043]
 layout_mode = 2

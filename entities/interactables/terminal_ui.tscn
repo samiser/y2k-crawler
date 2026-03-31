@@ -11,8 +11,8 @@ default_font = ExtResource("1_1el53")
 [node name="TerminalUI" type="Window" unique_id=1644810794]
 oversampling_override = 1.0
 title = "Terminal"
-initial_position = 1
-size = Vector2i(320, 191)
+position = Vector2i(32, 107)
+size = Vector2i(320, 200)
 unresizable = true
 always_on_top = true
 sharp_corners = true
@@ -61,6 +61,7 @@ size_flags_vertical = 3
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/ScrollContainer" unique_id=381671020]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 16
 
 [node name="WaterPistol" parent="Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1048916943 instance=ExtResource("1_i11bv")]
 layout_mode = 2

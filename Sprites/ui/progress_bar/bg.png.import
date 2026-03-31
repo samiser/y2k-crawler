@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccbllve56rue0"
-path="res://.godot/imported/panel.png-94ec3c9f0aeabb877c45546a89d87ac7.ctex"
+uid="uid://dxcnskbb76hry"
+path="res://.godot/imported/bg.png-63a004822d05d84b13f652d8e05d4bfd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ui/panel.png"
-dest_files=["res://.godot/imported/panel.png-94ec3c9f0aeabb877c45546a89d87ac7.ctex"]
+source_file="res://sprites/ui/progress_bar/bg.png"
+dest_files=["res://.godot/imported/bg.png-63a004822d05d84b13f652d8e05d4bfd.ctex"]
 
 [params]
 
