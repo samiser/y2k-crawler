@@ -39,6 +39,8 @@ var face_frame : int = 0
 var face_reversing : bool = false
 var override_face : bool = false
 
+var radar_tween: Tween
+
 const FACING_TO_DIRECTION := {
 	Facing.NORTH: Vector2i(0, 1),
 	Facing.EAST: Vector2i(-1, 0),
@@ -76,16 +78,9 @@ func _process(_delta: float) -> void:
 	fp_sprite.position.y += sin(Time.get_ticks_msec() * 0.1 * _delta) * 0.2 # weapon bob
 
 	_face_animation()
-	_sync_radar_camera()
 
 	if not _is_busy and not _teleporting:
 		handle_input()
-
-func _sync_radar_camera() -> void:
-	if radar_camera:
-		radar_camera.global_position.x = global_position.x
-		radar_camera.global_position.z = global_position.z
-		radar_camera.rotation.y = rotation.y
 
 func _face_animation() -> void:
 	if override_face:
@@ -299,6 +294,8 @@ func try_use() -> void:
 
 	if selected_item == 0:
 		_use_water_gun()
+	elif selected_item == 1:
+		_use_radar()
 	elif selected_item == 2:
 		_use_magnet()
 
@@ -352,6 +349,23 @@ func _use_magnet() -> void:
 	magnet.grid_path = grid.get_path()
 	magnet.position = grid.grid_to_world(target_pos)
 	get_tree().root.add_child(magnet)
+
+func _use_radar() -> void:
+	if radar_tween and radar_tween.is_running():
+		radar_tween.kill()
+		
+	radar_tween = create_tween()
+	radar_tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+	_sync_radar_camera()
+	radar.modulate.a = 1
+	radar_tween.tween_property(radar, "modulate:a", 0, 2)
+	add_log("Used radar!")
+
+func _sync_radar_camera() -> void:
+	if radar_camera:
+		radar_camera.global_position.x = global_position.x
+		radar_camera.global_position.z = global_position.z
+		radar_camera.rotation.y = rotation.y
 
 func add_log(message: String) -> void:
 	if message.length() == 0:
