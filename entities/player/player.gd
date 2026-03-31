@@ -15,7 +15,7 @@ var grid_pos := Vector2i.ZERO
 var _is_busy := false
 var _teleporting := false
 var _current_tween: Tween
-var coins := 0
+var coins := 100
 var unlocked_items: Array = []
 var selected_item: int = -1
 
@@ -30,6 +30,8 @@ var selected_item: int = -1
 @onready var camera_3d: Camera3D = $Camera3D
 @onready var log_v_container: VBoxContainer = %LogVContainer
 @onready var log_text: Label = %LogText
+
+var magnet_trap_scene := preload("res://entities/interactables/magnet_trap.tscn")
 
 @onready var player_sprite: Sprite2D = %PlayerSprite
 var face_frame : int = 0
@@ -290,6 +292,8 @@ func try_use() -> void:
 
 	if selected_item == 0:
 		_use_water_gun()
+	elif selected_item == 2:
+		_use_magnet()
 
 func _try_interact_terminal() -> bool:
 	for terminal in get_tree().get_nodes_in_group("terminals"):
@@ -323,6 +327,24 @@ func _use_water_gun() -> void:
 			enemy.stun(4)
 			add_log("You stunned Firewall for 4 turns!")
 			return
+
+func _use_magnet() -> void:
+	player_sfx_stream.stream = load("res://Audio/Tools/magnet_zap.mp3")
+	player_sfx_stream.play()
+	
+	var target_pos: Vector2i = grid_pos + FACING_TO_DIRECTION[facing]
+	for magnet in get_tree().get_nodes_in_group("magnets"):
+		if magnet.is_at(target_pos):
+			add_log("You already placed a magnet there!")
+			return
+	
+	add_log("You placed a magnet down!")
+	
+	var magnet : MagnetTrap = magnet_trap_scene.instantiate()
+	magnet.player = self
+	magnet.grid_path = grid.get_path()
+	magnet.position = grid.grid_to_world(target_pos)
+	get_tree().root.add_child(magnet)
 
 func add_log(message: String) -> void:
 	if message.length() == 0:
