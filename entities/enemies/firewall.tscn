@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dbbff0gcliyiq"]
 
 [ext_resource type="Script" uid="uid://bbxwsg6hwedfo" path="res://entities/enemies/firewall.gd" id="1_nlcc7"]
-[ext_resource type="Texture2D" uid="uid://bayeglcsmc3ae" path="res://sprites/computer_tiles/characters_comp.bmp" id="2_nlcc7"]
+[ext_resource type="Texture2D" uid="uid://bayeglcsmc3ae" path="res://Sprites/computer_tiles/characters_comp.bmp" id="2_nlcc7"]
 
 [node name="Firewall" type="Node3D" unique_id=1408575202]
 script = ExtResource("1_nlcc7")
@@ -10,7 +10,7 @@ script = ExtResource("1_nlcc7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 layers = 3
 pixel_size = 0.02085
-billboard = 1
+billboard = 2
 texture_filter = 0
 texture = ExtResource("2_nlcc7")
 hframes = 10

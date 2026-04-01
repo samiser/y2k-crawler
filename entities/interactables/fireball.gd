@@ -2,12 +2,13 @@ extends Node3D
 class_name Fireball
 
 var direction : Vector2i
+var life : float = 3.0
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	life -= delta
+	
+	if life <= 0.0:
+		queue_free()
+		return
+	
+	global_position += Vector3(direction.x, 0, direction.y) * delta * 20.0

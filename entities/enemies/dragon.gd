@@ -3,6 +3,7 @@ class_name DragonEnemy
 
 @export var grid_path: NodePath
 @export var fire_dir := Vector2i.RIGHT
+@export var player_path: NodePath
 
 @onready var sprite: Sprite3D = $Sprite3D
 @onready var fireball := preload("res://entities/interactables/fireball.tscn")
@@ -12,7 +13,7 @@ var player: Player
 var grid_pos := Vector2i.ZERO
 
 func _ready() -> void:
-	add_to_group("dragon_enemies")
+	add_to_group("barriers")
 
 	if grid_path:
 		grid = get_node(grid_path) as Grid
@@ -21,6 +22,9 @@ func _ready() -> void:
 		grid_pos = grid.world_to_grid(position)
 		position = grid.grid_to_world(grid_pos)
 		position.y = 0
+	
+	if player_path:
+		player = get_node(player_path) as Player
 
 	if player:
 		player.moved.connect(_on_player_moved)
@@ -43,3 +47,6 @@ func _fireball() -> void:
 	await timer.timeout
 	
 	sprite.frame = 7
+
+func is_at(check_pos: Vector2i) -> bool:
+	return grid_pos == check_pos
