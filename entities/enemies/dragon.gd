@@ -3,7 +3,7 @@ class_name DragonEnemy
 
 @export var grid_path: NodePath
 @export var fire_dir := 1
-@export var firewall : FirewallEnemy
+@export var target : Node3D
 @export var player_path: NodePath
 
 @onready var sprite: Sprite3D = $Sprite3D
@@ -42,9 +42,10 @@ func _fireball() -> void:
 	sprite.frame = 6
 	
 	var fb := fireball.instantiate()
-	fb.global_position = global_position
-	fb.wall = firewall
+	fb.target = target
+	fb.player = player
 	get_tree().root.add_child(fb)
+	fb.global_position = global_position
 	
 	var timer := get_tree().create_timer(1.0)
 	await timer.timeout

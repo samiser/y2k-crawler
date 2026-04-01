@@ -111,28 +111,28 @@ player_path = NodePath("../Player")
 bounds_min = Vector2i(3, 15)
 bounds_max = Vector2i(12, 33)
 
-[node name="Dragon" parent="." unique_id=533816539 node_paths=PackedStringArray("firewall") instance=ExtResource("7_272bh")]
+[node name="Dragon" parent="." unique_id=533816539 node_paths=PackedStringArray("target") instance=ExtResource("7_272bh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 78)
 grid_path = NodePath("../Grid")
-firewall = NodePath("../Firewall17")
+target = NodePath("../wallimpact")
 player_path = NodePath("../Player")
 
-[node name="Dragon4" parent="." unique_id=976713915 node_paths=PackedStringArray("firewall") instance=ExtResource("7_272bh")]
+[node name="Dragon4" parent="." unique_id=976713915 node_paths=PackedStringArray("target") instance=ExtResource("7_272bh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 82)
 grid_path = NodePath("../Grid")
-firewall = NodePath("../Firewall16")
+target = NodePath("../wallimpact2")
 player_path = NodePath("../Player")
 
-[node name="Dragon3" parent="." unique_id=1988743378 node_paths=PackedStringArray("firewall") instance=ExtResource("7_272bh")]
+[node name="Dragon3" parent="." unique_id=1988743378 node_paths=PackedStringArray("target") instance=ExtResource("7_272bh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 86)
 grid_path = NodePath("../Grid")
-firewall = NodePath("../Firewall14")
+target = NodePath("../Firewall14")
 player_path = NodePath("../Player")
 
-[node name="Dragon5" parent="." unique_id=1509172079 node_paths=PackedStringArray("firewall") instance=ExtResource("7_272bh")]
+[node name="Dragon5" parent="." unique_id=1509172079 node_paths=PackedStringArray("target") instance=ExtResource("7_272bh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 90)
 grid_path = NodePath("../Grid")
-firewall = NodePath("../Firewall15")
+target = NodePath("../Firewall15")
 player_path = NodePath("../Player")
 
 [node name="Firewall14" parent="." unique_id=621765327 instance=ExtResource("3_h2yge")]
@@ -140,17 +140,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 86)
 grid_path = NodePath("../Grid")
 player_path = NodePath("../Player")
 
-[node name="Firewall16" parent="." unique_id=1100549974 instance=ExtResource("3_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 82)
-grid_path = NodePath("../Grid")
-player_path = NodePath("../Player")
-
-[node name="Firewall17" parent="." unique_id=723789775 instance=ExtResource("3_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 78)
-grid_path = NodePath("../Grid")
-player_path = NodePath("../Player")
-
 [node name="Firewall15" parent="." unique_id=1522269282 instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 90)
 grid_path = NodePath("../Grid")
 player_path = NodePath("../Player")
+
+[node name="wallimpact" type="Node3D" parent="." unique_id=759929345]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 78)
+
+[node name="wallimpact2" type="Node3D" parent="." unique_id=1525759269]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 82)

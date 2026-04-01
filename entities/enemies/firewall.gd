@@ -66,7 +66,11 @@ func _on_player_moved(_player_new_pos: Vector2i) -> void:
 		target_grid_pos.x += step
 	else:
 		target_grid_pos.y += step
-
+	
+	for barrier in get_tree().get_nodes_in_group("barriers"):
+		if barrier.grid_pos == target_grid_pos:
+			return
+	
 	if grid.has_tile_at(target_grid_pos) and target_grid_pos != player.grid_pos:
 		move_to(target_grid_pos)
 

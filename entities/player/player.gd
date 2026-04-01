@@ -211,10 +211,19 @@ func _check_for_bombs() -> void:
 func _check_for_fire() -> void:
 	for fire in get_tree().get_nodes_in_group("fire"):
 		if fire.grid_pos == grid_pos:
+			player_sfx_stream.stream = load("res://Audio/Characters/player_pain.mp3")
+			player_sfx_stream.play()
 			energy -= 10
 			screen_shake(0.15, 0.05)
 			add_log("You walked through fire! -10 energy")
 			return
+
+func fireball_damage() -> void:
+		player_sfx_stream.stream = load("res://Audio/Characters/player_pain.mp3")
+		player_sfx_stream.play()
+		energy -= 10
+		screen_shake(0.15, 0.05)
+		add_log("You hit a fireball! -10 energy")
 
 func _check_for_batteries() -> void:
 	if not grid:
@@ -241,6 +250,9 @@ func screen_shake(duration: float, intensity: float) -> void:
 	var original_pos := camera_3d.position
 	var shake_tween := create_tween()
 	var shake_count := int(duration / 0.05)
+	
+	override_face = true
+	player_sprite.frame = 5
 
 	for i in shake_count:
 		var offset := Vector3(
@@ -251,6 +263,11 @@ func screen_shake(duration: float, intensity: float) -> void:
 		shake_tween.tween_property(camera_3d, "position", original_pos + offset, 0.05)
 
 	shake_tween.tween_property(camera_3d, "position", original_pos, 0.05)
+	await shake_tween.finished
+	
+	if not _teleporting:
+		player_sprite.frame = 1
+		override_face = false
 
 func _update_coin_label() -> void:
 	if coin_label:
@@ -320,6 +337,8 @@ func teleport_to(new_grid_pos: Vector2i, direction: Facing, skip_intro: bool) ->
 	
 	player_sprite.frame = 0
 	
+	energy = max_energy
+	
 	_is_busy = false
 	_teleporting = false
 	override_face = false
@@ -331,7 +350,6 @@ func _on_energy_depleted() -> void:
 func teleport_to_checkpoint() -> void:
 	var target_pos := last_terminal_pos if has_used_terminal else spawn_pos
 	var target_facing := last_terminal_facing if has_used_terminal else spawn_facing
-	energy = max_energy
 	teleport_to(target_pos, target_facing, false)
 
 func _set_rotation_y(value: float) -> void:

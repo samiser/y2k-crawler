@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dg8uh4l73y8gr" path="res://entities/enemies/dragon.gd" id="1_1ts82"]
 [ext_resource type="Texture2D" uid="uid://bayeglcsmc3ae" path="res://sprites/computer_tiles/characters_comp.bmp" id="2_84oyi"]
 [ext_resource type="Texture2D" uid="uid://bsiwbj3secx6w" path="res://sprites/ui/compass_tilemap.bmp" id="3_84oyi"]
+[ext_resource type="AudioStream" uid="uid://ey3a3qf4k7h2" path="res://Audio/Characters/dragon_fire.mp3" id="4_0b2b3"]
 
 [node name="Dragon" type="Node3D" unique_id=1408575202]
 script = ExtResource("1_1ts82")
@@ -29,3 +30,6 @@ hframes = 5
 frame = 4
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=36851274]
+stream = ExtResource("4_0b2b3")
+volume_db = -10.0
+max_distance = 8.0
