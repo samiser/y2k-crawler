@@ -183,6 +183,7 @@ func try_move(direction: Vector2i) -> void:
 	_check_for_coins()
 	_check_for_bombs()
 	_check_for_fire()
+	_check_for_batteries()
 
 func _check_for_coins() -> void:
 	if not grid:
@@ -212,6 +213,17 @@ func _check_for_fire() -> void:
 			energy -= 10
 			screen_shake(0.15, 0.05)
 			add_log("You walked through fire! -10 energy")
+			return
+
+func _check_for_batteries() -> void:
+	if not grid:
+		return
+	for item in grid.get_items_at(grid_pos):
+		if item is Battery:
+			item.queue_free()
+			max_energy += 10
+			energy += 10
+			add_log("Battery collected! +10 max energy")
 			return
 
 func screen_shake(duration: float, intensity: float) -> void:
