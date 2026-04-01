@@ -280,30 +280,33 @@ custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer2/CoinPanel" unique_id=65873202]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer2/CoinPanel" unique_id=170228477]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer2/CoinPanel/MarginContainer" unique_id=65873202]
+layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="Control" type="Control" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer2/CoinPanel/VBoxContainer" unique_id=1919919537]
+[node name="Control" type="Control" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer2/CoinPanel/MarginContainer/VBoxContainer" unique_id=1919919537]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
-[node name="CoinSprite" type="Sprite2D" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer2/CoinPanel/VBoxContainer/Control" unique_id=259089293]
+[node name="CoinSprite" type="Sprite2D" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer2/CoinPanel/MarginContainer/VBoxContainer/Control" unique_id=259089293]
 texture = ExtResource("8_7thud")
 
-[node name="CoinLabel" type="Label" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer2/CoinPanel/VBoxContainer" unique_id=499906734]
+[node name="CoinLabel" type="Label" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer2/CoinPanel/MarginContainer/VBoxContainer" unique_id=499906734]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+size_flags_stretch_ratio = 0.85
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
