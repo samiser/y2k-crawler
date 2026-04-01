@@ -1,3 +1,4 @@
+@tool
 extends Node3D
 class_name ClippyEnemy
 
@@ -8,6 +9,8 @@ signal caught_player
 @export var grid_path: NodePath
 @export var player_path: NodePath
 @export var move_duration := 0.2
+@export var bounds_min: Vector2i
+@export var bounds_max: Vector2i
 
 var grid: Grid
 var player: Player
@@ -21,6 +24,11 @@ var _current_path: Array[Vector2i] = []
 var _zap_time := 0
 
 func _ready() -> void:
+	set_notify_transform(true)
+
+	if Engine.is_editor_hint():
+		return
+
 	add_to_group("clippy_enemies")
 
 	if grid_path:
@@ -40,12 +48,18 @@ func _ready() -> void:
 func _on_player_moved(_player_new_pos: Vector2i) -> void:
 	if not grid or not player or _is_moving:
 		return
-	
+
 	if _zap_time > 0:
 		_zap_time -= 1
 		return
-	
+
 	sprite.frame = 2
+
+	# If player is outside bounds, stop chasing and return to spawn
+	if not _is_within_bounds(player.grid_pos):
+		_has_seen_player = false
+		_navigate_to_spawn()
+		return
 
 	if not _has_seen_player:
 		if grid.has_line_of_sight(grid_pos, player.grid_pos):
@@ -53,13 +67,30 @@ func _on_player_moved(_player_new_pos: Vector2i) -> void:
 
 	if _has_seen_player:
 		_update_path_and_move()
+	else:
+		_navigate_to_spawn()
 
 func _update_path_and_move() -> void:
 	_current_path = grid.get_grid_path(grid_pos, player.grid_pos)
 
 	if _current_path.size() > 1:
 		var next_pos: Vector2i = _current_path[1]
-		_move_to(next_pos)
+		if _is_within_bounds(next_pos):
+			_move_to(next_pos)
+
+func _navigate_to_spawn() -> void:
+	if grid_pos == spawn_pos:
+		return
+
+	_current_path = grid.get_grid_path(grid_pos, spawn_pos)
+
+	if _current_path.size() > 1:
+		var next_pos: Vector2i = _current_path[1]
+		if _is_within_bounds(next_pos):
+			_move_to(next_pos)
+
+func _is_within_bounds(pos: Vector2i) -> bool:
+	return pos.x >= bounds_min.x and pos.x <= bounds_max.x and pos.y >= bounds_min.y and pos.y <= bounds_max.y
 
 func _move_to(new_grid_pos: Vector2i) -> void:
 	grid_pos = new_grid_pos
@@ -105,3 +136,11 @@ func _teleport_player_to_spawn() -> void:
 func zapped () -> void:
 	_zap_time = 1
 	sprite.frame = 3
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSFORM_CHANGED and Engine.is_editor_hint():
+		if grid_path and has_node(grid_path):
+			var g = get_node(grid_path) as Grid
+			if g:
+				var gp = g.world_to_grid(position)
+				print("Clippy grid pos: ", gp)
