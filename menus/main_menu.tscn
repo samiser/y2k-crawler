@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dwaia028u2oxg"]
 
 [ext_resource type="Theme" uid="uid://03s0vxym15s7" path="res://main.tres" id="1_8gy84"]
-[ext_resource type="Texture2D" uid="uid://dimnaqs436a66" path="res://sprites/computer_tiles/walls_comp.bmp" id="2_ij7vn"]
 [ext_resource type="Script" uid="uid://dn2h7n05aiuoo" path="res://menus/main_menu.gd" id="2_yjgyn"]
+[ext_resource type="Texture2D" uid="uid://bt402ewbo7417" path="res://sprites/coverart.bmp" id="3_yjgyn"]
 
 [node name="MainMenu" type="Control" unique_id=469063693]
 layout_mode = 3
@@ -20,13 +20,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -883.0
-offset_top = -24.0
-offset_right = 882.0
-offset_bottom = 57.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_ij7vn")
+texture = ExtResource("3_yjgyn")
 stretch_mode = 6
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1890943110]
