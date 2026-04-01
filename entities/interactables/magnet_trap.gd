@@ -55,6 +55,7 @@ func _zap() -> void:
 		if (clippy.global_position.distance_to(global_position) < 3.0):
 			zapped = true
 			clippy.zapped()
+			player.add_log("Magnet zapped Clippy, (" + str(life) + ") zaps left!")
 	
 
 	

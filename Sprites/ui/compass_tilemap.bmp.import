@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqw1kodvgig78"
-path="res://.godot/imported/pressed.png-83c7dda4290fea29e4e8092cf7d55cac.ctex"
+uid="uid://bsiwbj3secx6w"
+path="res://.godot/imported/compass_tilemap.bmp-353630e2a08663dce89781d35ecc36dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/ui/button/pressed.png"
-dest_files=["res://.godot/imported/pressed.png-83c7dda4290fea29e4e8092cf7d55cac.ctex"]
+source_file="res://Sprites/ui/compass_tilemap.bmp"
+dest_files=["res://.godot/imported/compass_tilemap.bmp-353630e2a08663dce89781d35ecc36dd.ctex"]
 
 [params]
 

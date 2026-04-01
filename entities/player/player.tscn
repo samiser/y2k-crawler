@@ -1,15 +1,16 @@
 [gd_scene format=3 uid="uid://ditrytb3g73sj"]
 
 [ext_resource type="Script" uid="uid://1akmqij867mu" path="res://entities/player/player.gd" id="1_player"]
-[ext_resource type="Texture2D" uid="uid://4vf8i4gvx5p7" path="res://sprites/computer_tiles/fp_items_comp.bmp" id="2_abrql"]
+[ext_resource type="Texture2D" uid="uid://4vf8i4gvx5p7" path="res://Sprites/computer_tiles/fp_items_comp.bmp" id="2_abrql"]
 [ext_resource type="Theme" uid="uid://03s0vxym15s7" path="res://main.tres" id="2_qiwj3"]
 [ext_resource type="PackedScene" uid="uid://cx8ftsioisf2d" path="res://entities/player/hotbar.tscn" id="3_bls4j"]
-[ext_resource type="Texture2D" uid="uid://bcqk21okdu04r" path="res://sprites/computer_tiles/radar_comp.bmp" id="3_fkugw"]
+[ext_resource type="Texture2D" uid="uid://bcqk21okdu04r" path="res://Sprites/computer_tiles/radar_comp.bmp" id="3_fkugw"]
 [ext_resource type="PackedScene" uid="uid://xw7oxh0nwkum" path="res://entities/interactables/terminal_ui.tscn" id="3_sglur"]
-[ext_resource type="Texture2D" uid="uid://cp1twbyeq1uh6" path="res://sprites/player_tilemap.bmp" id="4_8fjmc"]
-[ext_resource type="Texture2D" uid="uid://dxcnskbb76hry" path="res://sprites/ui/progress_bar/bg.png" id="6_bectd"]
-[ext_resource type="Texture2D" uid="uid://bwt7lx7upqwkx" path="res://sprites/ui/progress_bar/fg.png" id="7_wvtmh"]
-[ext_resource type="Texture2D" uid="uid://bqw2f2uuawpep" path="res://sprites/computer_tiles/world_items_tilemap.bmp" id="8_wvtmh"]
+[ext_resource type="Texture2D" uid="uid://cp1twbyeq1uh6" path="res://Sprites/player_tilemap.bmp" id="4_8fjmc"]
+[ext_resource type="Texture2D" uid="uid://dxcnskbb76hry" path="res://Sprites/ui/progress_bar/bg.png" id="6_bectd"]
+[ext_resource type="Texture2D" uid="uid://bwt7lx7upqwkx" path="res://Sprites/ui/progress_bar/fg.png" id="7_wvtmh"]
+[ext_resource type="Texture2D" uid="uid://bqw2f2uuawpep" path="res://Sprites/computer_tiles/world_items_tilemap.bmp" id="8_wvtmh"]
+[ext_resource type="Texture2D" uid="uid://bsiwbj3secx6w" path="res://Sprites/ui/compass_tilemap.bmp" id="9_7thud"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8fjmc"]
 corner_radius_top_left = 64
@@ -244,11 +245,52 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "message goes here..."
 
-[node name="Right" type="Panel" parent="HUD/VBoxContainer/Control/HBoxContainer" unique_id=216829527]
+[node name="VBoxContainer2" type="VBoxContainer" parent="HUD/VBoxContainer/Control/HBoxContainer" unique_id=2070400560]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="CoinPanel" type="Panel" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer2" unique_id=216829527]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/VBoxContainer/Control/HBoxContainer/Right" unique_id=729352057]
+[node name="VBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer2/CoinPanel" unique_id=65873202]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Control" type="Control" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer2/CoinPanel/VBoxContainer" unique_id=1919919537]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="CoinSprite" type="Sprite2D" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer2/CoinPanel/VBoxContainer/Control" unique_id=259089293]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("8_wvtmh")
+hframes = 4
+frame = 3
+
+[node name="CoinLabel" type="Label" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer2/CoinPanel/VBoxContainer" unique_id=499906734]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "0"
+vertical_alignment = 1
+
+[node name="CompassPanel" type="Panel" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer2" unique_id=164920689]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer2/CompassPanel" unique_id=1173346490]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -258,21 +300,21 @@ grow_vertical = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="HUD/VBoxContainer/Control/HBoxContainer/Right/VBoxContainer" unique_id=1980201442]
-clip_contents = true
-custom_minimum_size = Vector2(32, 32)
+[node name="Control" type="Control" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer2/CompassPanel/VBoxContainer" unique_id=2108788284]
 layout_mode = 2
 size_flags_horizontal = 4
-texture = ExtResource("8_wvtmh")
-expand_mode = 1
-stretch_mode = 2
-flip_h = true
+size_flags_vertical = 6
 
-[node name="CoinLabel" type="Label" parent="HUD/VBoxContainer/Control/HBoxContainer/Right/VBoxContainer" unique_id=499906734]
-unique_name_in_owner = true
-layout_mode = 2
-text = "0"
-horizontal_alignment = 1
+[node name="CompassBGSprite" type="Sprite2D" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer2/CompassPanel/VBoxContainer/Control" unique_id=110872158]
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("9_7thud")
+hframes = 5
+
+[node name="CompassDirSprite" type="Sprite2D" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer2/CompassPanel/VBoxContainer/Control" unique_id=1806830798]
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("9_7thud")
+hframes = 5
+frame = 1
 
 [node name="WeaponControl" type="Control" parent="HUD/VBoxContainer" unique_id=1869577043]
 layout_mode = 2

@@ -50,6 +50,7 @@ var max_energy := 30:
 @onready var log_v_container: VBoxContainer = %LogVContainer
 @onready var log_text: Label = %LogText
 @onready var energy_bar: TextureProgressBar = %EnergyBar
+@onready var compass_dir_sprite: Sprite2D = $HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer2/CompassPanel/VBoxContainer/Control/CompassDirSprite
 
 var magnet_trap_scene := preload("res://entities/interactables/magnet_trap.tscn")
 var magnet_placed : bool = false
@@ -213,6 +214,8 @@ func turn(direction: int) -> void:
 	_current_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	_current_tween.tween_method(_set_rotation_y, rotation.y, _shortest_angle(rotation.y, target_angle), turn_duration)
 	_current_tween.finished.connect(func(): _is_busy = false)
+	
+	compass_dir_sprite.frame = facing + 1
 
 func teleport_to(new_grid_pos: Vector2i, direction: Facing, skip_intro: bool) -> void:
 	player_sfx_stream.stream = load("res://Audio/teleport.mp3")
@@ -241,6 +244,8 @@ func teleport_to(new_grid_pos: Vector2i, direction: Facing, skip_intro: bool) ->
 	grid_pos = new_grid_pos
 	position = grid.grid_to_world(grid_pos)
 	position.y = 0
+	
+	compass_dir_sprite.frame = facing + 1
 	
 	var timer := get_tree().create_timer(1.0)
 	await timer.timeout
