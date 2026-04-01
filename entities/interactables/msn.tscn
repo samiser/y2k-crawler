@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://b67vidagif7b6"]
 
 [ext_resource type="Script" uid="uid://e0g5pb4hsp3b" path="res://entities/interactables/msn.gd" id="1_tvbih"]
-[ext_resource type="Texture2D" uid="uid://bayeglcsmc3ae" path="res://sprites/computer_tiles/characters_comp.bmp" id="2_hjk73"]
+[ext_resource type="Texture2D" uid="uid://bayeglcsmc3ae" path="res://Sprites/computer_tiles/characters_comp.bmp" id="2_hjk73"]
 [ext_resource type="FontFile" uid="uid://bln26fp864yte" path="res://fonts/ms-tahoma-bold-8px.ttf" id="3_jx6d4"]
+[ext_resource type="AudioStream" uid="uid://2fqp7axixsvb" path="res://Audio/Characters/msn.mp3" id="4_jx6d4"]
 
 [node name="MSN" type="Node3D" unique_id=1408575202]
 script = ExtResource("1_tvbih")
@@ -23,3 +24,6 @@ text = "Some helpful text! Some helpful text! Some helpful text! Some helpful te
 font = ExtResource("3_jx6d4")
 vertical_alignment = 2
 autowrap_mode = 2
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1863557442]
+stream = ExtResource("4_jx6d4")

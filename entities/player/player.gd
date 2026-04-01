@@ -15,7 +15,7 @@ var grid_pos := Vector2i.ZERO
 var _is_busy := false
 var _teleporting := false
 var _current_tween: Tween
-var coins := 100
+var coins := 0
 var unlocked_items: Array = []
 var selected_item: int = -1
 
@@ -225,12 +225,15 @@ func _check_for_batteries() -> void:
 			max_energy += 10
 			energy += 10
 			add_log("Battery collected! +10 max energy")
+			player_sfx_stream.stream = load("res://Audio/battery.mp3")
+			player_sfx_stream.play()
 			return
 
 func _check_for_terminals() -> void:
 	for terminal in get_tree().get_nodes_in_group("terminals"):
 		if terminal.is_at(grid_pos):
 			energy = max_energy
+			last_terminal_pos = grid_pos
 			add_log("Energy refilled!")
 			return
 
@@ -541,7 +544,7 @@ func _use_radar():
 	radar.modulate.a = 1
 	radar_tween = create_tween()
 	radar_tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
-	radar_tween.tween_property(radar, "modulate:a", 0, 2)
+	radar_tween.tween_property(radar, "modulate:a", 0, 3)
 	add_log("Used radar!")
 	
 	return true

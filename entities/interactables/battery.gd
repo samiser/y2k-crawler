@@ -2,6 +2,7 @@ extends Node3D
 class_name Battery
 
 @export var grid_path: NodePath
+@onready var sprite_3d: Sprite3D = $Sprite3D
 
 var grid: Grid
 var grid_pos := Vector2i.ZERO
@@ -22,3 +23,7 @@ func _exit_tree() -> void:
 
 func is_at(check_pos: Vector2i) -> bool:
 	return grid_pos == check_pos
+
+func _process(delta: float) -> void:
+	var height_offset : float = sin(Time.get_ticks_msec() * 0.1 * delta) * 0.1
+	sprite_3d.position.y = 0.5 + height_offset

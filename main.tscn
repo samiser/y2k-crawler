@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://8lh7jatioovn" path="res://world/grid_new.tscn" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://ditrytb3g73sj" path="res://entities/player/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" uid="uid://dbbff0gcliyiq" path="res://entities/enemies/firewall.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://j1b0yoie8suv" path="res://entities/enemies/clippy.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://b67vidagif7b6" path="res://entities/interactables/msn.tscn" id="10_4c57u"]
 [ext_resource type="AudioStream" uid="uid://bcmm7qlllkfeu" path="res://Audio/test_music.mp3" id="11_efxa6"]
 
@@ -24,6 +26,7 @@ adjustment_saturation = 1.31
 [node name="Grid" parent="." unique_id=1197692489 instance=ExtResource("1_1bvp3")]
 
 [node name="Player" parent="." unique_id=537004856 instance=ExtResource("2_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 4)
 grid_path = NodePath("../Grid")
 facing = 3
 
@@ -38,4 +41,69 @@ autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 8)
 grid_path = NodePath("../Grid")
 player_path = NodePath("../Player")
-dialogue = Array[String](["what the chungus"])
+dialogue = Array[String](["AHHHH!!!", "Who are you? I haven't seen you online before.", "These fires came out of nowhere!", "...Funny, they started when you showed up.", "Maybe you can help!", "The terminals on the wall might fix it.", "I don't know how to use them...", "Try clicking on one, you look like a tech whiz."])
+
+[node name="MSN2" parent="." unique_id=1181054655 instance=ExtResource("10_4c57u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 32)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+dialogue = Array[String](["Listen buddy, you probably don't want to go here.", "There's some annoying metal fella in this maze...", "They keep going on about how they're trying to help.", "But they try so hard it overloads my systems!", "If only there was a way of repelling them..."])
+
+[node name="Firewall" parent="." unique_id=169159829 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 22)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+patrol_axis = 1
+
+[node name="Firewall2" parent="." unique_id=1229274161 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 22)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+patrol_axis = 1
+
+[node name="Firewall3" parent="." unique_id=229941507 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 14)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+
+[node name="Firewall5" parent="." unique_id=1394999617 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 36)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+
+[node name="Firewall10" parent="." unique_id=4564702 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 32)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+patrol_axis = 1
+
+[node name="Firewall7" parent="." unique_id=166898887 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 50)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+
+[node name="Firewall8" parent="." unique_id=1147801852 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 56)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+
+[node name="Firewall9" parent="." unique_id=1108653646 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 62)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+
+[node name="Firewall6" parent="." unique_id=58943555 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 32)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+patrol_axis = 1
+
+[node name="Firewall4" parent="." unique_id=672809549 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 18)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+
+[node name="Clippy" parent="." unique_id=81324326 instance=ExtResource("6_7mycd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 44)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")

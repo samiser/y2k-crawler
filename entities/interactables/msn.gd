@@ -10,6 +10,7 @@ var grid_pos := Vector2i.ZERO
 var _dialogue_index := -1
 
 @onready var label_3d: Label3D = $Label3D
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 func _ready() -> void:
 	add_to_group("barriers")
@@ -40,6 +41,7 @@ func interact() -> void:
 		_reset()
 	else:
 		label_3d.text = dialogue[_dialogue_index]
+		audio_stream_player_3d.play()
 
 func _reset() -> void:
 	_dialogue_index = -1

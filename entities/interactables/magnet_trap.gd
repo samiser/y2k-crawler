@@ -51,6 +51,23 @@ func _zap() -> void:
 				tween = get_tree().create_tween()
 				tween.tween_property(coin, "position", grid.grid_to_world(grid_pos) + pos_ran_offset, 0.4)
 	
+	for battery in get_tree().get_nodes_in_group("batteries"):
+		if (battery.global_position.distance_to(global_position) < 6.0):
+			if grid.has_line_of_sight(grid_pos, battery.grid_pos):
+				zapped = true
+				
+				grid.unregister_item(battery.grid_pos, battery)
+				
+				battery.grid_pos = grid_pos
+				
+				var ran_offset_magnitude : float = 0.6
+				var pos_ran_offset : Vector3 = Vector3(randf_range(-ran_offset_magnitude, ran_offset_magnitude), 0, randf_range(-ran_offset_magnitude, ran_offset_magnitude))
+				grid.register_item(grid_pos, battery)
+				
+				tween = get_tree().create_tween()
+				tween.tween_property(battery, "position", grid.grid_to_world(grid_pos) + pos_ran_offset, 0.4)
+	
+	
 	for clippy in get_tree().get_nodes_in_group("clippy_enemies"):
 		if (clippy.global_position.distance_to(global_position) < 3.0):
 			zapped = true
