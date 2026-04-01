@@ -1802,6 +1802,16 @@ floor_frame = 8
 ceiling_frame = 7
 show_roof = false
 
+[node name="Tile248" parent="." unique_id=919551218 instance=ExtResource("2_qxeq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 66)
+north_frame = 6
+south_frame = 6
+east_frame = 6
+west_frame = 6
+floor_frame = 8
+ceiling_frame = 7
+show_roof = false
+
 [node name="Tile240" parent="." unique_id=2027986894 instance=ExtResource("2_qxeq2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 74)
 north_frame = 7
@@ -2298,6 +2308,16 @@ floor_frame = 16
 ceiling_frame = 16
 show_roof = false
 
+[node name="Tile250" parent="." unique_id=2029159735 instance=ExtResource("2_qxeq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 68)
+north_frame = 16
+south_frame = 16
+east_frame = 16
+west_frame = 16
+floor_frame = 16
+ceiling_frame = 16
+show_roof = false
+
 [node name="Tile239" parent="." unique_id=1424712192 instance=ExtResource("2_qxeq2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 72)
 north_frame = 16
@@ -2314,7 +2334,17 @@ north_frame = 15
 south_frame = 15
 east_frame = 15
 west_frame = 15
-floor_frame = 15
+floor_frame = 16
+ceiling_frame = 16
+show_roof = false
+
+[node name="Tile253" parent="." unique_id=446612077 instance=ExtResource("2_qxeq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 70)
+north_frame = 15
+south_frame = 15
+east_frame = 15
+west_frame = 15
+floor_frame = 16
 ceiling_frame = 16
 show_roof = false
 
@@ -2328,8 +2358,28 @@ floor_frame = 8
 ceiling_frame = 7
 show_roof = false
 
+[node name="Tile246" parent="." unique_id=2023084256 instance=ExtResource("2_qxeq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 58)
+north_frame = 6
+south_frame = 6
+east_frame = 6
+west_frame = 6
+floor_frame = 8
+ceiling_frame = 7
+show_roof = false
+
 [node name="Tile206" parent="." unique_id=242464942 instance=ExtResource("2_qxeq2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 52)
+north_frame = 6
+south_frame = 6
+east_frame = 6
+west_frame = 6
+floor_frame = 8
+ceiling_frame = 7
+show_roof = false
+
+[node name="Tile241" parent="." unique_id=1962862334 instance=ExtResource("2_qxeq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 52)
 north_frame = 6
 south_frame = 6
 east_frame = 6
