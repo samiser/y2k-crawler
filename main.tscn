@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://ditrytb3g73sj" path="res://entities/player/player.tscn" id="2_player"]
 [ext_resource type="PackedScene" uid="uid://dbbff0gcliyiq" path="res://entities/enemies/firewall.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://j1b0yoie8suv" path="res://entities/enemies/clippy.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://b5c2c5wkhb823" path="res://entities/enemies/dragon.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://bmocrysmk1lla" path="res://entities/interactables/fire.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://b67vidagif7b6" path="res://entities/interactables/msn.tscn" id="10_4c57u"]
 [ext_resource type="AudioStream" uid="uid://bcmm7qlllkfeu" path="res://Audio/test_music.mp3" id="11_efxa6"]
 
@@ -26,7 +28,7 @@ adjustment_saturation = 1.31
 [node name="Grid" parent="." unique_id=1197692489 instance=ExtResource("1_1bvp3")]
 
 [node name="Player" parent="." unique_id=537004856 instance=ExtResource("2_player")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 92)
 grid_path = NodePath("../Grid")
 facing = 3
 
@@ -107,3 +109,41 @@ player_path = NodePath("../Player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 44)
 grid_path = NodePath("../Grid")
 player_path = NodePath("../Player")
+
+[node name="Dragon" parent="." unique_id=533816539 instance=ExtResource("7_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 78)
+grid_path = NodePath("../Grid")
+
+[node name="Dragon4" parent="." unique_id=976713915 instance=ExtResource("7_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 82)
+grid_path = NodePath("../Grid")
+
+[node name="Dragon3" parent="." unique_id=1988743378 instance=ExtResource("7_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 86)
+grid_path = NodePath("../Grid")
+
+[node name="Dragon5" parent="." unique_id=1509172079 instance=ExtResource("7_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 90)
+grid_path = NodePath("../Grid")
+
+[node name="Firewall14" parent="." unique_id=621765327 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 86)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+
+[node name="Firewall15" parent="." unique_id=1522269282 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 90)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+
+[node name="Fire" parent="." unique_id=465558493 instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 80)
+grid_path = NodePath("../Grid")
+
+[node name="Fire2" parent="." unique_id=1045932683 instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 84)
+grid_path = NodePath("../Grid")
+
+[node name="Fire3" parent="." unique_id=1300959776 instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 88)
+grid_path = NodePath("../Grid")

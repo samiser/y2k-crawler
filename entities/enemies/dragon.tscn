@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b5c2c5wkhb823"]
+
+[ext_resource type="Script" uid="uid://dg8uh4l73y8gr" path="res://entities/enemies/dragon.gd" id="1_1ts82"]
+[ext_resource type="Texture2D" uid="uid://bayeglcsmc3ae" path="res://Sprites/computer_tiles/characters_comp.bmp" id="2_84oyi"]
+[ext_resource type="Texture2D" uid="uid://bsiwbj3secx6w" path="res://Sprites/ui/compass_tilemap.bmp" id="3_84oyi"]
+
+[node name="Dragon" type="Node3D" unique_id=1408575202]
+script = ExtResource("1_1ts82")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=249415636]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+layers = 3
+pixel_size = 0.02085
+billboard = 2
+texture_filter = 0
+texture = ExtResource("2_84oyi")
+hframes = 10
+frame = 7
+
+[node name="fireball" type="Sprite3D" parent="." unique_id=1752314005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+visible = false
+layers = 3
+pixel_size = 0.02085
+billboard = 2
+texture_filter = 0
+texture = ExtResource("3_84oyi")
+hframes = 5
+frame = 4
