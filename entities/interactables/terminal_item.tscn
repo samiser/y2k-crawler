@@ -31,7 +31,7 @@ grow_vertical = 2
 texture_filter = 1
 scale = Vector2(2, 2)
 texture = ExtResource("2_f1ohj")
-hframes = 4
+hframes = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=224376439]
 layout_mode = 2

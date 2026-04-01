@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cx8ftsioisf2d"]
 
-[ext_resource type="Texture2D" uid="uid://ccbllve56rue0" path="res://Sprites/ui/panel.png" id="1_3h10k"]
+[ext_resource type="Texture2D" uid="uid://ccbllve56rue0" path="res://sprites/ui/panel.png" id="1_3h10k"]
 [ext_resource type="Script" uid="uid://dvij4g3fdycty" path="res://entities/player/hotbar.gd" id="1_g81lv"]
-[ext_resource type="Texture2D" uid="uid://bqw2f2uuawpep" path="res://Sprites/computer_tiles/world_items_tilemap.bmp" id="1_qsqat"]
+[ext_resource type="Texture2D" uid="uid://bqw2f2uuawpep" path="res://sprites/computer_tiles/world_items_tilemap.bmp" id="1_qsqat"]
 [ext_resource type="FontFile" uid="uid://bln26fp864yte" path="res://fonts/ms-tahoma-bold-8px.ttf" id="2_sv82c"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bectd"]
@@ -52,7 +52,7 @@ grow_vertical = 2
 
 [node name="WaterGunSprite" type="Sprite2D" parent="HBoxContainer/WaterGun/Control" unique_id=50015674]
 texture = ExtResource("1_qsqat")
-hframes = 4
+hframes = 5
 
 [node name="MetalDetector" type="Panel" parent="HBoxContainer" unique_id=1587209734]
 custom_minimum_size = Vector2(32, 32)
@@ -71,7 +71,7 @@ grow_vertical = 2
 
 [node name="MetalDetectorSprite" type="Sprite2D" parent="HBoxContainer/MetalDetector/Control" unique_id=1831102620]
 texture = ExtResource("1_qsqat")
-hframes = 4
+hframes = 5
 frame = 1
 
 [node name="Magnet" type="Panel" parent="HBoxContainer" unique_id=1548242134]
@@ -91,5 +91,5 @@ grow_vertical = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Magnet/Control" unique_id=1472827515]
 texture = ExtResource("1_qsqat")
-hframes = 4
+hframes = 5
 frame = 2

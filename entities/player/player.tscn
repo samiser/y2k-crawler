@@ -254,21 +254,25 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/Panel/MarginContainer" unique_id=2046777906]
+[node name="LogScrollContainer" type="ScrollContainer" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/Panel/MarginContainer" unique_id=2046777906]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 size_flags_vertical = 3
+horizontal_scroll_mode = 0
 
-[node name="LogVContainer" type="VBoxContainer" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer" unique_id=1941822468]
+[node name="LogVContainer" type="VBoxContainer" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/Panel/MarginContainer/LogScrollContainer" unique_id=1941822468]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="LogText" type="Label" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/Panel/MarginContainer/ScrollContainer/LogVContainer" unique_id=1497883809]
+[node name="LogText" type="Label" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/Panel/MarginContainer/LogScrollContainer/LogVContainer" unique_id=1497883809]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "message goes here..."
+autowrap_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HUD/VBoxContainer/Control/HBoxContainer" unique_id=2070400560]
 layout_mode = 2

@@ -50,6 +50,7 @@ var max_energy := 30:
 @onready var log_v_container: VBoxContainer = %LogVContainer
 @onready var log_text: Label = %LogText
 @onready var energy_bar: TextureProgressBar = %EnergyBar
+@onready var log_scroll_container: ScrollContainer = %LogScrollContainer
 @onready var compass_dir_sprite: Sprite2D = $HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer2/CompassPanel/VBoxContainer/Control/CompassDirSprite
 
 var magnet_trap_scene := preload("res://entities/interactables/magnet_trap.tscn")
@@ -181,6 +182,7 @@ func try_move(direction: Vector2i) -> void:
 	moved.emit(grid_pos)
 	_check_for_coins()
 	_check_for_bombs()
+	_check_for_fire()
 
 func _check_for_coins() -> void:
 	if not grid:
@@ -202,6 +204,14 @@ func _check_for_bombs() -> void:
 			screen_shake(0.5, 0.2)
 			add_log("You stepped on a bomb!")
 			teleport_to_checkpoint()
+			return
+
+func _check_for_fire() -> void:
+	for fire in get_tree().get_nodes_in_group("fire"):
+		if fire.grid_pos == grid_pos:
+			energy -= 10
+			screen_shake(0.15, 0.05)
+			add_log("You walked through fire! -10 energy")
 			return
 
 func screen_shake(duration: float, intensity: float) -> void:
@@ -525,14 +535,17 @@ func _sync_radar_camera() -> void:
 func add_log(message: String) -> void:
 	if message.length() == 0:
 		return
-	
+
 	if log_v_container.get_child_count() > 6:
 		log_v_container.get_child(log_v_container.get_child_count() - 1).queue_free()
-	
+
 	var new_log : Label = log_text.duplicate()
 	new_log.text = "[" + Time.get_time_string_from_system() + "] " + message
 	new_log.visible = true
 	log_v_container.add_child(new_log)
-	
+
+	await get_tree().process_frame
+	log_scroll_container.scroll_vertical = log_scroll_container.get_v_scroll_bar().max_value as int
+
 	var timer := get_tree().create_timer(4.0)
 	timer.timeout.connect(func(): if new_log: new_log.queue_free())
