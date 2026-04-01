@@ -79,7 +79,7 @@ func _on_move_finished() -> void:
 
 func _is_adjacent_to_player() -> bool:
 	var diff := player.grid_pos - grid_pos
-	return absi(diff.x) + absi(diff.y) == 1
+	return absi(diff.x) + absi(diff.y) <= 1
 
 func _catch_player() -> void:
 	if _zap_time > 0:
