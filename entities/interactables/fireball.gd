@@ -1,14 +1,13 @@
 extends Node3D
 class_name Fireball
 
-var direction : Vector2i
-var life : float = 3.0
+var wall : FirewallEnemy
 
 func _process(delta: float) -> void:
-	life -= delta
+	var dir := (global_position - wall.global_position).normalized()
+	while global_position.distance_to(wall.global_position) > 1.0:
+		global_position += dir * delta * 20.0
+		_impact()
 	
-	if life <= 0.0:
-		queue_free()
-		return
-	
-	global_position += Vector3(direction.x, 0, direction.y) * delta * 20.0
+func _impact() -> void:
+	queue_free()

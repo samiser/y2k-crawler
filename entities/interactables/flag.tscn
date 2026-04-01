@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dhox30yf3go"]
 
-[ext_resource type="Texture2D" uid="uid://dlj4vud1c36ka" path="res://Sprites/computer_tiles/objects_comp.bmp" id="2_ukulb"]
+[ext_resource type="Texture2D" uid="uid://dlj4vud1c36ka" path="res://sprites/computer_tiles/objects_comp.bmp" id="2_ukulb"]
 
 [node name="Flag" type="Node3D" unique_id=465558493]
 

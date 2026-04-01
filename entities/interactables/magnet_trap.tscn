@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ddq2urob7j4bk"]
 
 [ext_resource type="Script" uid="uid://bxow4aj4a0l4f" path="res://entities/interactables/magnet_trap.gd" id="1_ej778"]
-[ext_resource type="Texture2D" uid="uid://bqw2f2uuawpep" path="res://Sprites/computer_tiles/world_items_tilemap.bmp" id="2_ontd4"]
+[ext_resource type="Texture2D" uid="uid://bqw2f2uuawpep" path="res://sprites/computer_tiles/world_items_tilemap.bmp" id="2_ontd4"]
 [ext_resource type="AudioStream" uid="uid://cqg4menjt705v" path="res://Audio/Tools/magnet_zap.mp3" id="3_ontd4"]
 
 [node name="Magnet" type="Node3D" unique_id=1393749878]

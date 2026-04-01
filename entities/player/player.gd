@@ -15,7 +15,7 @@ var grid_pos := Vector2i.ZERO
 var _is_busy := false
 var _teleporting := false
 var _current_tween: Tween
-var coins := 0
+var coins := 100
 var unlocked_items: Array = []
 var selected_item: int = -1
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bo5abdipri8sj"]
 
 [ext_resource type="Script" uid="uid://i73qd7r4dx8i" path="res://entities/interactables/battery.gd" id="1_r3vem"]
-[ext_resource type="Texture2D" uid="uid://bqw2f2uuawpep" path="res://Sprites/computer_tiles/world_items_tilemap.bmp" id="1_uc5rc"]
+[ext_resource type="Texture2D" uid="uid://bqw2f2uuawpep" path="res://sprites/computer_tiles/world_items_tilemap.bmp" id="1_uc5rc"]
 
 [node name="Battery" type="Node3D" unique_id=1756372440]
 script = ExtResource("1_r3vem")

@@ -2,11 +2,13 @@ extends Node3D
 class_name DragonEnemy
 
 @export var grid_path: NodePath
-@export var fire_dir := Vector2i.RIGHT
+@export var fire_dir := 1
+@export var firewall : FirewallEnemy
 @export var player_path: NodePath
 
 @onready var sprite: Sprite3D = $Sprite3D
 @onready var fireball := preload("res://entities/interactables/fireball.tscn")
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 var grid: Grid
 var player: Player
@@ -36,11 +38,12 @@ func _on_player_moved(_player_new_pos: Vector2i) -> void:
 	_fireball() 
 
 func _fireball() -> void:
+	audio_stream_player_3d.play()
 	sprite.frame = 6
 	
 	var fb := fireball.instantiate()
-	fb.direction = fire_dir
 	fb.global_position = global_position
+	fb.wall = firewall
 	get_tree().root.add_child(fb)
 	
 	var timer := get_tree().create_timer(1.0)
