@@ -184,6 +184,7 @@ func try_move(direction: Vector2i) -> void:
 	_check_for_bombs()
 	_check_for_fire()
 	_check_for_batteries()
+	_check_for_terminals()
 
 func _check_for_coins() -> void:
 	if not grid:
@@ -224,6 +225,13 @@ func _check_for_batteries() -> void:
 			max_energy += 10
 			energy += 10
 			add_log("Battery collected! +10 max energy")
+			return
+
+func _check_for_terminals() -> void:
+	for terminal in get_tree().get_nodes_in_group("terminals"):
+		if terminal.is_at(grid_pos):
+			energy = max_energy
+			add_log("Energy refilled!")
 			return
 
 func screen_shake(duration: float, intensity: float) -> void:
@@ -424,7 +432,7 @@ func _try_interact_terminal() -> bool:
 			last_terminal_pos = grid_pos
 			last_terminal_facing = terminal_facing
 			has_used_terminal = true
-			energy = max_energy
+			add_log("Checkpoint set!")
 			open_terminal_ui()
 			return true
 	return false
