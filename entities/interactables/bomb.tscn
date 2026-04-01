@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dy4tcgrvmxa1v"]
 
-[ext_resource type="Script" uid="uid://c3gqi6n5nhcn" path="res://entities/interactables/bomb.gd" id="1_8mvp2"]
-[ext_resource type="Texture2D" uid="uid://bayeglcsmc3ae" path="res://sprites/computer_tiles/characters_comp.bmp" id="1_573fp"]
-[ext_resource type="AudioStream" uid="uid://b8j7suylp13qv" path="res://Audio/coin.mp3" id="3_scf3g"]
+[ext_resource type="Script" path="res://entities/interactables/bomb.gd" id="1_8mvp2"]
+[ext_resource type="Texture2D" uid="uid://bayeglcsmc3ae" path="res://Sprites/computer_tiles/characters_comp.bmp" id="1_573fp"]
+[ext_resource type="AudioStream" uid="uid://bdydspudkt7o1" path="res://Audio/explosion.mp3" id="3_8mvp2"]
 
 [node name="Bomb" type="Node3D" unique_id=938119711]
 script = ExtResource("1_8mvp2")
@@ -18,5 +18,5 @@ hframes = 10
 frame = 5
 
 [node name="ExplosionPlayer" type="AudioStreamPlayer3D" parent="." unique_id=787567621]
-stream = ExtResource("3_scf3g")
+stream = ExtResource("3_8mvp2")
 volume_db = 17.951
