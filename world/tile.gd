@@ -39,16 +39,20 @@ func _set_frame(sprite: Sprite3D, value: int) -> int:
 		sprite.frame = value
 	return value
 
-func set_wall_visible(direction: String, visible: bool) -> void:
+func set_wall_visible(direction: String, vis: bool) -> void:
 	match direction:
 		"north":
-			north_wall.visible = visible
+			if north_wall:
+				north_wall.visible = vis
 		"south":
-			south_wall.visible = visible
+			if south_wall:
+				south_wall.visible = vis
 		"east":
-			east_wall.visible = visible
+			if east_wall:
+				east_wall.visible = vis
 		"west":
-			west_wall.visible = visible
+			if west_wall:
+				west_wall.visible = vis
 
 func _ready() -> void:
 	_set_frame(north_wall, north_frame)
@@ -57,5 +61,5 @@ func _ready() -> void:
 	_set_frame(west_wall, west_frame)
 	_set_frame(floor, floor_frame)
 	_set_frame(ceiling, ceiling_frame)
-	if Engine.is_editor_hint():
+	if Engine.is_editor_hint() and ceiling:
 		ceiling.visible = false

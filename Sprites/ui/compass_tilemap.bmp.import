@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsiwbj3secx6w"
-path.s3tc="res://.godot/imported/compass_tilemap.bmp-353630e2a08663dce89781d35ecc36dd.s3tc.ctex"
+path.s3tc="res://.godot/imported/compass_tilemap.bmp-6126efd3566957e53751b3250875ece6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Sprites/ui/compass_tilemap.bmp"
-dest_files=["res://.godot/imported/compass_tilemap.bmp-353630e2a08663dce89781d35ecc36dd.s3tc.ctex"]
+source_file="res://sprites/ui/compass_tilemap.bmp"
+dest_files=["res://.godot/imported/compass_tilemap.bmp-6126efd3566957e53751b3250875ece6.s3tc.ctex"]
 
 [params]
 

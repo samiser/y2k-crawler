@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bayeglcsmc3ae"
-path="res://.godot/imported/characters_comp.bmp-0dd06b24adb504e90c1788ddec093deb.ctex"
+path="res://.godot/imported/characters_comp.bmp-e2b40442e437d5c0ae95943624c21ae0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/computer_tiles/characters_comp.bmp"
-dest_files=["res://.godot/imported/characters_comp.bmp-0dd06b24adb504e90c1788ddec093deb.ctex"]
+source_file="res://sprites/computer_tiles/characters_comp.bmp"
+dest_files=["res://.godot/imported/characters_comp.bmp-e2b40442e437d5c0ae95943624c21ae0.ctex"]
 
 [params]
 
