@@ -180,6 +180,7 @@ func try_move(direction: Vector2i) -> void:
 
 	moved.emit(grid_pos)
 	_check_for_coins()
+	_check_for_bombs()
 
 func _check_for_coins() -> void:
 	if not grid:
@@ -191,6 +192,16 @@ func _check_for_coins() -> void:
 			player_sfx_stream.stream = load("res://Audio/coin.mp3")
 			player_sfx_stream.play()
 			_update_coin_label()
+
+func _check_for_bombs() -> void:
+	if not grid:
+		return
+	for item in grid.get_items_at(grid_pos):
+		if item is Bomb:
+			item.explode()
+			add_log("You stepped on a bomb!")
+			teleport_to_checkpoint()
+			return
 
 func _update_coin_label() -> void:
 	if coin_label:

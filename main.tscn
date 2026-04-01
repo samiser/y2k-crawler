@@ -94,33 +94,43 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -24)
 
 [node name="Bomb" parent="." unique_id=938119711 instance=ExtResource("8_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -22)
+grid_path = NodePath("../Grid")
 
 [node name="Bomb9" parent="." unique_id=1754295803 instance=ExtResource("8_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -24)
+grid_path = NodePath("../Grid")
 
 [node name="Bomb2" parent="." unique_id=1046073737 instance=ExtResource("8_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -20)
+grid_path = NodePath("../Grid")
 
 [node name="Bomb3" parent="." unique_id=1434984798 instance=ExtResource("8_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -22)
+grid_path = NodePath("../Grid")
 
 [node name="Bomb4" parent="." unique_id=399075195 instance=ExtResource("8_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -24)
+grid_path = NodePath("../Grid")
 
 [node name="Bomb5" parent="." unique_id=2041963634 instance=ExtResource("8_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -28)
+grid_path = NodePath("../Grid")
 
 [node name="Bomb6" parent="." unique_id=613539803 instance=ExtResource("8_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -28)
+grid_path = NodePath("../Grid")
 
 [node name="Bomb7" parent="." unique_id=1566386390 instance=ExtResource("8_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -28)
+grid_path = NodePath("../Grid")
 
 [node name="Bomb8" parent="." unique_id=930897943 instance=ExtResource("8_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -26)
+grid_path = NodePath("../Grid")
 
 [node name="Bomb10" parent="." unique_id=1679605929 instance=ExtResource("8_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 6)
+grid_path = NodePath("../Grid")
 
 [node name="Coins" type="Node3D" parent="." unique_id=526540226]
 
