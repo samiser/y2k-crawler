@@ -10,5 +10,5 @@ pixel_size = 0.02085
 billboard = 2
 texture_filter = 0
 texture = ExtResource("2_ukulb")
-hframes = 5
+hframes = 6
 frame = 2
