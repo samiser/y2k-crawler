@@ -199,9 +199,25 @@ func _check_for_bombs() -> void:
 	for item in grid.get_items_at(grid_pos):
 		if item is Bomb:
 			item.explode()
+			screen_shake(0.5, 0.2)
 			add_log("You stepped on a bomb!")
 			teleport_to_checkpoint()
 			return
+
+func screen_shake(duration: float, intensity: float) -> void:
+	var original_pos := camera_3d.position
+	var shake_tween := create_tween()
+	var shake_count := int(duration / 0.05)
+
+	for i in shake_count:
+		var offset := Vector3(
+			randf_range(-intensity, intensity),
+			randf_range(-intensity, intensity),
+			0
+		)
+		shake_tween.tween_property(camera_3d, "position", original_pos + offset, 0.05)
+
+	shake_tween.tween_property(camera_3d, "position", original_pos, 0.05)
 
 func _update_coin_label() -> void:
 	if coin_label:

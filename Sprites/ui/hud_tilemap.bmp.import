@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dw5sjwqqko8mr"
-path="res://.godot/imported/hud_tilemap.bmp-cb0512e76c982d4693f4cd66fe38b7de.ctex"
+path="res://.godot/imported/hud_tilemap.bmp-fccd3bbef29ae925c582f8b3b1f2a132.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/ui/hud_tilemap.bmp"
-dest_files=["res://.godot/imported/hud_tilemap.bmp-cb0512e76c982d4693f4cd66fe38b7de.ctex"]
+source_file="res://sprites/ui/hud_tilemap.bmp"
+dest_files=["res://.godot/imported/hud_tilemap.bmp-fccd3bbef29ae925c582f8b3b1f2a132.ctex"]
 
 [params]
 
