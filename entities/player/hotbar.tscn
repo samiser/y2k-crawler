@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cx8ftsioisf2d"]
 
-[ext_resource type="Texture2D" uid="uid://ccbllve56rue0" path="res://sprites/ui/panel.png" id="1_3h10k"]
+[ext_resource type="Texture2D" uid="uid://ccbllve56rue0" path="res://Sprites/ui/panel.png" id="1_3h10k"]
 [ext_resource type="Script" uid="uid://dvij4g3fdycty" path="res://entities/player/hotbar.gd" id="1_g81lv"]
-[ext_resource type="Texture2D" uid="uid://bqw2f2uuawpep" path="res://sprites/computer_tiles/world_items_tilemap.bmp" id="1_qsqat"]
+[ext_resource type="Texture2D" uid="uid://bqw2f2uuawpep" path="res://Sprites/computer_tiles/world_items_tilemap.bmp" id="1_qsqat"]
 [ext_resource type="FontFile" uid="uid://bln26fp864yte" path="res://fonts/ms-tahoma-bold-8px.ttf" id="2_sv82c"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bectd"]
@@ -15,9 +15,6 @@ texture_margin_bottom = 3.0
 [sub_resource type="Theme" id="Theme_eteuq"]
 default_font = ExtResource("2_sv82c")
 Panel/styles/panel = SubResource("StyleBoxTexture_bectd")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g81lv"]
-load_path = "res://.godot/imported/world_items_tilemap.bmp-bbe9099d9f3dff7b48800f40827e17ef.ctex"
 
 [node name="Hotbar" type="Control" unique_id=1306635365]
 custom_minimum_size = Vector2(0, 32)
@@ -54,7 +51,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="WaterGunSprite" type="Sprite2D" parent="HBoxContainer/WaterGun/Control" unique_id=50015674]
-texture = SubResource("CompressedTexture2D_g81lv")
+texture = ExtResource("1_qsqat")
 hframes = 4
 
 [node name="MetalDetector" type="Panel" parent="HBoxContainer" unique_id=1587209734]
