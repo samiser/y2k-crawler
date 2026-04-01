@@ -1,14 +1,7 @@
 [gd_scene format=3 uid="uid://up8x05j0vexy"]
 
-[ext_resource type="PackedScene" uid="uid://ct25gmhfciekm" path="res://world/grid.tscn" id="1_grid"]
+[ext_resource type="PackedScene" uid="uid://8lh7jatioovn" path="res://world/grid_new.tscn" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://ditrytb3g73sj" path="res://entities/player/player.tscn" id="2_player"]
-[ext_resource type="PackedScene" uid="uid://dbbff0gcliyiq" path="res://entities/enemies/firewall.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://cnge5mbsv3d30" path="res://entities/interactables/terminal.tscn" id="4_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://va18ckyu1c5l" path="res://entities/interactables/barrier.tscn" id="5_lquwl"]
-[ext_resource type="PackedScene" uid="uid://j1b0yoie8suv" path="res://entities/enemies/clippy.tscn" id="6_7mycd"]
-[ext_resource type="PackedScene" uid="uid://dhox30yf3go" path="res://entities/interactables/flag.tscn" id="7_272bh"]
-[ext_resource type="PackedScene" uid="uid://dy4tcgrvmxa1v" path="res://entities/interactables/bomb.tscn" id="8_5vw27"]
-[ext_resource type="PackedScene" uid="uid://c8h1sodkn5sg7" path="res://entities/interactables/coin.tscn" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://b67vidagif7b6" path="res://entities/interactables/msn.tscn" id="10_4c57u"]
 [ext_resource type="AudioStream" uid="uid://bcmm7qlllkfeu" path="res://Audio/test_music.mp3" id="11_efxa6"]
 
@@ -28,180 +21,21 @@ adjustment_saturation = 1.31
 
 [node name="Main" type="Node3D" unique_id=1809764316]
 
-[node name="Grid" parent="." unique_id=652517435 instance=ExtResource("1_grid")]
+[node name="Grid" parent="." unique_id=1197692489 instance=ExtResource("1_1bvp3")]
 
 [node name="Player" parent="." unique_id=537004856 instance=ExtResource("2_player")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 grid_path = NodePath("../Grid")
 facing = 3
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1049699312]
 environment = SubResource("Environment_0xm2m")
 
-[node name="Firewall" parent="." unique_id=1408575202 instance=ExtResource("3_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
-grid_path = NodePath("../Grid")
-player_path = NodePath("../Player")
-
-[node name="Firewall3" parent="." unique_id=1065837217 instance=ExtResource("3_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 10)
-grid_path = NodePath("../Grid")
-player_path = NodePath("../Player")
-
-[node name="Firewall2" parent="." unique_id=980318932 instance=ExtResource("3_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -6)
-grid_path = NodePath("../Grid")
-player_path = NodePath("../Player")
-patrol_axis = 1
-
-[node name="Terminal" parent="." unique_id=465558493 instance=ExtResource("4_1bvp3")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4, 0, 2)
-grid_path = NodePath("../Grid")
-
-[node name="Terminal2" parent="." unique_id=1657844887 instance=ExtResource("4_1bvp3")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -12, 0, -2)
-grid_path = NodePath("../Grid")
-
-[node name="Barrier" parent="." unique_id=713112690 instance=ExtResource("5_lquwl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -4)
-grid_path = NodePath("../Grid")
-player_path = NodePath("../Player")
-
-[node name="Barrier2" parent="." unique_id=432105569 instance=ExtResource("5_lquwl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
-grid_path = NodePath("../Grid")
-player_path = NodePath("../Player")
-
-[node name="Clippy" parent="." unique_id=495354134 instance=ExtResource("6_7mycd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.274097, 0, 17.772879)
-grid_path = NodePath("../Grid")
-player_path = NodePath("../Player")
-
-[node name="Flag" parent="." unique_id=1376559638 instance=ExtResource("7_272bh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -20)
-
-[node name="Flag2" parent="." unique_id=1518210798 instance=ExtResource("7_272bh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -20)
-
-[node name="Flag3" parent="." unique_id=1854578967 instance=ExtResource("7_272bh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -22)
-
-[node name="Flag4" parent="." unique_id=1036234238 instance=ExtResource("7_272bh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -26)
-
-[node name="Flag5" parent="." unique_id=277307288 instance=ExtResource("7_272bh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -24)
-
-[node name="Bomb" parent="." unique_id=938119711 instance=ExtResource("8_5vw27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -22)
-grid_path = NodePath("../Grid")
-
-[node name="Bomb9" parent="." unique_id=1754295803 instance=ExtResource("8_5vw27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -24)
-grid_path = NodePath("../Grid")
-
-[node name="Bomb2" parent="." unique_id=1046073737 instance=ExtResource("8_5vw27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -20)
-grid_path = NodePath("../Grid")
-
-[node name="Bomb3" parent="." unique_id=1434984798 instance=ExtResource("8_5vw27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -22)
-grid_path = NodePath("../Grid")
-
-[node name="Bomb4" parent="." unique_id=399075195 instance=ExtResource("8_5vw27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -24)
-grid_path = NodePath("../Grid")
-
-[node name="Bomb5" parent="." unique_id=2041963634 instance=ExtResource("8_5vw27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -28)
-grid_path = NodePath("../Grid")
-
-[node name="Bomb6" parent="." unique_id=613539803 instance=ExtResource("8_5vw27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -28)
-grid_path = NodePath("../Grid")
-
-[node name="Bomb7" parent="." unique_id=1566386390 instance=ExtResource("8_5vw27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -28)
-grid_path = NodePath("../Grid")
-
-[node name="Bomb8" parent="." unique_id=930897943 instance=ExtResource("8_5vw27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -26)
-grid_path = NodePath("../Grid")
-
-[node name="Bomb10" parent="." unique_id=1679605929 instance=ExtResource("8_5vw27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 6)
-grid_path = NodePath("../Grid")
-
-[node name="Coins" type="Node3D" parent="." unique_id=526540226]
-
-[node name="Coin" parent="Coins" unique_id=1393749878 instance=ExtResource("9_kek77")]
-grid_path = NodePath("../../Grid")
-
-[node name="Coin2" parent="Coins" unique_id=914349871 instance=ExtResource("9_kek77")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
-grid_path = NodePath("../../Grid")
-
-[node name="Coin6" parent="Coins" unique_id=1830266737 instance=ExtResource("9_kek77")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
-grid_path = NodePath("../../Grid")
-
-[node name="Coin7" parent="Coins" unique_id=1412898413 instance=ExtResource("9_kek77")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
-grid_path = NodePath("../../Grid")
-
-[node name="Coin8" parent="Coins" unique_id=1027364083 instance=ExtResource("9_kek77")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
-grid_path = NodePath("../../Grid")
-
-[node name="Coin9" parent="Coins" unique_id=1362068177 instance=ExtResource("9_kek77")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -6)
-grid_path = NodePath("../../Grid")
-
-[node name="Coin10" parent="Coins" unique_id=258229617 instance=ExtResource("9_kek77")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -8)
-grid_path = NodePath("../../Grid")
-
-[node name="Coin11" parent="Coins" unique_id=793346888 instance=ExtResource("9_kek77")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -8)
-grid_path = NodePath("../../Grid")
-
-[node name="Coin12" parent="Coins" unique_id=905083880 instance=ExtResource("9_kek77")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -6)
-grid_path = NodePath("../../Grid")
-
-[node name="Coin13" parent="Coins" unique_id=834448846 instance=ExtResource("9_kek77")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -6)
-grid_path = NodePath("../../Grid")
-
-[node name="Coin14" parent="Coins" unique_id=1340817225 instance=ExtResource("9_kek77")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -4)
-grid_path = NodePath("../../Grid")
-
-[node name="Coin15" parent="Coins" unique_id=582435579 instance=ExtResource("9_kek77")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -6)
-grid_path = NodePath("../../Grid")
-
-[node name="Coin3" parent="Coins" unique_id=1768197335 instance=ExtResource("9_kek77")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
-grid_path = NodePath("../../Grid")
-
-[node name="Coin5" parent="Coins" unique_id=1720326952 instance=ExtResource("9_kek77")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
-grid_path = NodePath("../../Grid")
-
-[node name="Coin4" parent="Coins" unique_id=1428946470 instance=ExtResource("9_kek77")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
-grid_path = NodePath("../../Grid")
-
-[node name="MSN" parent="." unique_id=1908747960 instance=ExtResource("10_4c57u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
-grid_path = NodePath("../Grid")
-player_path = NodePath("../Player")
-dialogue = Array[String](["Hi!", "I didn't see you come online...", "Watch out for the paper clip fella!", "They insist I need to chill in the screensaver.", "They mean well...", "...but they worry too much!"])
-
 [node name="MusicStream" type="AudioStreamPlayer2D" parent="." unique_id=1137068048]
 stream = ExtResource("11_efxa6")
 autoplay = true
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=744847870]
-transform = Transform3D(1, 0, 0, 0, -5.9604638e-08, -1, 0, 1, -5.9604638e-08, 0, -22, 0)
+[node name="MSN" parent="." unique_id=1408575202 instance=ExtResource("10_4c57u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 8)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+dialogue = Array[String](["what the chungus"])
