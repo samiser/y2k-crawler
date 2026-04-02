@@ -72,9 +72,8 @@ func _zap() -> void:
 		if (clippy.global_position.distance_to(global_position) < 3.0):
 			zapped = true
 			clippy.zapped()
-			player.add_log("Magnet zapped Clippy, (" + str(life) + ") zaps left!")
-	
-
+			if life > -1:
+				player.add_log("Magnet zapped Clippy, (" + str(life) + ") zaps left!")
 	
 	if zapped:
 		audio_stream_player_3d.play()
