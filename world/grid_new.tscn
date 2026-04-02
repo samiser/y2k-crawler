@@ -2948,10 +2948,6 @@ grid_path = NodePath("..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 8)
 grid_path = NodePath("..")
 
-[node name="Coin7" parent="." unique_id=1114833116 instance=ExtResource("3_xj0o6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 10)
-grid_path = NodePath("..")
-
 [node name="Fire" parent="." unique_id=465558493 instance=ExtResource("4_mbhnr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 12)
 grid_path = NodePath("..")
