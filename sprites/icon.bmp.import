@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsiwbj3secx6w"
-path="res://.godot/imported/compass_tilemap.bmp-6126efd3566957e53751b3250875ece6.ctex"
+uid="uid://45rxif00r1f3"
+path="res://.godot/imported/icon.bmp-350cbff38b1591ec9521e29f0524b379.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ui/compass_tilemap.bmp"
-dest_files=["res://.godot/imported/compass_tilemap.bmp-6126efd3566957e53751b3250875ece6.ctex"]
+source_file="res://sprites/icon.bmp"
+dest_files=["res://.godot/imported/icon.bmp-350cbff38b1591ec9521e29f0524b379.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

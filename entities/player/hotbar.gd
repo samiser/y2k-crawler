@@ -10,7 +10,7 @@ enum Item { WATER_GUN, METAL_DETECTOR, MAGNET }
 	Item.MAGNET: $HBoxContainer/Magnet,
 }
 
-const PRESSED = preload("uid://cibnnyejeymbj")
+const PRESSED = preload("res://entities/player/pressed.tres")
 
 var default_style: StyleBox
 var selected_slot: Control = null
