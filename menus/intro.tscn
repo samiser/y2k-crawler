@@ -68,7 +68,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/normal_font = ExtResource("3_yof08")
 theme_override_font_sizes/normal_font_size = 11
-text = "As the time approaches midnight, a disturbing force is manifesting in the guts of the computer"
+text = "As the time approaches midnight, a disturbing force is manifesting in the guts of the computer."
 fit_content = true
 
 [node name="3" type="RichTextLabel" parent="VBoxContainer/MarginContainer" unique_id=449211677]
@@ -78,5 +78,5 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/normal_font = ExtResource("3_yof08")
 theme_override_font_sizes/normal_font_size = 11
-text = "With no one around to prevent the catastrophy, it begins its attempt to take over the system.."
+text = "With no one around to prevent the catastrophy, it begins its attempt to take over the system..."
 fit_content = true
