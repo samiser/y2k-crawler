@@ -88,7 +88,7 @@ transform = Transform3D(1, -1.7484555e-07, -1.5285482e-14, 7.642742e-15, -4.3711
 cull_mask = 1048574
 environment = SubResource("Environment_qiwj3")
 projection = 1
-size = 14.0
+size = 16.5
 
 [node name="RadarImage" type="TextureRect" parent="HUD/Radar" unique_id=93904593]
 unique_name_in_owner = true

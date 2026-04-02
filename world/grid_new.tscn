@@ -1394,8 +1394,8 @@ floor_frame = 8
 ceiling_frame = 7
 show_roof = false
 
-[node name="Tile191" parent="." unique_id=1621966841 instance=ExtResource("2_qxeq2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 42)
+[node name="Tile190" parent="." unique_id=1970207007 instance=ExtResource("2_qxeq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 44)
 north_frame = 6
 south_frame = 6
 east_frame = 6
@@ -1404,8 +1404,38 @@ floor_frame = 8
 ceiling_frame = 7
 show_roof = false
 
-[node name="Tile225" parent="." unique_id=390277721 instance=ExtResource("2_qxeq2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 44)
+[node name="Tile194" parent="." unique_id=1206337624 instance=ExtResource("2_qxeq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 46)
+north_frame = 6
+south_frame = 6
+east_frame = 6
+west_frame = 6
+floor_frame = 8
+ceiling_frame = 7
+show_roof = false
+
+[node name="Tile225" parent="." unique_id=1607774956 instance=ExtResource("2_qxeq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 48)
+north_frame = 6
+south_frame = 6
+east_frame = 6
+west_frame = 6
+floor_frame = 8
+ceiling_frame = 7
+show_roof = false
+
+[node name="Tile298" parent="." unique_id=730514597 instance=ExtResource("2_qxeq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 50)
+north_frame = 6
+south_frame = 6
+east_frame = 6
+west_frame = 6
+floor_frame = 8
+ceiling_frame = 7
+show_roof = false
+
+[node name="Tile191" parent="." unique_id=1621966841 instance=ExtResource("2_qxeq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 42)
 north_frame = 6
 south_frame = 6
 east_frame = 6
@@ -2956,14 +2986,6 @@ grid_path = NodePath("..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 6)
 grid_path = NodePath("..")
 
-[node name="Fire9" parent="." unique_id=819550479 instance=ExtResource("4_mbhnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 10)
-grid_path = NodePath("..")
-
-[node name="Fire10" parent="." unique_id=1483676001 instance=ExtResource("4_mbhnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 10)
-grid_path = NodePath("..")
-
 [node name="Fire11" parent="." unique_id=859020182 instance=ExtResource("4_mbhnr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
 grid_path = NodePath("..")
@@ -3277,7 +3299,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 32)
 grid_path = NodePath("..")
 
 [node name="Battery6" parent="." unique_id=68245461 instance=ExtResource("6_xj0o6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 46)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 50)
 grid_path = NodePath("..")
 
 [node name="Fire14" parent="." unique_id=1925861880 instance=ExtResource("4_mbhnr")]
@@ -3327,3 +3349,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 92)
 
 [node name="Pit10" parent="." unique_id=584154829 instance=ExtResource("10_gdghg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 94)
+
+[node name="Pit11" parent="." unique_id=342475428 instance=ExtResource("10_gdghg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 48)
+grid_path = NodePath("..")

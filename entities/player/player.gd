@@ -447,7 +447,8 @@ func try_use() -> void:
 	
 	if valid:
 		moved.emit(grid_pos) # skips a turn, buggy tho
-		energy -= 2
+		if selected_item != 1:
+			energy -= 2
 		_play_use_animation()
 
 func _try_interact_terminal() -> bool:
@@ -573,7 +574,7 @@ func _use_radar():
 	radar.modulate.a = 1
 	radar_tween = create_tween()
 	radar_tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
-	radar_tween.tween_property(radar, "modulate:a", 0, 3)
+	radar_tween.tween_property(radar, "modulate:a", 0, 2)
 	add_log("Used radar!")
 	
 	return true
