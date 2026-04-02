@@ -415,9 +415,11 @@ func _on_terminal_closed() -> void:
 func _on_item_selected(item: int, force: bool) -> void:
 	if not force and (selected_item == item or _is_busy): # already held or busy
 		return
-	
+
 	selected_item = item
-		
+	if hotbar:
+		hotbar.set_selected(item)
+
 	if fp_sprite:
 		if fp_sprite.visible == true: # lower weapon sprite
 			if not force:

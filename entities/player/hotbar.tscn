@@ -89,7 +89,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Magnet/Control" unique_id=1472827515]
+[node name="MagnetSprite" type="Sprite2D" parent="HBoxContainer/Magnet/Control" unique_id=1472827515]
 texture = ExtResource("1_qsqat")
 hframes = 5
 frame = 2
