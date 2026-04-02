@@ -5,6 +5,7 @@ class_name ClippyEnemy
 signal caught_player
 
 @onready var sprite: Sprite3D = $Sprite3D
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 @export var grid_path: NodePath
 @export var player_path: NodePath
@@ -102,6 +103,8 @@ func _move_to(new_grid_pos: Vector2i) -> void:
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "position", target_position, move_duration)
 	tween.finished.connect(_on_move_finished)
+	
+	audio_stream_player_3d.play()
 
 func _on_move_finished() -> void:
 	_is_moving = false

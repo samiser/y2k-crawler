@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cmekgcrb7mfq8" path="res://entities/enemies/clippy.gd" id="1_efmc1"]
 [ext_resource type="Texture2D" uid="uid://bayeglcsmc3ae" path="res://sprites/computer_tiles/characters_comp.bmp" id="2_qs21v"]
 [ext_resource type="Texture2D" uid="uid://bcqk21okdu04r" path="res://sprites/computer_tiles/radar_comp.bmp" id="3_1ne34"]
+[ext_resource type="AudioStream" uid="uid://d1a8m1783q7uk" path="res://Audio/Characters/clippy.mp3" id="4_yqu34"]
 
 [node name="Clippy" type="Node3D" unique_id=1408575202]
 script = ExtResource("1_efmc1")
@@ -27,3 +28,7 @@ texture_filter = 0
 texture = ExtResource("3_1ne34")
 hframes = 2
 frame = 1
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=460110608]
+stream = ExtResource("4_yqu34")
+max_distance = 12.0
