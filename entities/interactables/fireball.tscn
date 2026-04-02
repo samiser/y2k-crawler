@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d240e24gujv1a"]
 
 [ext_resource type="Script" uid="uid://bt2nwrgddn6q1" path="res://entities/interactables/fireball.gd" id="1_nu1nb"]
-[ext_resource type="Texture2D" uid="uid://dlj4vud1c36ka" path="res://Sprites/computer_tiles/objects_comp.bmp" id="2_567ww"]
+[ext_resource type="Texture2D" uid="uid://dlj4vud1c36ka" path="res://sprites/computer_tiles/objects_comp.bmp" id="2_567ww"]
 [ext_resource type="AudioStream" uid="uid://dgcxrfoh2x8t2" path="res://Audio/fire.mp3" id="3_kj86y"]
 
 [node name="Fireball" type="Node3D" unique_id=465558493]
@@ -13,7 +13,7 @@ pixel_size = 0.02085
 billboard = 2
 texture_filter = 0
 texture = ExtResource("2_567ww")
-hframes = 6
+hframes = 7
 frame = 5
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1311329546]

@@ -200,10 +200,10 @@ grow_vertical = 2
 [node name="HBoxContainer" type="VBoxContainer" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/HBoxContainer/Energy/MarginContainer" unique_id=1947510602]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/HBoxContainer/Energy/MarginContainer/HBoxContainer" unique_id=1993081638]
+[node name="EnergyLabel" type="Label" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/HBoxContainer/Energy/MarginContainer/HBoxContainer" unique_id=1993081638]
 layout_mode = 2
 theme_override_font_sizes/font_size = 11
-text = " Energy"
+text = " Energy LvL 1"
 horizontal_alignment = 1
 
 [node name="EnergyBar" type="TextureProgressBar" parent="HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/HBoxContainer/Energy/MarginContainer/HBoxContainer" unique_id=1718591224]

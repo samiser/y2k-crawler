@@ -18,6 +18,8 @@ var _current_tween: Tween
 var coins := 0
 var unlocked_items: Array = []
 var selected_item: int = -1
+@onready var energy_label: Label = $HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/HBoxContainer/Energy/MarginContainer/HBoxContainer/EnergyLabel
+var energy_lvl : int = 1
 
 var energy := 30:
 	set(value):
@@ -31,9 +33,13 @@ var energy := 30:
 
 var max_energy := 30:
 	set(value):
+		if value > max_energy:
+			energy_lvl += 1
 		max_energy = value
 		if energy_bar:
 			energy_bar.max_value = max_energy
+		if energy_label:
+			energy_label.text = "Energy LvL " + str(energy_lvl)
 
 @onready var player_sfx_stream: AudioStreamPlayer2D = $PlayerSfxStream
 

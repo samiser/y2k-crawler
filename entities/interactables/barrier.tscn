@@ -13,7 +13,7 @@ script = ExtResource("1_script")
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1, 0.75)
 texture_filter = 0
 texture = ExtResource("1_lfb78")
-hframes = 6
+hframes = 7
 frame = 1
 
 [node name="Area3D" type="Area3D" parent="." unique_id=61643409]

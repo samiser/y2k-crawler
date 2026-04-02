@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bo5abdipri8sj" path="res://entities/interactables/battery.tscn" id="6_xj0o6"]
 [ext_resource type="PackedScene" uid="uid://dhox30yf3go" path="res://entities/interactables/flag.tscn" id="7_mbhnr"]
 [ext_resource type="PackedScene" uid="uid://dy4tcgrvmxa1v" path="res://entities/interactables/bomb.tscn" id="8_7vxii"]
+[ext_resource type="PackedScene" uid="uid://dka0w0342lrts" path="res://entities/interactables/minesign.tscn" id="9_w8r8k"]
 
 [node name="Grid" type="Node3D" unique_id=1197692489]
 script = ExtResource("1_fqwj8")
@@ -3056,10 +3057,6 @@ grid_path = NodePath("..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 26)
 grid_path = NodePath("..")
 
-[node name="Bomb9" parent="." unique_id=463903195 instance=ExtResource("8_7vxii")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 26)
-grid_path = NodePath("..")
-
 [node name="Bomb10" parent="." unique_id=1145842377 instance=ExtResource("8_7vxii")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 24)
 grid_path = NodePath("..")
@@ -3094,6 +3091,7 @@ grid_path = NodePath("..")
 
 [node name="Bomb4" parent="." unique_id=1686720931 instance=ExtResource("8_7vxii")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 22)
+grid_path = NodePath("..")
 
 [node name="Bomb5" parent="." unique_id=1259994882 instance=ExtResource("8_7vxii")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 22)
@@ -3204,3 +3202,9 @@ grid_path = NodePath("..")
 [node name="Fire16" parent="." unique_id=1473206132 instance=ExtResource("4_mbhnr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 32)
 grid_path = NodePath("..")
+
+[node name="MineSign" parent="." unique_id=1648195455 instance=ExtResource("9_w8r8k")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6, 0, 14)
+
+[node name="MineSign2" parent="." unique_id=359503839 instance=ExtResource("9_w8r8k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 22)
