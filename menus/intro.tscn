@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://3wsqb1t8mnam"]
+[gd_scene format=3 uid="uid://up7g4gu006mi"]
 
-[ext_resource type="Script" uid="uid://rs0gtft0njjs" path="res://intro.gd" id="1_vlgv8"]
+[ext_resource type="Script" path="res://intro.gd" id="1_vlgv8"]
 [ext_resource type="Texture2D" uid="uid://c63nqtsbmhkcq" path="res://sprites/ui/cutscene_tilemap.bmp" id="2_n0bno"]
 [ext_resource type="FontFile" uid="uid://bln26fp864yte" path="res://fonts/ms-tahoma-bold-8px.ttf" id="3_yof08"]
 
