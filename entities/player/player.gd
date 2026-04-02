@@ -308,9 +308,8 @@ func _check_for_batteries() -> void:
 func _check_for_terminals() -> void:
 	for terminal in get_tree().get_nodes_in_group("terminals"):
 		if terminal.is_at(grid_pos):
-			if energy < max_energy / 1.5:
-				player_sfx_stream.stream = load("res://Audio/recharge.mp3")
-				player_sfx_stream.play()
+			player_sfx_stream.stream = load("res://Audio/recharge.mp3")
+			player_sfx_stream.play()
 			energy = max_energy
 			last_terminal_pos = grid_pos
 			add_log("Energy refilled!")
@@ -405,6 +404,8 @@ func teleport_to(new_grid_pos: Vector2i, direction: Facing, skip_intro: bool) ->
 	
 	if not skip_intro:
 		add_log("You've been teleported!")
+		player_sfx_stream.stream = load("res://Audio/recharge.mp3")
+		player_sfx_stream.play()
 	
 	player_sprite.frame = 0
 	
