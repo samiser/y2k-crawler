@@ -250,6 +250,8 @@ func _check_for_terminals() -> void:
 			energy = max_energy
 			last_terminal_pos = grid_pos
 			add_log("Energy refilled!")
+			player_sfx_stream.stream = load("res://Audio/recharge.mp3")
+			player_sfx_stream.play()
 			return
 
 func screen_shake(duration: float, intensity: float) -> void:
