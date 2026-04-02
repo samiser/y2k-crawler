@@ -10,7 +10,7 @@ extends Control
 @onready var music_stream: AudioStreamOggVorbis = music_player.stream
 @onready var fade_out: ColorRect = %FadeOut
 
-const MAIN_MENU = preload("uid://dwaia028u2oxg")
+const MAIN_MENU = preload("res://menus/main_menu.tscn")
 
 var current_step := 0
 var text_tween_duration := 5.0
