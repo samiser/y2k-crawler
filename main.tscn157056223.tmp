@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://up8x05j0vexy"]
+
+[ext_resource type="PackedScene" uid="uid://8lh7jatioovn" path="res://world/grid_new.tscn" id="1_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://ditrytb3g73sj" path="res://entities/player/player.tscn" id="2_player"]
+[ext_resource type="AudioStream" uid="uid://d2316ye8n6e4d" path="res://Audio/Music/main_theme.ogg" id="3_5vw27"]
+[ext_resource type="PackedScene" uid="uid://dbbff0gcliyiq" path="res://entities/enemies/firewall.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://j1b0yoie8suv" path="res://entities/enemies/clippy.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://b5c2c5wkhb823" path="res://entities/enemies/dragon.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://c17gkocessutc" path="res://entities/enemies/pit.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://b67vidagif7b6" path="res://entities/interactables/msn.tscn" id="10_4c57u"]
+
+[sub_resource type="Environment" id="Environment_0xm2m"]
+background_mode = 1
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+fog_light_energy = 4.4
+fog_density = 1.0
+fog_depth_curve = 2.0705302
+fog_depth_begin = 0.0
+fog_depth_end = 9.0
+adjustment_enabled = true
+adjustment_contrast = 1.07
+adjustment_saturation = 1.31
+
+[node name="Main" type="Node3D" unique_id=1809764316]
+
+[node name="Grid" parent="." unique_id=1197692489 instance=ExtResource("1_1bvp3")]
+
+[node name="Player" parent="." unique_id=537004856 instance=ExtResource("2_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 4)
+grid_path = NodePath("../Grid")
+facing = 3
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1049699312]
+environment = SubResource("Environment_0xm2m")
+
+[node name="MusicStream" type="AudioStreamPlayer2D" parent="." unique_id=1137068048]
+stream = ExtResource("3_5vw27")
+autoplay = true
+
+[node name="MSN" parent="." unique_id=1408575202 instance=ExtResource("10_4c57u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 8)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+dialogue = Array[String](["AHHHH!!!", "Who are you? I haven't seen you online before.", "These fires came out of nowhere!", "...Funny, they started when you showed up.", "Maybe you can help!", "The terminals on the wall might fix it.", "I don't know how to use them...", "Try clicking on one, you look like a tech whiz.", "Standing next to one will recover your energy too!"])
+
+[node name="MSN2" parent="." unique_id=1181054655 instance=ExtResource("10_4c57u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 32)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+dialogue = Array[String](["Listen buddy, you probably don't want to go here.", "There's some annoying metal fella in this maze...", "They keep going on about how they're trying to help.", "But they try so hard it overloads my systems!", "If only there was a way of repelling them..."])
+
+[node name="Firewall" parent="." unique_id=169159829 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 22)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+patrol_axis = 1
+
+[node name="Firewall2" parent="." unique_id=1229274161 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 22)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+patrol_axis = 1
+
+[node name="Firewall3" parent="." unique_id=229941507 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 14)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+
+[node name="Firewall5" parent="." unique_id=1394999617 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 36)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+
+[node name="Firewall7" parent="." unique_id=166898887 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 50)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+
+[node name="Firewall8" parent="." unique_id=1147801852 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 56)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+
+[node name="Firewall9" parent="." unique_id=1108653646 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 62)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+
+[node name="Clippy" parent="." unique_id=81324326 instance=ExtResource("6_7mycd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 42)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+bounds_min = Vector2i(3, 15)
+bounds_max = Vector2i(12, 33)
+
+[node name="Dragon" parent="." unique_id=533816539 node_paths=PackedStringArray("target") instance=ExtResource("7_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 78)
+grid_path = NodePath("../Grid")
+target = NodePath("../wallimpact")
+player_path = NodePath("../Player")
+
+[node name="Dragon4" parent="." unique_id=976713915 node_paths=PackedStringArray("target") instance=ExtResource("7_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 82)
+grid_path = NodePath("../Grid")
+target = NodePath("../wallimpact2")
+player_path = NodePath("../Player")
+
+[node name="Dragon3" parent="." unique_id=1988743378 node_paths=PackedStringArray("target") instance=ExtResource("7_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 86)
+grid_path = NodePath("../Grid")
+target = NodePath("../Firewall14")
+player_path = NodePath("../Player")
+
+[node name="Dragon5" parent="." unique_id=1509172079 node_paths=PackedStringArray("target") instance=ExtResource("7_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 88)
+grid_path = NodePath("../Grid")
+target = NodePath("../Firewall15")
+player_path = NodePath("../Player")
+
+[node name="Firewall14" parent="." unique_id=621765327 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 86)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+
+[node name="Firewall15" parent="." unique_id=1522269282 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 88)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+
+[node name="wallimpact" type="Node3D" parent="." unique_id=759929345]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 78)
+
+[node name="wallimpact2" type="Node3D" parent="." unique_id=1525759269]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 82)
+
+[node name="Pit" parent="." unique_id=114681886 instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 32)
+grid_path = NodePath("../Grid")
+
+[node name="Pit2" parent="." unique_id=477548651 instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 32)
+grid_path = NodePath("../Grid")
+
+[node name="Pit3" parent="." unique_id=946165258 instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 18)
+grid_path = NodePath("../Grid")
