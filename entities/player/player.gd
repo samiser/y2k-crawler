@@ -43,6 +43,11 @@ var max_energy := 30:
 		if energy_label:
 			energy_label.text = "Energy LvL " + str(energy_lvl)
 
+var turn_count := 0:
+	set(value):
+		turn_count = value
+		turn_label.text = "Turn " + str(turn_count)
+
 @onready var player_sfx_stream: AudioStreamPlayer2D = $PlayerSfxStream
 
 @onready var coin_label: Label = %CoinLabel
@@ -61,6 +66,7 @@ var max_energy := 30:
 @onready var log_scroll_container: ScrollContainer = %LogScrollContainer
 @onready var compass_dir_sprite: Sprite2D = $HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer2/CompassPanel/VBoxContainer/Control/CompassDirSprite
 @onready var help_ui: Window = $HelpUI
+@onready var turn_label: Label = $HUD/VBoxContainer/Control/HBoxContainer/PlayerControl/MarginContainer/Control/TurnLabel
 
 var magnet_trap_scene := preload("res://entities/interactables/magnet_trap.tscn")
 var magnet_placed : bool = false
@@ -203,7 +209,9 @@ func try_move(direction: Vector2i) -> void:
 	_current_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	_current_tween.tween_property(self, "position", target_position, move_duration)
 	_current_tween.finished.connect(func(): _is_busy = false)
-
+	
+	turn_count += 1
+	
 	moved.emit(grid_pos)
 	_check_for_coins()
 	_check_for_bombs()
@@ -471,6 +479,7 @@ func try_use() -> void:
 		valid = _use_magnet()
 	
 	if valid:
+		turn_count += 1
 		moved.emit(grid_pos) # skips a turn, buggy tho
 		if selected_item != 1:
 			energy -= 2
@@ -622,7 +631,7 @@ func add_log(message: String) -> void:
 		log_v_container.get_child(log_v_container.get_child_count() - 1).queue_free()
 
 	var new_log : Label = log_text.duplicate()
-	new_log.text = "[" + Time.get_time_string_from_system() + "] " + message
+	new_log.text = "[T" + str(turn_count) + "] " + message
 	new_log.visible = true
 	log_v_container.add_child(new_log)
 
