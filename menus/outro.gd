@@ -10,6 +10,8 @@ extends Control
 @onready var music_stream: AudioStreamOggVorbis = music_player.stream
 @onready var fade_out: ColorRect = %FadeOut
 
+const MAIN_MENU = preload("uid://dwaia028u2oxg")
+
 var current_step := 0
 var text_tween_duration := 5.0
 
@@ -41,4 +43,10 @@ func _advance_scene() -> void:
 			_tween_text(_3)
 			get_tree().create_timer(60 / music_stream.bpm * 16).timeout.connect(_advance_scene)
 		3:
-			print("roll credits!")
+			var time_left := music_player.stream.get_length() - music_player.get_playback_position()
+			var tween := create_tween()
+			tween.tween_property(fade_out, "modulate:a", 1.0, time_left)
+			tween.finished.connect(func():
+				music_player.stop()
+				get_tree().change_scene_to_packed(MAIN_MENU)
+			)

@@ -6,3 +6,5 @@ const INTRO = preload("uid://up7g4gu006mi")
 
 func _ready() -> void:
 	play_button.pressed.connect(func() -> void: get_tree().change_scene_to_packed(INTRO))
+	Input.set_custom_mouse_cursor(load("res://sprites/ui/cursor_default.bmp"))
+	Input.set_custom_mouse_cursor(load("res://sprites/ui/cursor_hover.bmp"), Input.CURSOR_POINTING_HAND)

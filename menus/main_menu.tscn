@@ -68,11 +68,13 @@ theme_override_constants/separation = 10
 [node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1992753897]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_default_cursor_shape = 2
 text = "Play"
 
 [node name="OptionsButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1423225917]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_default_cursor_shape = 2
 text = "Options"
 
 [node name="Label" type="Label" parent="." unique_id=1582949454]

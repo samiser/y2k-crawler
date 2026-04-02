@@ -129,7 +129,7 @@ func _process(_delta: float) -> void:
 			window._on_close()
 	elif Input.is_action_pressed("help"):
 		help_ui._display()
-	
+
 	if not _is_busy and not _teleporting:
 		handle_input()
 
