@@ -521,6 +521,11 @@ func _use_magnet():
 		add_log("You can't place a magnet there!")
 		return false
 	
+	for barrier in get_tree().get_nodes_in_group("barriers"):
+		if barrier.is_at(target_pos):
+			add_log("You can't place a magnet there!")
+			return false
+	
 	player_sfx_stream.stream = load("res://Audio/Tools/magnet_zap.mp3")
 	player_sfx_stream.play()
 	

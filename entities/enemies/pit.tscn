@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c17gkocessutc"]
+
+[ext_resource type="Script" uid="uid://bk530138v8nm2" path="res://entities/enemies/pit.gd" id="1_tbogo"]
+[ext_resource type="Texture2D" uid="uid://dimnaqs436a66" path="res://sprites/computer_tiles/walls_comp.bmp" id="2_tbogo"]
+
+[node name="Pit" type="Node3D" unique_id=1408575202]
+script = ExtResource("1_tbogo")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=249415636]
+transform = Transform3D(1.5, 0, 0, 0, -6.556708e-08, 1.5, 0, -1.5, -6.556708e-08, 0, 0.06, 0)
+layers = 3
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.02085
+texture_filter = 0
+texture = ExtResource("2_tbogo")
+hframes = 21

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dbbff0gcliyiq" path="res://entities/enemies/firewall.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://j1b0yoie8suv" path="res://entities/enemies/clippy.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://b5c2c5wkhb823" path="res://entities/enemies/dragon.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://c17gkocessutc" path="res://entities/enemies/pit.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://b67vidagif7b6" path="res://entities/interactables/msn.tscn" id="10_4c57u"]
 [ext_resource type="AudioStream" uid="uid://bcmm7qlllkfeu" path="res://Audio/test_music.mp3" id="11_efxa6"]
 
@@ -42,7 +43,7 @@ autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 8)
 grid_path = NodePath("../Grid")
 player_path = NodePath("../Player")
-dialogue = Array[String](["AHHHH!!!", "Who are you? I haven't seen you online before.", "These fires came out of nowhere!", "...Funny, they started when you showed up.", "Maybe you can help!", "The terminals on the wall might fix it.", "I don't know how to use them...", "Try clicking on one, you look like a tech whiz."])
+dialogue = Array[String](["AHHHH!!!", "Who are you? I haven't seen you online before.", "These fires came out of nowhere!", "...Funny, they started when you showed up.", "Maybe you can help!", "The terminals on the wall might fix it.", "I don't know how to use them...", "Try clicking on one, you look like a tech whiz.", "Standing next to one will recover your energy too!"])
 
 [node name="MSN2" parent="." unique_id=1181054655 instance=ExtResource("10_4c57u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 32)
@@ -72,12 +73,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 36)
 grid_path = NodePath("../Grid")
 player_path = NodePath("../Player")
 
-[node name="Firewall10" parent="." unique_id=4564702 instance=ExtResource("3_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 32)
-grid_path = NodePath("../Grid")
-player_path = NodePath("../Player")
-patrol_axis = 1
-
 [node name="Firewall7" parent="." unique_id=166898887 instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 50)
 grid_path = NodePath("../Grid")
@@ -93,19 +88,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 62)
 grid_path = NodePath("../Grid")
 player_path = NodePath("../Player")
 
-[node name="Firewall6" parent="." unique_id=58943555 instance=ExtResource("3_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 32)
-grid_path = NodePath("../Grid")
-player_path = NodePath("../Player")
-patrol_axis = 1
-
-[node name="Firewall4" parent="." unique_id=672809549 instance=ExtResource("3_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 18)
-grid_path = NodePath("../Grid")
-player_path = NodePath("../Player")
-
 [node name="Clippy" parent="." unique_id=81324326 instance=ExtResource("6_7mycd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 44)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 42)
 grid_path = NodePath("../Grid")
 player_path = NodePath("../Player")
 bounds_min = Vector2i(3, 15)
@@ -150,3 +134,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 78)
 
 [node name="wallimpact2" type="Node3D" parent="." unique_id=1525759269]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 82)
+
+[node name="Pit" parent="." unique_id=114681886 instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 32)
+grid_path = NodePath("../Grid")
+
+[node name="Pit2" parent="." unique_id=477548651 instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 32)
+grid_path = NodePath("../Grid")
+
+[node name="Pit3" parent="." unique_id=946165258 instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 18)
+grid_path = NodePath("../Grid")
