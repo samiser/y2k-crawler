@@ -198,6 +198,7 @@ func _skip_turn() -> void:
 	turn_count += 1
 	moved.emit(grid_pos)
 	skip_turn.release_focus()
+	add_log("You skipped a turn.")
 	_check_for_fire()
 
 func _cycle_items() -> void:
