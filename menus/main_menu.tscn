@@ -3,6 +3,7 @@
 [ext_resource type="Theme" uid="uid://03s0vxym15s7" path="res://main.tres" id="1_8gy84"]
 [ext_resource type="Script" uid="uid://dn2h7n05aiuoo" path="res://menus/main_menu.gd" id="2_yjgyn"]
 [ext_resource type="Texture2D" uid="uid://cgbj373aanvqi" path="res://sprites/ui/thumbnail.bmp" id="3_rqbgu"]
+[ext_resource type="AudioStream" uid="uid://bvaghqouklgw5" path="res://Audio/Music/menu_music.ogg" id="4_rqbgu"]
 
 [node name="MainMenu" type="Control" unique_id=469063693]
 layout_mode = 3
@@ -86,3 +87,7 @@ offset_bottom = -4.0
 grow_vertical = 0
 text = "Developed by Wookbee & Samiser"
 vertical_alignment = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1393464310]
+stream = ExtResource("4_rqbgu")
+autoplay = true
