@@ -58,6 +58,7 @@ var max_energy := 30:
 @onready var energy_bar: TextureProgressBar = %EnergyBar
 @onready var log_scroll_container: ScrollContainer = %LogScrollContainer
 @onready var compass_dir_sprite: Sprite2D = $HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer2/CompassPanel/VBoxContainer/Control/CompassDirSprite
+@onready var help_ui: Window = $HelpUI
 
 var magnet_trap_scene := preload("res://entities/interactables/magnet_trap.tscn")
 var magnet_placed : bool = false
@@ -118,7 +119,13 @@ func _process(_delta: float) -> void:
 	fp_sprite.position.y += sin(Time.get_ticks_msec() * 0.1 * _delta) * 0.2 # weapon bob
 
 	_face_animation()
-
+	
+	if Input.is_action_pressed("ui_close_dialog"):
+		for window in get_tree().get_nodes_in_group("ui_window"):
+			window._on_close()
+	elif Input.is_action_pressed("help"):
+		help_ui._display()
+	
 	if not _is_busy and not _teleporting:
 		handle_input()
 

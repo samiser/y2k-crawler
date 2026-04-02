@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://jx1t4tmnbl8y"]
+
+[ext_resource type="Theme" uid="uid://03s0vxym15s7" path="res://main.tres" id="1_0ycd1"]
+[ext_resource type="FontFile" uid="uid://bln26fp864yte" path="res://fonts/ms-tahoma-bold-8px.ttf" id="2_21om7"]
+[ext_resource type="Script" uid="uid://cy2eapya5q6dk" path="res://entities/interactables/help_ui.gd" id="3_44l3q"]
+
+[sub_resource type="Theme" id="Theme_8cg8g"]
+default_font = ExtResource("2_21om7")
+
+[node name="HelpUI" type="Window" unique_id=1644810794]
+oversampling_override = 1.0
+title = "Readme.txt"
+position = Vector2i(83, 103)
+size = Vector2i(220, 203)
+unresizable = true
+always_on_top = true
+sharp_corners = true
+theme = ExtResource("1_0ycd1")
+theme_override_fonts/title_font = ExtResource("2_21om7")
+script = ExtResource("3_44l3q")
+
+[node name="Control" type="Control" parent="." unique_id=1830171144]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_8cg8g")
+
+[node name="Panel" type="Panel" parent="Control" unique_id=1201722420]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1883668452]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_8cg8g")
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=1930194808]
+layout_mode = 2
+theme = SubResource("Theme_8cg8g")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=1458484131]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/ScrollContainer" unique_id=381671020]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+
+[node name="helpText" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=776585145]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "________STORY________
+23:59, December 31st, 1999.
+
+You take control of the Millennium Bug, moving through the computers code to do as much damage as possible. Familiar foes and dangerous obstacles will try their best to stop you, from Firewalls to minefields. Be efficient with your destruction, as each item consumes your energy supply.
+
+_______CONTROLS_______
+
+W/Up Arrow			move forwards.
+S/Down Arrow		move backwards.
+A								strafe left.
+D								strafe right.
+Q/Left Arrow 		turn left.
+E/Right Arrow		turn right.
+Left Click				interact/use item."
+fit_content = true
