@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://up7g4gu006mi"]
+[gd_scene format=3 uid="uid://jpks75asbkv7"]
 
-[ext_resource type="Script" uid="uid://rs0gtft0njjs" path="res://menus/intro.gd" id="1_vlgv8"]
-[ext_resource type="Texture2D" uid="uid://c63nqtsbmhkcq" path="res://sprites/ui/cutscene_tilemap.bmp" id="2_n0bno"]
-[ext_resource type="FontFile" uid="uid://bln26fp864yte" path="res://fonts/ms-tahoma-bold-8px.ttf" id="3_yof08"]
-[ext_resource type="AudioStream" uid="uid://bu21y20tknw0r" path="res://Audio/Music/intro_music.ogg" id="4_n0bno"]
+[ext_resource type="Script" uid="uid://d10gbwxu7bock" path="res://menus/outro.gd" id="1_rud8g"]
+[ext_resource type="Texture2D" uid="uid://c63nqtsbmhkcq" path="res://sprites/ui/cutscene_tilemap.bmp" id="2_0i633"]
+[ext_resource type="FontFile" uid="uid://bln26fp864yte" path="res://fonts/ms-tahoma-bold-8px.ttf" id="3_pwxgj"]
+[ext_resource type="AudioStream" uid="uid://bvaghqouklgw5" path="res://Audio/Music/menu_music.ogg" id="4_rud8g"]
 
-[node name="Intro" type="Control" unique_id=1780835984]
+[node name="Outro" type="Control" unique_id=1780835984]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_vlgv8")
+script = ExtResource("1_rud8g")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=409117378]
 layout_mode = 1
@@ -42,9 +42,9 @@ layout_mode = 2
 
 [node name="IntroSprites" type="Sprite2D" parent="VBoxContainer/CenterContainer/Control" unique_id=1075298182]
 position = Vector2(0, 22.995)
-texture = ExtResource("2_n0bno")
+texture = ExtResource("2_0i633")
 hframes = 5
-frame = 2
+frame = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=31519932]
 layout_mode = 2
@@ -57,9 +57,9 @@ theme_override_constants/margin_right = 50
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/normal_font = ExtResource("3_yof08")
+theme_override_fonts/normal_font = ExtResource("3_pwxgj")
 theme_override_font_sizes/normal_font_size = 11
-text = "In the not so distant future, an unsuspecting PC lies dormant..."
+text = "As the bug consumes the system from the inside, the true extent of the chaos is only just beginning"
 fit_content = true
 
 [node name="2" type="RichTextLabel" parent="VBoxContainer/MarginContainer" unique_id=977416896]
@@ -67,9 +67,9 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/normal_font = ExtResource("3_yof08")
+theme_override_fonts/normal_font = ExtResource("3_pwxgj")
 theme_override_font_sizes/normal_font_size = 11
-text = "As the time approaches midnight, a disturbing force is manifesting in the guts of the computer."
+text = "A tragic fate is certain for this computer, but also for millions of devices around the world..."
 fit_content = true
 
 [node name="3" type="RichTextLabel" parent="VBoxContainer/MarginContainer" unique_id=449211677]
@@ -77,14 +77,14 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/normal_font = ExtResource("3_yof08")
+theme_override_fonts/normal_font = ExtResource("3_pwxgj")
 theme_override_font_sizes/normal_font_size = 11
-text = "With no one around to prevent the catastrophy, it begins its attempt to take over the system..."
+text = "The war path is set in motion, and soon the world will feel the nihilistic wrath of the Millenium Bug!"
 fit_content = true
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=264743543]
 unique_name_in_owner = true
-stream = ExtResource("4_n0bno")
+stream = ExtResource("4_rud8g")
 autoplay = true
 
 [node name="FadeOut" type="ColorRect" parent="." unique_id=229228587]

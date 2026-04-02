@@ -21,7 +21,7 @@ var selected_item: int = -1
 @onready var energy_label: Label = $HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/HBoxContainer/Energy/MarginContainer/HBoxContainer/EnergyLabel
 var energy_lvl : int = 1
 
-const MAIN_MENU = preload("uid://dwaia028u2oxg")
+const OUTRO = preload("uid://jpks75asbkv7")
 
 var energy := 30:
 	set(value):
@@ -139,7 +139,7 @@ func _on_end_game() -> void:
 	screen_shake(5, 0.4)
 	var tween := create_tween()
 	tween.tween_property(fade_rect, "modulate:a", 1, 5)
-	get_tree().create_timer(5).timeout.connect(func() -> void: get_tree().change_scene_to_packed(MAIN_MENU))
+	get_tree().create_timer(5).timeout.connect(func() -> void: get_tree().change_scene_to_packed(OUTRO))
 
 func _face_animation() -> void:
 	if override_face:
