@@ -14,7 +14,7 @@ var current_step := 0
 var text_tween_duration := 5.0
 
 func _ready() -> void:
-	intro_sprites.frame = 0
+	intro_sprites.frame = 1
 	_1.visible_ratio = 0
 	_tween_text(_1)
 	get_tree().create_timer(60 / music_stream.bpm * 16).timeout.connect(_advance_scene)
@@ -27,7 +27,7 @@ func _advance_scene() -> void:
 	current_step += 1
 	match current_step:
 		1:
-			intro_sprites.frame = 1
+			intro_sprites.frame = 0
 			_1.visible = false
 			_2.visible = true
 			_2.visible_ratio = 0
