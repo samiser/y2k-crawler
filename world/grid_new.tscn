@@ -3078,20 +3078,12 @@ grid_path = NodePath("..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 92)
 grid_path = NodePath("..")
 
-[node name="Coin40" parent="." unique_id=1251346155 instance=ExtResource("3_xj0o6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 90)
-grid_path = NodePath("..")
-
 [node name="Coin44" parent="." unique_id=2041846040 instance=ExtResource("3_xj0o6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 94)
 grid_path = NodePath("..")
 
 [node name="Coin45" parent="." unique_id=790909771 instance=ExtResource("3_xj0o6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 92)
-grid_path = NodePath("..")
-
-[node name="Coin46" parent="." unique_id=1180602750 instance=ExtResource("3_xj0o6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 90)
 grid_path = NodePath("..")
 
 [node name="Coin41" parent="." unique_id=1152987485 instance=ExtResource("3_xj0o6")]
@@ -3102,8 +3094,8 @@ grid_path = NodePath("..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 92)
 grid_path = NodePath("..")
 
-[node name="Coin43" parent="." unique_id=742500931 instance=ExtResource("3_xj0o6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 90)
+[node name="Coin43" parent="." unique_id=2057212135 instance=ExtResource("3_xj0o6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 92)
 grid_path = NodePath("..")
 
 [node name="Coin14" parent="." unique_id=96616450 instance=ExtResource("3_xj0o6")]
@@ -3322,33 +3314,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 22)
 
 [node name="Pit" parent="." unique_id=1408575202 instance=ExtResource("10_gdghg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 90)
+grid_path = NodePath("..")
+
+[node name="Pit4" parent="." unique_id=1355322743 instance=ExtResource("10_gdghg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 90)
+grid_path = NodePath("..")
 
 [node name="Pit2" parent="." unique_id=428416931 instance=ExtResource("10_gdghg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 92)
+grid_path = NodePath("..")
 
 [node name="Pit3" parent="." unique_id=278900895 instance=ExtResource("10_gdghg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 94)
-
-[node name="Pit4" parent="." unique_id=1373651665 instance=ExtResource("10_gdghg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 88)
-
-[node name="Pit5" parent="." unique_id=307859517 instance=ExtResource("10_gdghg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 88)
-
-[node name="Pit6" parent="." unique_id=1671357214 instance=ExtResource("10_gdghg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 88)
-
-[node name="Pit7" parent="." unique_id=1827476947 instance=ExtResource("10_gdghg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 88)
+grid_path = NodePath("..")
 
 [node name="Pit8" parent="." unique_id=275532864 instance=ExtResource("10_gdghg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 90)
+grid_path = NodePath("..")
+
+[node name="Pit12" parent="." unique_id=135497173 instance=ExtResource("10_gdghg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 90)
+grid_path = NodePath("..")
 
 [node name="Pit9" parent="." unique_id=396606853 instance=ExtResource("10_gdghg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 92)
+grid_path = NodePath("..")
 
 [node name="Pit10" parent="." unique_id=584154829 instance=ExtResource("10_gdghg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 94)
+grid_path = NodePath("..")
 
 [node name="Pit11" parent="." unique_id=342475428 instance=ExtResource("10_gdghg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 48)

@@ -409,6 +409,9 @@ func unlock_item(item: int) -> void:
 		if selected_item == -1:
 			_on_item_selected(item, true)
 		
+		player_sfx_stream.stream = load("res://Audio/Tools/tool_equip.mp3")
+		player_sfx_stream.play()
+		
 		add_log("You unlocked a new item!")
 		override_face = true
 		player_sprite.frame = 6
@@ -434,7 +437,8 @@ func try_use() -> void:
 		return
 	if selected_item < 0:
 		return
-
+	if _teleporting:
+		return
 	
 	var valid : bool = false
 	
@@ -499,8 +503,8 @@ func _use_water_gun():
 	var target_pos: Vector2i = grid_pos + FACING_TO_DIRECTION[facing]
 	for enemy in get_tree().get_nodes_in_group("firewall_enemies"):
 		if enemy.is_at(target_pos):
-			enemy.stun(4)
-			add_log("You stunned Firewall for 4 turns!")
+			enemy.stun(5)
+			add_log("You stunned Firewall for 5 turns!")
 			return true
 			
 	for fire in get_tree().get_nodes_in_group("fire"):
