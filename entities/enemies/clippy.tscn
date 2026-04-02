@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cmekgcrb7mfq8" path="res://entities/enemies/clippy.gd" id="1_efmc1"]
 [ext_resource type="Texture2D" uid="uid://bayeglcsmc3ae" path="res://sprites/computer_tiles/characters_comp.bmp" id="2_qs21v"]
+[ext_resource type="Texture2D" uid="uid://bcqk21okdu04r" path="res://sprites/computer_tiles/radar_comp.bmp" id="3_1ne34"]
 
 [node name="Clippy" type="Node3D" unique_id=1408575202]
 script = ExtResource("1_efmc1")
@@ -15,3 +16,14 @@ texture_filter = 0
 texture = ExtResource("2_qs21v")
 hframes = 10
 frame = 2
+
+[node name="MapClippy" type="Sprite3D" parent="." unique_id=105578578]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.5, 0)
+layers = 2
+modulate = Color(1, 0, 0, 1)
+pixel_size = 0.03
+billboard = 1
+texture_filter = 0
+texture = ExtResource("3_1ne34")
+hframes = 2
+frame = 1
