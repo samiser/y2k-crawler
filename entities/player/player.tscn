@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dw5sjwqqko8mr" path="res://sprites/ui/hud_tilemap.bmp" id="8_7thud"]
 [ext_resource type="Texture2D" uid="uid://bsiwbj3secx6w" path="res://sprites/ui/compass_tilemap.bmp" id="9_7thud"]
 [ext_resource type="PackedScene" uid="uid://jx1t4tmnbl8y" path="res://entities/interactables/help_ui.tscn" id="12_a1qjk"]
+[ext_resource type="PackedScene" uid="uid://b5j78o0ps52dp" path="res://menus/end_game_ui.tscn" id="13_j3ovn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8fjmc"]
 corner_radius_top_left = 64
@@ -360,6 +361,9 @@ mouse_filter = 2
 visible = false
 
 [node name="HelpUI" parent="." unique_id=1644810794 instance=ExtResource("12_a1qjk")]
+visible = false
+
+[node name="EndGameUI" parent="." unique_id=926497106 instance=ExtResource("13_j3ovn")]
 visible = false
 
 [node name="PlayerSfxStream" type="AudioStreamPlayer2D" parent="." unique_id=1753239640]

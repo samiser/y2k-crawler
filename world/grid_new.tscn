@@ -3046,7 +3046,7 @@ grid_path = NodePath("..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 80)
 grid_path = NodePath("..")
 
-[node name="Terminal18" parent="." unique_id=1408469714 instance=ExtResource("5_qxeq2")]
+[node name="Terminal18" parent="." unique_id=1408469714 groups=["end_terminal"] instance=ExtResource("5_qxeq2")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 10, 0, 96)
 grid_path = NodePath("..")
 

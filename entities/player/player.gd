@@ -21,6 +21,8 @@ var selected_item: int = -1
 @onready var energy_label: Label = $HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/HBoxContainer/Energy/MarginContainer/HBoxContainer/EnergyLabel
 var energy_lvl : int = 1
 
+const MAIN_MENU = preload("uid://dwaia028u2oxg")
+
 var energy := 30:
 	set(value):
 		if value < 0:
@@ -108,6 +110,8 @@ func _ready() -> void:
 	rotation.y = FACING_TO_ANGLE[facing]
 	if terminal_ui:
 		terminal_ui.closed.connect(_on_terminal_closed)
+	$EndGameUI.closed.connect(_on_terminal_closed)
+	$EndGameUI.end_game.connect(_on_end_game)
 	if hotbar:
 		hotbar.item_selected.connect(_on_item_selected)
 
@@ -128,6 +132,14 @@ func _process(_delta: float) -> void:
 	
 	if not _is_busy and not _teleporting:
 		handle_input()
+
+func _on_end_game() -> void:
+	player_sfx_stream.stream = load("res://Audio/many_explosion.ogg")
+	player_sfx_stream.play()
+	screen_shake(5, 0.4)
+	var tween := create_tween()
+	tween.tween_property(fade_rect, "modulate:a", 1, 5)
+	get_tree().create_timer(5).timeout.connect(func() -> void: get_tree().change_scene_to_packed(MAIN_MENU))
 
 func _face_animation() -> void:
 	if override_face:
@@ -474,7 +486,11 @@ func _try_interact_terminal() -> bool:
 			last_terminal_facing = terminal_facing
 			has_used_terminal = true
 			add_log("Checkpoint set!")
-			open_terminal_ui()
+			if terminal.is_in_group("end_terminal"):
+				_is_busy = true
+				$EndGameUI.show()
+			else:
+				open_terminal_ui()
 			return true
 	return false
 
