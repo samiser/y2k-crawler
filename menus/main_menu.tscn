@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://03s0vxym15s7" path="res://main.tres" id="1_8gy84"]
 [ext_resource type="Script" uid="uid://dn2h7n05aiuoo" path="res://menus/main_menu.gd" id="2_yjgyn"]
-[ext_resource type="Texture2D" uid="uid://bt402ewbo7417" path="res://sprites/coverart.bmp" id="3_yjgyn"]
+[ext_resource type="Texture2D" uid="uid://cgbj373aanvqi" path="res://sprites/ui/thumbnail.bmp" id="3_rqbgu"]
 
 [node name="MainMenu" type="Control" unique_id=469063693]
 layout_mode = 3
@@ -14,15 +14,41 @@ grow_vertical = 2
 theme = ExtResource("1_8gy84")
 script = ExtResource("2_yjgyn")
 
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=425748520]
+modulate = Color(0, 0, 0, 1)
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -136.0
+offset_right = 458.0
+offset_bottom = 364.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_rqbgu")
+stretch_mode = 6
+
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2099130188]
 clip_contents = true
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -160.0
+offset_right = 458.0
+offset_bottom = 340.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_yjgyn")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_rqbgu")
 stretch_mode = 6
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1890943110]
@@ -38,13 +64,6 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer" unique_id=831738204]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 22
-text = "Y2K Crawler"
-fit_content = true
-horizontal_alignment = 1
-
 [node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1992753897]
 layout_mode = 2
 size_flags_vertical = 3
@@ -54,3 +73,16 @@ text = "Play"
 layout_mode = 2
 size_flags_vertical = 3
 text = "Options"
+
+[node name="Label" type="Label" parent="." unique_id=1582949454]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -16.0
+offset_right = 202.0
+offset_bottom = -4.0
+grow_vertical = 0
+text = "Developed by Wookbee & Samiser"
+vertical_alignment = 2
