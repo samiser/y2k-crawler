@@ -21,3 +21,4 @@ layers = 2
 billboard = 1
 texture_filter = 0
 texture = ExtResource("3_aq0vv")
+hframes = 3
