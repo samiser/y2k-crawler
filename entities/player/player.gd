@@ -627,6 +627,9 @@ func _use_radar():
 	radar_tween.tween_property(radar, "modulate:a", 0, 2)
 	add_log("Used radar!")
 	
+	player_sfx_stream.stream = load("res://Audio/Tools/mdetector_fire.mp3")
+	player_sfx_stream.play()
+	
 	return true
 
 func _sync_radar_camera() -> void:
