@@ -7,7 +7,7 @@ var player : Player
 var impacted : bool = false
 
 func _process(delta: float) -> void:
-	if impacted:
+	if impacted or target == null:
 		return
 	
 	var dir := (target.global_position - global_position).normalized()
