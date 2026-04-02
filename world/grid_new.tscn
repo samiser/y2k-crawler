@@ -1144,16 +1144,6 @@ floor_frame = 8
 ceiling_frame = 7
 show_roof = false
 
-[node name="Tile94" parent="." unique_id=1658315498 instance=ExtResource("2_qxeq2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 30)
-north_frame = 6
-south_frame = 6
-east_frame = 6
-west_frame = 6
-floor_frame = 8
-ceiling_frame = 7
-show_roof = false
-
 [node name="Tile70" parent="." unique_id=1041207733 instance=ExtResource("2_qxeq2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 32)
 north_frame = 6
@@ -3023,27 +3013,11 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 12, 
 grid_path = NodePath("..")
 
 [node name="Terminal11" parent="." unique_id=150473241 instance=ExtResource("5_qxeq2")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 18, 0, 32)
-grid_path = NodePath("..")
-
-[node name="Terminal12" parent="." unique_id=442577801 instance=ExtResource("5_qxeq2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 38)
-grid_path = NodePath("..")
-
-[node name="Terminal13" parent="." unique_id=1843730765 instance=ExtResource("5_qxeq2")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20, 0, 40)
-grid_path = NodePath("..")
-
-[node name="Terminal14" parent="." unique_id=1651648288 instance=ExtResource("5_qxeq2")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12, 0, 52)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 12, 0, 30)
 grid_path = NodePath("..")
 
 [node name="Terminal16" parent="." unique_id=100848223 instance=ExtResource("5_qxeq2")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10, 0, 66)
-grid_path = NodePath("..")
-
-[node name="Terminal17" parent="." unique_id=495632879 instance=ExtResource("5_qxeq2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 80)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10, 0, 72)
 grid_path = NodePath("..")
 
 [node name="Terminal18" parent="." unique_id=1408469714 groups=["end_terminal"] instance=ExtResource("5_qxeq2")]
@@ -3346,4 +3320,8 @@ grid_path = NodePath("..")
 
 [node name="Pit11" parent="." unique_id=342475428 instance=ExtResource("10_gdghg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 48)
+grid_path = NodePath("..")
+
+[node name="Battery7" parent="." unique_id=1955097171 instance=ExtResource("6_xj0o6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 46)
 grid_path = NodePath("..")

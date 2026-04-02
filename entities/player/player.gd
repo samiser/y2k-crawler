@@ -186,6 +186,7 @@ func _skip_turn() -> void:
 	turn_count += 1
 	moved.emit(grid_pos)
 	skip_turn.release_focus()
+	_check_for_fire()
 
 func _cycle_items() -> void:
 	if unlocked_items.is_empty():
@@ -276,9 +277,9 @@ func _check_for_fire() -> void:
 func fireball_damage() -> void:
 		player_sfx_stream.stream = load("res://Audio/Characters/player_pain.mp3")
 		player_sfx_stream.play()
-		energy -= 10
+		energy -= 80
 		screen_shake(0.15, 0.05)
-		add_log("You hit a fireball! -10 energy")
+		add_log("You hit a fireball! -80 energy")
 
 func _check_for_batteries() -> void:
 	if not grid:
@@ -291,16 +292,17 @@ func _check_for_batteries() -> void:
 			add_log("Battery collected! +10 max energy")
 			player_sfx_stream.stream = load("res://Audio/battery.mp3")
 			player_sfx_stream.play()
-			return
 
 func _check_for_terminals() -> void:
 	for terminal in get_tree().get_nodes_in_group("terminals"):
 		if terminal.is_at(grid_pos):
+			if energy < max_energy / 1.5:
+				player_sfx_stream.stream = load("res://Audio/recharge.mp3")
+				player_sfx_stream.play()
 			energy = max_energy
 			last_terminal_pos = grid_pos
 			add_log("Energy refilled!")
-			player_sfx_stream.stream = load("res://Audio/recharge.mp3")
-			player_sfx_stream.play()
+
 			return
 
 func screen_shake(duration: float, intensity: float) -> void:

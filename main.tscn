@@ -28,7 +28,7 @@ adjustment_saturation = 1.31
 [node name="Grid" parent="." unique_id=1197692489 instance=ExtResource("1_1bvp3")]
 
 [node name="Player" parent="." unique_id=537004856 instance=ExtResource("2_player")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 94)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 4)
 grid_path = NodePath("../Grid")
 facing = 3
 
@@ -146,3 +146,9 @@ grid_path = NodePath("../Grid")
 [node name="Pit3" parent="." unique_id=946165258 instance=ExtResource("8_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 18)
 grid_path = NodePath("../Grid")
+
+[node name="MSN3" parent="." unique_id=1508322143 instance=ExtResource("10_4c57u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 48)
+grid_path = NodePath("../Grid")
+player_path = NodePath("../Player")
+dialogue = Array[String](["It's tough going all this way without much energy...", "Good thing I brought myself some extra batteries!", "You can find them hidden all over the place."])
