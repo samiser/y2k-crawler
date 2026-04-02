@@ -20,6 +20,8 @@ frame = 4
 [node name="Label3D" type="Label3D" parent="." unique_id=178526550]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
 billboard = 1
+render_priority = 1
+outline_render_priority = 0
 text = "Some helpful text! Some helpful text! Some helpful text! Some helpful text! "
 font = ExtResource("3_jx6d4")
 vertical_alignment = 2
