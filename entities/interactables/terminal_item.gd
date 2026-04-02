@@ -1,4 +1,3 @@
-@tool
 extends HBoxContainer
 
 signal purchase_requested(item: int, cost: int)

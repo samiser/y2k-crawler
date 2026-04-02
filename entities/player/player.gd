@@ -50,6 +50,7 @@ var turn_count := 0:
 
 @onready var player_sfx_stream: AudioStreamPlayer2D = $PlayerSfxStream
 
+@onready var skip_turn: Button = %SkipTurn
 @onready var coin_label: Label = %CoinLabel
 @onready var terminal_ui: Window = $TerminalUI
 @onready var fp_sprite: Sprite2D = %FpSprite
@@ -120,6 +121,8 @@ func _ready() -> void:
 	$EndGameUI.end_game.connect(_on_end_game)
 	if hotbar:
 		hotbar.item_selected.connect(_on_item_selected)
+	if skip_turn:
+		skip_turn.pressed.connect(_skip_turn)
 
 	spawn_pos = grid_pos
 	spawn_facing = facing
@@ -174,6 +177,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		try_use()
 	if event.is_action_pressed("cycle_items"):
 		_cycle_items()
+	if event.is_action_pressed("skip_turn"):
+		_skip_turn()
+
+func _skip_turn() -> void:
+	if _is_busy or _teleporting:
+		return
+	turn_count += 1
+	moved.emit(grid_pos)
+	skip_turn.release_focus()
 
 func _cycle_items() -> void:
 	if unlocked_items.is_empty():
