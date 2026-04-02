@@ -172,6 +172,16 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if event.is_action_pressed("use"):
 		try_use()
+	if event.is_action_pressed("cycle_items"):
+		_cycle_items()
+
+func _cycle_items() -> void:
+	if unlocked_items.is_empty():
+		return
+
+	var current_index := unlocked_items.find(selected_item)
+	var next_index := (current_index + 1) % unlocked_items.size()
+	_on_item_selected(unlocked_items[next_index], false)
 
 func handle_input() -> void:
 	if Input.is_action_pressed("forward"):

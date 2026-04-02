@@ -27,6 +27,13 @@ func _on_visibility_changed() -> void:
 		for item in items:
 			if item.frame in player.unlocked_items:
 				item.set_purchased()
+		_focus_first_button()
+
+func _focus_first_button() -> void:
+	for item in items:
+		if not item.purchase_button.disabled:
+			item.purchase_button.grab_focus()
+			return
 
 func _on_close() -> void:
 	hide()
