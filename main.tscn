@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://8lh7jatioovn" path="res://world/grid_new.tscn" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://ditrytb3g73sj" path="res://entities/player/player.tscn" id="2_player"]
+[ext_resource type="AudioStream" uid="uid://d2316ye8n6e4d" path="res://Audio/Music/main_theme.ogg" id="3_5vw27"]
 [ext_resource type="PackedScene" uid="uid://dbbff0gcliyiq" path="res://entities/enemies/firewall.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://j1b0yoie8suv" path="res://entities/enemies/clippy.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://b5c2c5wkhb823" path="res://entities/enemies/dragon.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://c17gkocessutc" path="res://entities/enemies/pit.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://b67vidagif7b6" path="res://entities/interactables/msn.tscn" id="10_4c57u"]
-[ext_resource type="AudioStream" uid="uid://bcmm7qlllkfeu" path="res://Audio/test_music.mp3" id="11_efxa6"]
 
 [sub_resource type="Environment" id="Environment_0xm2m"]
 background_mode = 1
@@ -36,7 +36,7 @@ facing = 3
 environment = SubResource("Environment_0xm2m")
 
 [node name="MusicStream" type="AudioStreamPlayer2D" parent="." unique_id=1137068048]
-stream = ExtResource("11_efxa6")
+stream = ExtResource("3_5vw27")
 autoplay = true
 
 [node name="MSN" parent="." unique_id=1408575202 instance=ExtResource("10_4c57u")]
