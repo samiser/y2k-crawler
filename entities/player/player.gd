@@ -20,8 +20,11 @@ var unlocked_items: Array = []
 var selected_item: int = -1
 @onready var energy_label: Label = $HUD/VBoxContainer/Control/HBoxContainer/VBoxContainer/HBoxContainer/Energy/MarginContainer/HBoxContainer/EnergyLabel
 var energy_lvl : int = 1
+@onready var low_energy_sfx: AudioStreamPlayer2D = $LowEnergySFX
 
 const OUTRO = preload("uid://jpks75asbkv7")
+
+var is_low : bool = false
 
 var energy := 30:
 	set(value):
@@ -32,6 +35,12 @@ var energy := 30:
 			energy_bar.value = energy
 		if energy == 0:
 			_on_energy_depleted()
+		
+		var was_low : bool = is_low
+		is_low = energy < max_energy / 3
+		if was_low != is_low:
+			low_energy_sfx.playing = is_low
+			energy_label.modulate = Color.RED if is_low else Color.WHITE
 
 var max_energy := 30:
 	set(value):
@@ -132,6 +141,9 @@ func _process(_delta: float) -> void:
 	fp_sprite.position.y += sin(Time.get_ticks_msec() * 0.1 * _delta) * 0.2 # weapon bob
 
 	_face_animation()
+	
+	if is_low:
+		energy_label.modulate.a = sin(Engine.get_frames_drawn() * 0.5)
 	
 	if Input.is_action_pressed("ui_close_dialog"):
 		for window in get_tree().get_nodes_in_group("ui_window"):

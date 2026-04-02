@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bsiwbj3secx6w" path="res://sprites/ui/compass_tilemap.bmp" id="9_7thud"]
 [ext_resource type="PackedScene" uid="uid://jx1t4tmnbl8y" path="res://entities/interactables/help_ui.tscn" id="12_a1qjk"]
 [ext_resource type="PackedScene" uid="uid://b5j78o0ps52dp" path="res://menus/end_game_ui.tscn" id="13_j3ovn"]
+[ext_resource type="AudioStream" uid="uid://ctlsaq5shkfln" path="res://Audio/low_energy_beep.mp3" id="14_afbqv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8fjmc"]
 corner_radius_top_left = 64
@@ -398,3 +399,7 @@ visible = false
 visible = false
 
 [node name="PlayerSfxStream" type="AudioStreamPlayer2D" parent="." unique_id=1753239640]
+
+[node name="LowEnergySFX" type="AudioStreamPlayer2D" parent="." unique_id=2035405224]
+stream = ExtResource("14_afbqv")
+volume_db = -8.0
