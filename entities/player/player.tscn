@@ -37,7 +37,7 @@ corner_radius_bottom_left = 64
 script = ExtResource("1_player")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=946816146]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.64)
 cull_mask = 1048573
 far = 12.0
 
