@@ -15,6 +15,8 @@ var grid_pos := Vector2i.ZERO
 var _is_busy := false
 var _teleporting := false
 var _current_tween: Tween
+var _input_buffer: Array[String] = []
+const MAX_INPUT_BUFFER_SIZE := 5
 var coins := 0
 var unlocked_items: Array = []
 var selected_item: int = -1
@@ -151,8 +153,6 @@ func _process(_delta: float) -> void:
 	elif Input.is_action_pressed("help"):
 		help_ui._display()
 
-	if not _is_busy and not _teleporting:
-		handle_input()
 
 func _on_end_game() -> void:
 	player_sfx_stream.stream = load("res://Audio/many_explosion.ogg")
@@ -183,6 +183,28 @@ func _face_animation() -> void:
 	player_sprite.frame = face_frame
 
 func _unhandled_input(event: InputEvent) -> void:
+	# Buffer movement and rotation inputs
+	var action := ""
+	if event.is_action_pressed("forward"):
+		action = "forward"
+	elif event.is_action_pressed("back"):
+		action = "back"
+	elif event.is_action_pressed("left"):
+		action = "left"
+	elif event.is_action_pressed("right"):
+		action = "right"
+	elif event.is_action_pressed("turn_left"):
+		action = "turn_left"
+	elif event.is_action_pressed("turn_right"):
+		action = "turn_right"
+
+	if action != "":
+		if _is_busy or _teleporting:
+			_buffer_input(action)
+		else:
+			_execute_action(action)
+		return
+
 	if _is_busy:
 		return
 	if event.is_action_pressed("use"):
@@ -209,19 +231,33 @@ func _cycle_items() -> void:
 	var next_index := (current_index + 1) % unlocked_items.size()
 	_on_item_selected(unlocked_items[next_index], false)
 
-func handle_input() -> void:
-	if Input.is_action_pressed("forward"):
-		try_move(FACING_TO_DIRECTION[facing])
-	elif Input.is_action_pressed("back"):
-		try_move(-FACING_TO_DIRECTION[facing])
-	elif Input.is_action_pressed("left"):
-		try_move(FACING_TO_DIRECTION[wrapi(facing - 1, 0, 4)])
-	elif Input.is_action_pressed("right"):
-		try_move(FACING_TO_DIRECTION[wrapi(facing + 1, 0, 4)])
-	elif Input.is_action_pressed("turn_left"):
-		turn(-1)
-	elif Input.is_action_pressed("turn_right"):
-		turn(1)
+func _buffer_input(action: String) -> void:
+	if _input_buffer.size() < MAX_INPUT_BUFFER_SIZE:
+		_input_buffer.append(action)
+
+func _process_input_buffer() -> void:
+	if _teleporting:
+		_input_buffer.clear()
+		return
+	# Keep processing buffer until we start an action or buffer is empty
+	while not _input_buffer.is_empty() and not _is_busy:
+		var action := _input_buffer.pop_front() as String
+		_execute_action(action)
+
+func _execute_action(action: String) -> void:
+	match action:
+		"forward":
+			try_move(FACING_TO_DIRECTION[facing])
+		"back":
+			try_move(-FACING_TO_DIRECTION[facing])
+		"left":
+			try_move(FACING_TO_DIRECTION[wrapi(facing - 1, 0, 4)])
+		"right":
+			try_move(FACING_TO_DIRECTION[wrapi(facing + 1, 0, 4)])
+		"turn_left":
+			turn(-1)
+		"turn_right":
+			turn(1)
 
 func try_move(direction: Vector2i) -> void:
 	if not grid:
@@ -244,10 +280,10 @@ func try_move(direction: Vector2i) -> void:
 	_current_tween = create_tween()
 	_current_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	_current_tween.tween_property(self, "position", target_position, move_duration)
-	_current_tween.finished.connect(func(): _is_busy = false)
-	
+	_current_tween.finished.connect(_on_action_finished)
+
 	turn_count += 1
-	
+
 	moved.emit(grid_pos)
 	_check_for_coins()
 	_check_for_bombs()
@@ -361,14 +397,15 @@ func turn(direction: int) -> void:
 	_current_tween = create_tween()
 	_current_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	_current_tween.tween_method(_set_rotation_y, rotation.y, _shortest_angle(rotation.y, target_angle), turn_duration)
-	_current_tween.finished.connect(func(): _is_busy = false)
-	
+	_current_tween.finished.connect(_on_action_finished)
+
 	compass_dir_sprite.frame = facing + 1
 
 func teleport_to(new_grid_pos: Vector2i, direction: Facing, skip_intro: bool) -> void:
 	player_sfx_stream.stream = load("res://Audio/teleport.mp3")
 	player_sfx_stream.play()
-	
+
+	_input_buffer.clear()
 	_is_busy = true
 	_teleporting = true
 	
@@ -424,6 +461,31 @@ func teleport_to_checkpoint() -> void:
 	var target_pos := last_terminal_pos if has_used_terminal else spawn_pos
 	var target_facing := last_terminal_facing if has_used_terminal else spawn_facing
 	teleport_to(target_pos, target_facing, false)
+
+func _on_action_finished() -> void:
+	_is_busy = false
+	# Held keys take priority over buffered inputs
+	var held_action := _get_held_action()
+	if held_action != "":
+		_input_buffer.clear()
+		_execute_action(held_action)
+	else:
+		_process_input_buffer()
+
+func _get_held_action() -> String:
+	if Input.is_action_pressed("forward"):
+		return "forward"
+	elif Input.is_action_pressed("back"):
+		return "back"
+	elif Input.is_action_pressed("left"):
+		return "left"
+	elif Input.is_action_pressed("right"):
+		return "right"
+	elif Input.is_action_pressed("turn_left"):
+		return "turn_left"
+	elif Input.is_action_pressed("turn_right"):
+		return "turn_right"
+	return ""
 
 func _set_rotation_y(value: float) -> void:
 	rotation.y = value
