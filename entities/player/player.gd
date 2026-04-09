@@ -400,7 +400,7 @@ func teleport_to(new_grid_pos: Vector2i, direction: Facing, skip_intro: bool) ->
 	
 	var tween := get_tree().create_tween() # fade out
 	tween.tween_property(fade_rect, "modulate", Color.TRANSPARENT, 1.0)
-	tween.parallel().tween_property(camera_3d, "fov", 60, 1.0)
+	tween.parallel().tween_property(camera_3d, "fov", 70, 1.0)
 	await tween.finished
 	
 	if not skip_intro:
